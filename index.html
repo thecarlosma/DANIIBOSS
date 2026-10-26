@@ -3,757 +3,448 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DANI BOSS — Sistemas de IA, E-commerce y Webs que venden</title>
-<meta name="description" content="Dani Boss construye sistemas de IA, tiendas online y páginas web que venden por ti 24/7. Lo que instalo en tu marca ya me funciona a mí.">
-<meta name="theme-color" content="#0A0A0A">
-<meta property="og:title" content="DANI BOSS — Sistemas que venden por ti">
-<meta property="og:description" content="Sistemas de IA · E-commerce · Webs que convierten. Escríbeme por WhatsApp.">
-<meta property="og:image" content="/assets/dani.jpg">
+<title>DANI BOSS — Sistemas de IA, E-commerce y Webs que convierten</title>
+<meta name="description" content="Dani Boss conecta inteligencia artificial, e-commerce y páginas web para que las marcas capten clientes, optimicen sus procesos y vendan mejor. Ecuador y Latinoamérica.">
+<link rel="canonical" href="https://daniiboss.vercel.app/">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DANI BOSS">
+<meta property="og:title" content="DANI BOSS — Construyo sistemas que hacen crecer marcas">
+<meta property="og:description" content="Estrategia · IA · E-commerce · Web. Fundador de MAGNA 8.">
+<meta property="og:url" content="https://daniiboss.vercel.app/">
+<meta property="og:image" content="https://daniiboss.vercel.app/assets/dani.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/db-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --black:#0A0A0A; --black-2:#111112; --black-3:#16151a; --white:#FFFFFF;
-  --purple:#4B1D8F; --purple-light:#8654D6; --lav:#B89AF0;
-  --gray:#9A9AA0; --dim:#6E6E74; --line:#232326; --wa:#25D366;
-  --ease:cubic-bezier(.16,1,.3,1);
-  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
-  --display:'Inter Tight','Inter',system-ui,sans-serif;
-  --sec:clamp(88px,12vw,150px);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--black);color:var(--white);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.025em;line-height:1.04;text-wrap:balance}
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit;color:inherit}
-img{max-width:100%;display:block}
-::selection{background:var(--purple);color:#fff}
-:focus-visible{outline:1px solid var(--purple-light);outline-offset:4px}
-[hidden]{display:none!important}
-.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;position:relative}
-@media(min-width:700px){.wrap{padding-inline:32px}}
-.micro{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--purple-light);margin-bottom:22px}
-.eyebrow::before{content:"";width:22px;height:1px;background:var(--purple-light)}
-.h2{font-size:clamp(34px,5.6vw,60px);max-width:18ch}
-.lead{color:var(--gray);font-size:clamp(16px,1.6vw,18px);max-width:38em;margin-top:20px}
-.section{padding-block:var(--sec);position:relative}
-.head{margin-bottom:clamp(44px,6vw,72px)}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--purple-light);box-shadow:0 0 12px var(--purple-light);flex-shrink:0}
-.pulse{animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.35}}
-.hl{color:var(--purple-light)}
-
-/* atmosphere */
-#particles{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.atmo{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,#000 20%,transparent 75%)}
-.glow-top{position:absolute;top:-300px;left:50%;width:1100px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(75,29,143,.38),transparent);pointer-events:none}
-main,header,footer{position:relative;z-index:1}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;font-family:var(--display);font-weight:700;font-size:15.5px;border:1px solid var(--purple-light);background:var(--purple);color:#fff;cursor:pointer;transition:background .3s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease);box-shadow:inset 0 1px 0 rgba(255,255,255,.1);white-space:nowrap}
-.btn:hover{background:#5A25A8;box-shadow:0 0 36px rgba(134,84,214,.35),inset 0 1px 0 rgba(255,255,255,.14);transform:translateY(-1px)}
-.btn .ar{transition:transform .3s var(--ease)}.btn:hover .ar{transform:translateX(3px)}
-.btn.ghost{background:transparent;border-color:var(--line)}
-.btn.ghost:hover{border-color:var(--purple-light);background:rgba(134,84,214,.08);box-shadow:none}
-.btn.wa{background:var(--wa);border-color:var(--wa);color:#04210f}
-.btn.wa:hover{background:#2ee673;box-shadow:0 0 36px rgba(37,211,102,.35)}
-.btn svg{width:20px;height:20px;flex-shrink:0}
-
-/* topbar */
-.topbar{position:sticky;top:0;z-index:60;background:rgba(10,10,10,.72);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid rgba(35,35,38,.8);padding-top:env(safe-area-inset-top,0px)}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
-.brand{font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
-.brand img{width:32px;height:32px;border-radius:50%;border:1px solid var(--purple-light)}
-.brand span{color:var(--purple-light)}
-.nav{display:none;gap:28px;font-size:14px;color:var(--gray)}
-.nav a{transition:color .2s}.nav a:hover{color:#fff}
-@media(min-width:900px){.nav{display:flex}}
-.topbar .btn{min-height:42px;padding:0 16px;font-size:14px}
-
-/* hero */
-.hero{padding-top:clamp(56px,9vw,110px);padding-bottom:clamp(72px,10vw,120px)}
-.hero-grid{display:grid;gap:56px;align-items:center}
-@media(min-width:980px){.hero-grid{grid-template-columns:1.08fr .92fr;gap:64px}}
-.status{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--line);background:rgba(17,17,18,.8);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:28px}
-.hero h1{font-size:clamp(42px,7.4vw,84px);font-weight:900;letter-spacing:-.04em;line-height:.98}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--purple-light),var(--lav));-webkit-background-clip:text;background-clip:text;color:transparent}
-.rotator{display:inline-block;min-width:4ch;color:var(--purple-light);border-bottom:2px solid rgba(134,84,214,.4)}
-.hero .lead{margin-top:26px}
-.pillars-mini{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.pillars-mini button{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);background:var(--black-2);font-size:14px;cursor:pointer;transition:border-color .25s,background .25s}
-.pillars-mini button:hover{border-color:var(--purple-light);background:rgba(134,84,214,.08)}
-.pillars-mini b{font-family:var(--mono);font-size:11px;color:var(--purple-light);font-weight:500}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.trust{display:flex;align-items:center;gap:14px;margin-top:32px;color:var(--gray);font-size:14px}
-.trust img{width:44px;height:44px;border-radius:50%;border:1px solid var(--purple-light)}
-.trust b{color:#fff;font-weight:600}
-
-/* phone demo */
-.phone{position:relative;max-width:400px;margin-inline:auto;width:100%}
-.phone-frame{border:1px solid rgba(134,84,214,.4);background:linear-gradient(180deg,#141318,#0c0b0e);border-radius:28px;padding:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 80px -30px rgba(134,84,214,.6),inset 0 1px 0 rgba(255,255,255,.06)}
-.chat-head{display:flex;align-items:center;gap:12px;padding:10px 10px 14px;border-bottom:1px solid var(--line)}
-.chat-head img{width:38px;height:38px;border-radius:50%}
-.chat-head b{display:block;font-size:15px}
-.chat-head small{font-size:12px;color:var(--wa)}
-.chat{height:380px;overflow:hidden;padding:16px 6px 6px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
-.msg{max-width:84%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.45;opacity:0;transform:translateY(8px);animation:in .45s var(--ease) forwards}
-.msg.in{align-self:flex-start;background:#1d1c22;border-top-left-radius:4px}
-.msg.out{align-self:flex-end;background:linear-gradient(135deg,var(--purple),#5d2bb0);border-top-right-radius:4px}
-.msg small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.55);margin-top:4px}
-.typing{align-self:flex-end;display:flex;gap:4px;padding:12px 14px;background:#2a1f42;border-radius:14px}
-.typing i{width:6px;height:6px;border-radius:50%;background:var(--lav);animation:blink 1s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes blink{50%{opacity:.25}}
-@keyframes in{to{opacity:1;transform:none}}
-.float{position:absolute;padding:12px 14px;border:1px solid var(--line);background:rgba(17,17,18,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 20px 40px -18px rgba(0,0,0,.9);font-size:13px}
-.float b{display:block;font-family:var(--display);font-size:22px;font-weight:800}
-.f1{top:40px;left:-36px}.f2{bottom:70px;right:-30px}
-@media(max-width:520px){.f1{display:none}.f2{right:-6px;bottom:-18px}}
-.f2 b{color:var(--wa)}
-
-/* marquee */
-.marquee{border-block:1px solid var(--line);overflow:hidden;background:rgba(17,17,18,.6)}
-.marquee-track{display:flex;gap:48px;padding-block:20px;width:max-content;animation:mq 34s linear infinite}
-.marquee span{font-family:var(--display);font-weight:800;font-size:clamp(18px,2.4vw,26px);color:#2c2b31;white-space:nowrap;display:flex;align-items:center;gap:48px}
-.marquee span::after{content:"✦";color:var(--purple-light);font-size:14px}
-@keyframes mq{to{transform:translateX(-50%)}}
-
-/* problem */
-.compare{display:grid;gap:16px}
-@media(min-width:800px){.compare{grid-template-columns:1fr 1fr;gap:20px}}
-.col{padding:clamp(26px,3.6vw,38px);border:1px solid var(--line)}
-.col h3{font-size:20px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center}
-.col ul{list-style:none;display:grid;gap:14px}
-.col li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:15.5px}
-.them li{color:var(--dim)}.them li::before{content:"✕";color:#6b3d48;font-size:13px;margin-top:2px}
-.me{background:var(--black-2);border-color:rgba(134,84,214,.45);box-shadow:0 0 70px -24px rgba(134,84,214,.5)}
-.me li::before{content:"→";color:var(--purple-light)}
-
-/* pillars tabs */
-.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:36px}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:16px 18px;border:0;background:none;cursor:pointer;color:var(--gray);font-family:var(--display);font-weight:700;font-size:17px;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .25s,border-color .25s}
-.tab b{font-family:var(--mono);font-size:11px;color:var(--dim);font-weight:500}
-.tab[aria-selected="true"]{color:#fff;border-color:var(--purple-light)}
-.tab[aria-selected="true"] b{color:var(--purple-light)}
-.panel{display:grid;gap:36px;align-items:start;animation:fade .5s var(--ease)}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}}
-@media(min-width:900px){.panel{grid-template-columns:1fr 1fr;gap:56px}}
-.panel h3{font-size:clamp(28px,3.6vw,42px)}
-.panel .lead{margin-top:16px}
-.feat{list-style:none;display:grid;gap:2px;margin-top:28px;border-top:1px solid var(--line)}
-.feat li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
-.feat li span{font-family:var(--mono);font-size:12px;color:var(--purple-light);margin-top:3px}
-.feat li b{display:block;font-weight:600}
-.feat li small{color:var(--gray);font-size:14.5px}
-.visual{border:1px solid var(--line);background:var(--black-2);position:relative;overflow:hidden}
-.vh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
-.vbody{padding:20px 18px;display:grid;gap:12px}
-.node{display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);background:var(--black);transition:border-color .4s,box-shadow .4s}
-.node.on{border-color:var(--purple-light);box-shadow:0 0 30px -10px rgba(134,84,214,.6)}
-.node i{width:36px;height:36px;display:grid;place-items:center;background:rgba(134,84,214,.12);border:1px solid rgba(134,84,214,.3);font-style:normal;font-family:var(--mono);font-size:12px;color:var(--lav);flex-shrink:0}
-.node b{font-size:14.5px;font-weight:600;display:block}
-.node small{font-size:13px;color:var(--gray)}
-.node .st{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim)}
-.node.on .st{color:var(--wa)}
-.bars{display:flex;align-items:flex-end;gap:8px;height:150px;padding:10px 0}
-.bars div{flex:1;background:linear-gradient(180deg,var(--purple-light),var(--purple));transform-origin:bottom;transform:scaleY(0);transition:transform 1.2s var(--ease)}
-.visual.go .bars div{transform:scaleY(1)}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.kpi{border:1px solid var(--line);padding:12px;background:var(--black)}
-.kpi b{display:block;font-family:var(--display);font-size:22px;font-weight:800;color:var(--lav)}
-.kpi small{font-size:12px;color:var(--gray)}
-.browser{border:1px solid var(--line);background:var(--black)}
-.browser .bar{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line)}
-.browser .bar i{width:9px;height:9px;border-radius:50%;background:#2c2b31}
-.browser .bar i:first-child{background:var(--purple-light)}
-.browser .url{margin-left:8px;flex:1;font-family:var(--mono);font-size:11px;color:var(--dim);padding:5px 10px;background:var(--black-2)}
-.mock{padding:22px}
-.mock .t{height:14px;width:70%;background:#2a2930;margin-bottom:10px}
-.mock .t.s{width:45%;height:10px;background:#1f1e24}
-.mock .cta{margin-top:16px;display:inline-block;height:30px;width:120px;background:var(--purple)}
-.score{display:flex;align-items:center;gap:14px;margin-top:14px}
-.ring{width:64px;height:64px;border-radius:50%;background:conic-gradient(var(--purple-light) calc(var(--v,0)*1%),#1f1e24 0);display:grid;place-items:center;transition:--v 1s}
-.ring span{width:50px;height:50px;border-radius:50%;background:var(--black);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:16px}
-
-/* lab */
-.lab{display:grid;gap:40px;align-items:center}
-@media(min-width:900px){.lab{grid-template-columns:.9fr 1.1fr;gap:64px}}
-.lab-photo{position:relative;border:1px solid rgba(134,84,214,.4);aspect-ratio:1;max-width:460px;width:100%;overflow:hidden;box-shadow:0 0 90px -30px rgba(134,84,214,.6)}
-.lab-photo img{width:100%;height:100%;object-fit:cover}
-.lab-photo .tag{position:absolute;left:14px;bottom:14px;padding:8px 12px;background:rgba(10,10,10,.85);border:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.12em;display:flex;align-items:center;gap:8px}
-.quote{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-.02em}
-.quote span{color:var(--purple-light)}
-.lab-list{display:grid;gap:12px;margin-top:28px}
-.lab-list div{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);background:var(--black-2)}
-.lab-list b{font-family:var(--mono);font-size:12px;color:var(--purple-light);margin-top:2px}
-
-/* portfolio */
-.works{display:grid;gap:16px}
-@media(min-width:700px){.works{grid-template-columns:repeat(2,1fr);gap:20px}}
-.work{border:1px solid var(--line);background:var(--black-2);overflow:hidden;transition:transform .4s var(--ease),border-color .4s;display:flex;flex-direction:column}
-.work:hover{transform:translateY(-3px);border-color:rgba(134,84,214,.55)}
-.work-cover{aspect-ratio:16/9;position:relative;overflow:hidden;display:grid;place-items:center;border-bottom:1px solid var(--line)}
-.work-cover h4{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-.03em;position:relative;z-index:1;text-align:center;padding:0 20px}
-.work-cover small{position:absolute;bottom:14px;left:16px;z-index:1;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.7)}
-.c1{background:radial-gradient(80% 90% at 30% 20%,#2a4a5e,#0a1218)}
-.c2{background:radial-gradient(80% 90% at 70% 20%,#5a3b5e,#140b16)}
-.c3{background:radial-gradient(80% 90% at 30% 80%,#6b4a2a,#160f08)}
-.c4{background:radial-gradient(80% 90% at 70% 70%,#5e1f1f,#120606)}
-.work-body{padding:22px;display:grid;gap:10px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border:1px solid var(--line);color:var(--gray)}
-.work-body p{color:var(--gray);font-size:15px}
-
-/* results */
-.results{display:grid;gap:16px}
-@media(min-width:800px){.results{grid-template-columns:repeat(3,1fr);gap:20px}}
-.res{border:1px solid var(--line);padding:30px 26px;background:radial-gradient(120% 80% at 0% 0%,rgba(75,29,143,.18),transparent 60%),var(--black-2)}
-.res .metric{font-family:var(--display);font-weight:900;font-size:clamp(40px,4.6vw,56px);letter-spacing:-.04em;line-height:1;margin:22px 0 10px;font-variant-numeric:tabular-nums}
-.res .metric .from{color:var(--dim)}.res .metric .sep{color:var(--purple-light);font-size:.5em;vertical-align:middle}
-.res p{color:var(--gray);font-size:15px}
-.res .foot{display:flex;justify-content:space-between;margin-top:24px;padding-top:14px;border-top:1px solid var(--line)}
-
-/* testimonials */
-.testis{display:grid;gap:16px}
-@media(min-width:800px){.testis{grid-template-columns:repeat(3,1fr);gap:20px}}
-.testi{border:1px solid var(--line);background:var(--black-2);padding:26px;display:flex;flex-direction:column;gap:18px}
-.testi blockquote{font-size:16px;line-height:1.6;color:#e4e4e8;flex:1}
-.testi blockquote::before{content:"“";display:block;font-family:var(--display);font-size:54px;line-height:.6;color:var(--purple-light);margin-bottom:8px}
-.testi .who{display:flex;align-items:center;gap:12px}
-.testi .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple-light));display:grid;place-items:center;font-family:var(--display);font-weight:800}
-.testi .who b{display:block;font-size:14.5px}.testi .who small{color:var(--gray);font-size:13px}
-
-/* process / pricing */
-.steps{display:grid;gap:16px}
-@media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr);gap:20px}}
-.step{border:1px solid var(--line);background:var(--black-2);padding:30px 26px;display:flex;flex-direction:column;position:relative}
-.step.star{border-color:rgba(134,84,214,.6);box-shadow:0 0 80px -30px rgba(134,84,214,.7)}
-.step.star::before{content:"Más elegido";position:absolute;top:-1px;right:20px;transform:translateY(-50%);background:var(--purple);border:1px solid var(--purple-light);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px}
-.step .n{font-family:var(--display);font-weight:900;font-size:64px;line-height:.9;color:var(--purple-light);letter-spacing:-.05em}
-.step h3{font-size:22px;margin-top:20px}
-.step p{color:var(--gray);font-size:15px;margin-top:10px}
-.step ul{list-style:none;margin-top:18px;display:grid;gap:8px;font-size:14.5px;flex:1}
-.step li::before{content:"→ ";color:var(--purple-light)}
-.price{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:8px}
-.price b{font-family:var(--display);font-size:28px;font-weight:800;letter-spacing:-.02em}
-
-/* faq */
-.faq{border-top:1px solid var(--line);max-width:820px}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:20px;font-family:var(--display);font-weight:700;font-size:18px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--purple-light);font-size:24px;line-height:1;transition:transform .3s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{color:var(--gray);padding-bottom:22px;max-width:44em}
-
-/* contact */
-.contact{border:1px solid rgba(134,84,214,.5);background:radial-gradient(70% 60% at 50% 0%,rgba(75,29,143,.3),transparent 70%),var(--black-2);display:grid;position:relative}
-@media(min-width:900px){.contact{grid-template-columns:1fr 1fr}}
-.contact::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple-light),transparent)}
-.c-left,.c-right{padding:clamp(28px,5vw,52px)}
-@media(min-width:900px){.c-right{border-left:1px solid var(--line)}}
-.c-left h2{font-size:clamp(32px,4.6vw,50px)}
-.direct{display:grid;gap:12px;margin-top:32px}
-.direct .btn{width:100%}
-.phone-num{font-family:var(--mono);font-size:13px;color:var(--gray);margin-top:10px;user-select:all}
-form{display:grid;gap:16px}
-.field{display:grid;gap:8px}
-.field label{font-size:14px;font-weight:500}
-.input{width:100%;min-height:52px;padding:13px 15px;background:var(--black);border:1px solid var(--line);border-radius:0;font-size:16px;color:#fff;outline:none;transition:border-color .3s,box-shadow .3s;-webkit-appearance:none;appearance:none}
-.input::placeholder{color:#55555b}
-.input:focus{border-color:var(--purple-light);box-shadow:0 0 0 3px rgba(134,84,214,.14)}
-.input[aria-invalid="true"]{border-color:#8c3a4a}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opts label{cursor:pointer}
-.opts input{position:absolute;opacity:0;pointer-events:none}
-.opts span{display:inline-block;padding:10px 14px;border:1px solid var(--line);background:var(--black);font-size:14px;transition:all .2s}
-.opts input:checked+span{border-color:var(--purple-light);background:rgba(134,84,214,.15);color:#fff}
-.opts input:focus-visible+span{outline:1px solid var(--purple-light);outline-offset:2px}
-.err{font-size:13px;color:#d48a98;display:none}
-.field.bad .err{display:block}
-form .btn{width:100%;min-height:58px;font-size:16px;margin-top:6px}
-.note{font-size:13px;color:var(--gray);text-align:center}
-.sent{border:1px solid rgba(37,211,102,.4);padding:22px;background:var(--black)}
-.sent h3{font-size:20px;margin:8px 0}
-.sent p{color:var(--gray);font-size:15px}
-
-/* footer */
-footer{border-top:1px solid var(--line);padding-block:48px 120px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
-footer nav{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--gray)}
-footer nav a:hover{color:#fff}
-
-/* floating wa */
-.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 14px 34px -8px rgba(37,211,102,.55);transform:scale(0);transition:transform .4s var(--ease)}
-.fab.show{transform:scale(1)}
-.fab svg{width:30px;height:30px}
-.fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,.5);animation:ring 2.4s infinite}
-@keyframes ring{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.35);opacity:0}}
-
-/* reveal */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-.no-js .rv{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}
-  .rv{opacity:1;transform:none}.marquee-track{animation:none}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+/* Decide el modo de la intro antes del primer render (sin parpadeo) */
+(function(){var d=document.documentElement,m='full';
+ try{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||location.hash||/[?&](utm_campaign|intro=0)/.test(location.search))m='none';
+  else if(localStorage.getItem('db-intro-seen'))m='short';
+ }catch(e){m='none'}
+ d.className+=' js intro-'+m;})();
+</script>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"DANI BOSS","url":"https://daniiboss.vercel.app/","image":"https://daniiboss.vercel.app/assets/dani.jpg","description":"Sistemas de inteligencia artificial, e-commerce y páginas web que convierten.","areaServed":["EC","Latinoamérica"],"founder":{"@type":"Person","name":"Dani Boss","sameAs":["https://instagram.com/thedaniiboss"]},"sameAs":["https://instagram.com/thedaniiboss"]}
+</script>
 </head>
-<body class="no-js">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1 0-.3-.1-.5-.2z"/></symbol></svg>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
 
-<canvas id="particles" aria-hidden="true"></canvas>
-<div class="atmo" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1 0-.3-.1-.5-.2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
 
-<header class="topbar">
-  <div class="wrap">
-    <a href="#top" class="brand" aria-label="DANI BOSS, inicio"><img src="assets/dani.jpg" alt="" width="32" height="32">DANI <span>BOSS</span></a>
-    <nav class="nav" aria-label="Secciones">
-      <a href="#servicios">Servicios</a><a href="#laboratorio">Mi laboratorio</a><a href="#trabajos">Trabajos</a><a href="#resultados">Resultados</a><a href="#planes">Planes</a>
+<!-- ============ INTRO ============ -->
+<div class="intro" id="intro" role="dialog" aria-label="Introducción DANI BOSS" aria-hidden="false">
+  <canvas class="intro-canvas" id="introCanvas" aria-hidden="true"></canvas>
+  <div class="intro-core">
+    <span class="intro-logo" aria-hidden="true"></span>
+    <p class="intro-name" aria-label="DANI BOSS"><span class="w1">DANI</span> <span class="w2">BOSS</span></p>
+    <p class="intro-tag">Estrategia. Inteligencia. Sistemas.</p>
+    <button class="intro-enter" id="introEnter" type="button"><span>Entra en mi universo digital</span><i class="intro-prog"><b></b></i></button>
+  </div>
+  <div class="intro-meta" aria-hidden="true"><span>EC · 0.18°S 78.47°W</span><span id="introClock">00:00:00</span></div>
+  <button class="intro-skip" id="introSkip" type="button">Omitir intro →</button>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#main" aria-label="DANI BOSS, inicio"><span class="brand-mark" aria-hidden="true"></span><span>DANI <b>BOSS</b></span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#disciplinas">Disciplinas</a><a href="#laboratorio">Laboratorio</a><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a>
     </nav>
-    <a class="btn wa" data-wa="topbar" href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
+    <span class="avail" aria-label="Agenda abierta"><i class="led"></i>Agenda abierta</span>
+    <a class="btn btn-sm" href="#contacto">Hablemos <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
 </header>
 
-<main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="glow-top" aria-hidden="true"></div>
-    <div class="wrap hero-grid">
-      <div>
-        <p class="status rv"><span class="dot pulse"></span>Agenda abierta · máximo 6 clientes activos</p>
-        <h1 class="rv d1">Construyo sistemas que hacen que tu marca <em>venda sola.</em></h1>
-        <p class="lead rv d2">Sistemas de IA, tiendas online y páginas web conectados en una sola máquina: capta clientes, responde en segundos y cierra ventas 24/7. Lo que instalo en tu negocio ya me funciona a mí.</p>
-        <div class="pillars-mini rv d2" role="list">
-          <button type="button" role="listitem" data-goto="ia"><b>01</b>Sistemas de IA</button>
-          <button type="button" role="listitem" data-goto="ecom"><b>02</b>E-commerce</button>
-          <button type="button" role="listitem" data-goto="web"><b>03</b>Webs que convierten</button>
-        </div>
-        <div class="cta-row rv d3">
-          <a class="btn wa" data-wa="hero" href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#wa"/></svg>Escríbeme por WhatsApp</a>
-          <a class="btn ghost" href="#servicios">Ver qué construyo <span class="ar" aria-hidden="true">→</span></a>
-        </div>
-        <div class="trust rv d3"><img src="assets/dani.jpg" alt="Dani Boss" width="44" height="44"><p><b>Dani Boss</b> · Estratega de marketing y sistemas de IA<br>Fundador de MAGNA 8 · Ecuador 🇪🇨</p></div>
-      </div>
+<main id="main">
 
-      <div class="phone rv d2" aria-label="Demostración: asistente de IA respondiendo a un cliente por WhatsApp" role="img">
-        <div class="phone-frame">
-          <div class="chat-head"><img src="assets/dani.jpg" alt="" width="38" height="38"><div><b>Tu marca · Asistente IA</b><small>● en línea 24/7</small></div></div>
-          <div class="chat" id="chat" aria-hidden="true"></div>
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-t">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="label rv">Estrategia · IA · E-commerce · Web</p>
+      <h1 id="hero-t" class="hero-title">
+        <span class="mask"><span class="line">No construyo solo marcas.</span></span>
+        <span class="mask"><span class="line">Construyo <em>sistemas</em></span></span>
+        <span class="mask"><span class="line">que las hacen crecer.</span></span>
+      </h1>
+      <p class="hero-sub rv d2">Conecto inteligencia artificial, e-commerce y experiencias web para ayudar a las marcas a captar clientes, optimizar sus procesos y vender mejor.</p>
+      <div class="hero-ctas rv d3">
+        <a class="btn" href="#contacto">Construir mi sistema <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#proyectos">Explorar proyectos <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
+      </div>
+      <div class="hero-sig rv d3"><img src="assets/dani.jpg" alt="Dani Boss" width="44" height="44"><p><b>Dani Boss</b> · Fundador de MAGNA 8<br><span>Ecuador → Latinoamérica</span></p></div>
+    </div>
+
+    <div class="sys rv d2" id="sys">
+      <div class="sys-head mono"><span>Sistema / mapa interactivo</span><span class="mono-hi">Toca un nodo</span></div>
+      <div class="sys-stage">
+        <svg class="sys-lines" viewBox="0 0 400 400" aria-hidden="true">
+          <defs><radialGradient id="coreG"><stop offset="0" stop-color="#8654D6" stop-opacity=".55"/><stop offset="1" stop-color="#8654D6" stop-opacity="0"/></radialGradient></defs>
+          <circle cx="200" cy="200" r="150" class="orbit"/><circle cx="200" cy="200" r="96" class="orbit o2"/>
+          <circle cx="200" cy="200" r="70" fill="url(#coreG)"/>
+          <g id="sysLinks"></g>
+        </svg>
+        <div class="sys-core" aria-hidden="true"><span class="brand-mark lg"></span></div>
+        <div id="sysNodes"></div>
+      </div>
+      <div class="sys-info" aria-live="polite"><span class="mono" id="sysK">01 / CAPTACIÓN</span><p id="sysT">Atrae a las personas correctas: anuncios, contenido y perfiles que llevan tráfico al sistema.</p></div>
+    </div>
+  </div>
+  <a class="scroll-cue mono" href="#problema" aria-label="Bajar a la siguiente sección"><i></i>Scroll</a>
+</section>
+
+<!-- ============ PROBLEMA ============ -->
+<section class="sec" id="problema" aria-labelledby="pr-t">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div><p class="idx mono rv">01 — El problema</p><h2 id="pr-t" class="h2 rv d1">No te falta talento.<br>Te falta un <em>sistema.</em></h2></div>
+      <p class="lead rv d2">Muchas marcas pierden oportunidades porque trabajan con herramientas desconectadas: un chat por aquí, una web por allá, el seguimiento en la memoria. Desliza para ver la diferencia.</p>
+    </div>
+
+    <div class="cmp rv" id="cmp" data-state="a">
+      <div class="cmp-bar">
+        <p class="mono cmp-k"><i class="led led-off"></i><span id="cmpLabel">Estado: sin sistema</span></p>
+        <div class="switch" role="group" aria-label="Comparar escenarios">
+          <button type="button" data-s="a" aria-pressed="true">Sin sistema</button>
+          <button type="button" data-s="b" aria-pressed="false">Con sistema</button>
+          <i class="switch-k" aria-hidden="true"></i>
         </div>
-        <div class="float f1" aria-hidden="true"><span class="micro">Respuesta</span><b>&lt; 30 seg</b></div>
-        <div class="float f2" aria-hidden="true"><span class="micro">Cita agendada</span><b>✓ Lead calificado</b></div>
+      </div>
+      <ul class="cmp-list" aria-live="polite"><li style="--i:0"><span class="mono">Mensajes</span><b class="va">Sin responder por horas</b><b class="vb">Atención automatizada y bien configurada</b></li><li style="--i:1"><span class="mono">Seguimiento</span><b class="va">Cuando alguien se acuerda</b><b class="vb">Estructurado, con fechas y responsables</b></li><li style="--i:2"><span class="mono">Web</span><b class="va">Se visita, pero no convierte</b><b class="vb">Pensada para una acción concreta</b></li><li style="--i:3"><span class="mono">Procesos</span><b class="va">Manuales y repetidos</b><b class="vb">Conectados entre sí</b></li><li style="--i:4"><span class="mono">Resultados</span><b class="va">Sin visibilidad clara</b><b class="vb">Métricas para decidir</b></li></ul>
+    </div>
+    <p class="note mono rv">Un sistema no garantiza ventas: ordena y optimiza el proceso comercial para que cada oportunidad tenga más probabilidad de cerrarse.</p>
+  </div>
+</section>
+
+<!-- ============ DISCIPLINAS ============ -->
+<section class="sec" id="disciplinas" aria-labelledby="di-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="idx mono rv">02 — Disciplinas</p>
+      <h2 id="di-t" class="h2 rv d1">Tres disciplinas.<br>Un sistema de <em>crecimiento.</em></h2>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Disciplinas">
+      <button class="tab" role="tab" id="tab-ia" aria-controls="pn-ia" aria-selected="true"><span class="mono">01</span>Sistemas de IA</button>
+      <button class="tab" role="tab" id="tab-ec" aria-controls="pn-ec" aria-selected="false" tabindex="-1"><span class="mono">02</span>E-commerce</button>
+      <button class="tab" role="tab" id="tab-web" aria-controls="pn-web" aria-selected="false" tabindex="-1"><span class="mono">03</span>Páginas web</button>
+    </div>
+
+    <!-- IA -->
+    <div class="pane" role="tabpanel" id="pn-ia" aria-labelledby="tab-ia" tabindex="0">
+      <div class="pane-copy">
+        <h3 class="h3">Inteligencia que atiende, califica y acompaña.</h3>
+        <p class="lead">Automatizo la parte repetitiva del proceso comercial para que tú te enfoques en cerrar y entregar.</p>
+        <ul class="list">
+          <li>Asistentes de IA para atención y ventas</li><li>Automatizaciones de procesos</li><li>Sistemas de seguimiento de clientes</li>
+          <li>Generación y organización de contenido</li><li>Integraciones con tus herramientas comerciales</li><li>Dashboards y flujos de información</li>
+        </ul>
+        <a class="btn" href="#contacto" data-service="Sistemas de IA">Quiero un sistema de IA <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="demo demo-ia" data-demo="ia">
+        <div class="demo-head mono"><span>Recorrido de una oportunidad</span><button class="demo-play" type="button" data-play>▶ Reproducir</button></div>
+        <ol class="flow" role="list">
+          <li><button type="button" data-step="0"><span class="mono">01</span>Mensaje entrante</button></li>
+          <li><button type="button" data-step="1"><span class="mono">02</span>Análisis</button></li>
+          <li><button type="button" data-step="2"><span class="mono">03</span>Respuesta</button></li>
+          <li><button type="button" data-step="3"><span class="mono">04</span>Calificación</button></li>
+          <li><button type="button" data-step="4"><span class="mono">05</span>Siguiente acción</button></li>
+        </ol>
+        <div class="flow-view" aria-live="polite">
+          <div class="flow-card" data-view="0"><p class="mono">Instagram · 22:41</p><p class="bubble in">Hola, ¿cuánto cuesta una página web para mi negocio?</p><p class="cap">Llega una consulta fuera de horario. Nadie está conectado.</p></div>
+          <div class="flow-card" data-view="1"><p class="mono">Análisis</p><div class="tags"><span>Intención: cotizar</span><span>Servicio: web</span><span>Canal: Instagram</span></div><p class="cap">El sistema identifica qué necesita y qué preguntar.</p></div>
+          <div class="flow-card" data-view="2"><p class="mono">Respuesta · en segundos</p><p class="bubble out">¡Hola! Claro. ¿Qué vendes y qué te gustaría que la gente haga al entrar a tu web?</p><p class="cap">Respuesta inmediata con el tono de tu marca.</p></div>
+          <div class="flow-card" data-view="3"><p class="mono">Calificación</p><div class="meter"><span>Necesidad</span><i style="--w:90%"></i><span>Urgencia</span><i style="--w:70%"></i><span>Presupuesto</span><i style="--w:60%"></i></div><p class="cap">Prioriza a quien está listo para avanzar.</p></div>
+          <div class="flow-card" data-view="4"><p class="mono">Siguiente acción</p><p class="bubble out">Te comparto un horario para una llamada de 15 minutos 📅</p><p class="cap">Agenda o deriva a una persona. Si no responde, entra al seguimiento.</p></div>
+        </div>
+        <p class="demo-foot mono">Demostración ilustrativa</p>
       </div>
     </div>
-  </section>
 
-  <div class="marquee" aria-hidden="true"><div class="marquee-track">
-    <span>Captación automatizada</span><span>Asistente de ventas 24/7</span><span>Tiendas contraentrega</span><span>Landing pages</span><span>Seguimiento por WhatsApp</span><span>Contenido con IA</span><span>Meta Ads</span><span>Dashboards de métricas</span>
-    <span>Captación automatizada</span><span>Asistente de ventas 24/7</span><span>Tiendas contraentrega</span><span>Landing pages</span><span>Seguimiento por WhatsApp</span><span>Contenido con IA</span><span>Meta Ads</span><span>Dashboards de métricas</span>
-  </div></div>
-
-  <!-- PROBLEM -->
-  <section class="section" aria-labelledby="p-title">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow rv">El problema</p>
-        <h2 id="p-title" class="h2 rv d1">No te falta talento. Te falta un sistema.</h2>
-        <p class="lead rv d2">La mayoría de marcas tiene buen producto y publica todos los días, pero pierde ventas en el camino: mensajes sin responder, clientes que nadie sigue y webs que no convierten.</p>
+    <!-- E-COMMERCE -->
+    <div class="pane" role="tabpanel" id="pn-ec" aria-labelledby="tab-ec" tabindex="0" hidden>
+      <div class="pane-copy">
+        <h3 class="h3">Del producto al pedido confirmado.</h3>
+        <p class="lead">Construyo la ruta completa de venta online, pensada para comprar desde el celular.</p>
+        <ul class="list">
+          <li>Landing pages para productos</li><li>Tiendas online</li><li>Experiencias de compra optimizadas para móvil</li>
+          <li>Flujos de confirmación de pedidos</li><li>Integración de canales comerciales</li><li>Creativos publicitarios y apoyo en campañas</li>
+        </ul>
+        <a class="btn" href="#contacto" data-service="E-commerce">Quiero vender online <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="compare">
-        <div class="col them rv"><h3>Sin sistema <span class="micro">Estado: caos</span></h3><ul>
-          <li>Respondes horas después y el cliente ya compró en otro lado</li>
-          <li>Haces seguimiento cuando te acuerdas</li>
-          <li>Tu web es una tarjeta de presentación, no vende</li>
-          <li>Usas IA para hacer textos, no para vender</li>
-          <li>No sabes cuánto te cuesta cada cliente</li></ul></div>
-        <div class="col me rv d1"><h3>Con un sistema DANI BOSS <span class="micro" style="color:var(--purple-light)">Estado: activo</span></h3><ul>
-          <li>Cada mensaje se responde en segundos, de día o de noche</li>
-          <li>Seguimiento automático hasta que el cliente decide</li>
-          <li>Una web o tienda diseñada para una sola acción: comprar</li>
-          <li>IA entrenada con tu marca, tu oferta y tus objeciones</li>
-          <li>Métricas claras para saber dónde invertir</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLARS -->
-  <section class="section" id="servicios" aria-labelledby="s-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow rv">Lo que construyo</p>
-        <h2 id="s-title" class="h2 rv d1">Tres piezas. Una sola máquina de ventas.</h2>
-        <p class="lead rv d2">Puedes empezar por una, pero el poder está en conectarlas. Toca cada pestaña.</p>
-      </div>
-
-      <div class="tabs rv" role="tablist" aria-label="Servicios">
-        <button class="tab" role="tab" id="t-ia" aria-controls="p-ia" aria-selected="true"><b>01</b>Sistemas de IA</button>
-        <button class="tab" role="tab" id="t-ecom" aria-controls="p-ecom" aria-selected="false" tabindex="-1"><b>02</b>E-commerce</button>
-        <button class="tab" role="tab" id="t-web" aria-controls="p-web" aria-selected="false" tabindex="-1"><b>03</b>Webs que convierten</button>
-      </div>
-
-      <div class="panel" role="tabpanel" id="p-ia" aria-labelledby="t-ia">
-        <div>
-          <h3>IA que vende, responde y hace seguimiento por ti.</h3>
-          <p class="lead">No herramientas sueltas ni prompts genéricos. Sistemas entrenados con tu negocio que trabajan 24/7 desde el primer mensaje hasta el cierre.</p>
-          <ul class="feat">
-            <li><span>01</span><div><b>Asistente de ventas 24/7</b><small>Responde en WhatsApp e Instagram, califica y agenda.</small></div></li>
-            <li><span>02</span><div><b>Follow-up inteligente</b><small>4 toques en 9 días, cada mensaje personalizado.</small></div></li>
-            <li><span>03</span><div><b>Motor de contenido</b><small>Guiones, captions y calendario con tu voz de marca.</small></div></li>
-            <li><span>04</span><div><b>Dashboard de métricas</b><small>ROAS, costo por cliente y ventas en una vista.</small></div></li>
-          </ul>
-        </div>
-        <div class="visual" data-vis="flow">
-          <div class="vh micro"><span>Pipeline / live</span><span style="color:var(--wa)">● 24/7</span></div>
-          <div class="vbody">
-            <div class="node"><i>01</i><div><b>Llega un mensaje</b><small>"¿Cuánto cuesta?"</small></div><span class="st">IDLE</span></div>
-            <div class="node"><i>02</i><div><b>La IA responde y califica</b><small>Presupuesto, urgencia, necesidad</small></div><span class="st">IDLE</span></div>
-            <div class="node"><i>03</i><div><b>Agenda o envía el link de pago</b><small>Sin que toques el celular</small></div><span class="st">IDLE</span></div>
-            <div class="node"><i>04</i><div><b>Seguimiento automático</b><small>Si no compra hoy, se le escribe en 2 días</small></div><span class="st">IDLE</span></div>
+      <div class="demo demo-ec" data-demo="ec">
+        <div class="demo-head mono"><span>Recorrido de compra</span><button class="demo-play" type="button" data-play>▶ Reproducir</button></div>
+        <div class="ec-wrap">
+          <ol class="ec-steps" role="list">
+            <li><button type="button" data-step="0"><span class="mono">01</span>Producto</button></li>
+            <li><button type="button" data-step="1"><span class="mono">02</span>Página</button></li>
+            <li><button type="button" data-step="2"><span class="mono">03</span>Pedido</button></li>
+            <li><button type="button" data-step="3"><span class="mono">04</span>Confirmación</button></li>
+            <li><button type="button" data-step="4"><span class="mono">05</span>Seguimiento</button></li>
+          </ol>
+          <div class="phone" aria-live="polite">
+            <div class="phone-in">
+              <div class="scr" data-view="0"><div class="prod"></div><p class="s-t">Tu producto</p><p class="s-s">Foto, beneficio principal y precio claro.</p></div>
+              <div class="scr" data-view="1"><div class="s-hero"></div><p class="s-t">Landing de producto</p><p class="s-s">Prueba visual, uso, preguntas y un solo botón.</p><span class="s-btn">Comprar ahora</span></div>
+              <div class="scr" data-view="2"><p class="s-t">Pedido</p><span class="s-in">Nombre</span><span class="s-in">Ciudad</span><span class="s-in">Dirección</span><span class="s-btn">Confirmar pedido</span></div>
+              <div class="scr" data-view="3"><p class="s-t">WhatsApp</p><p class="bubble out sm">¡Hola! Recibimos tu pedido. ¿Confirmas la dirección de entrega?</p><p class="bubble in sm">Sí, confirmado ✅</p></div>
+              <div class="scr" data-view="4"><p class="s-t">Seguimiento</p><p class="s-row">● Pedido confirmado</p><p class="s-row">● En camino</p><p class="s-row dim">○ Entregado</p><p class="s-s">Mensajes en cada etapa para reducir rechazos.</p></div>
+            </div>
           </div>
         </div>
+        <p class="demo-foot mono">Demostración ilustrativa · no representa ventas reales</p>
       </div>
+    </div>
 
-      <div class="panel" role="tabpanel" id="p-ecom" aria-labelledby="t-ecom" hidden>
-        <div>
-          <h3>Tiendas online que venden todos los días.</h3>
-          <p class="lead">Vendo productos por internet y sé lo que funciona: producto, página, anuncio y confirmación. Monto tu tienda completa, desde el anuncio hasta el pedido confirmado.</p>
-          <ul class="feat">
-            <li><span>01</span><div><b>Landing de producto</b><small>Una página por producto, pensada para comprar en el celular.</small></div></li>
-            <li><span>02</span><div><b>Tienda contraentrega</b><small>Pedidos con pago al recibir, ideal para Ecuador y LATAM.</small></div></li>
-            <li><span>03</span><div><b>Confirmación por WhatsApp</b><small>Menos pedidos rechazados, más entregas exitosas.</small></div></li>
-            <li><span>04</span><div><b>Creativos y Meta Ads</b><small>Anuncios generados con IA y campañas que se miden.</small></div></li>
-          </ul>
+    <!-- WEB -->
+    <div class="pane" role="tabpanel" id="pn-web" aria-labelledby="tab-web" tabindex="0" hidden>
+      <div class="pane-copy">
+        <h3 class="h3">Páginas que convierten visitas en oportunidades.</h3>
+        <p class="lead">Dirección de arte, desarrollo y estrategia en una sola pieza. Rápidas, premium y conectadas a WhatsApp.</p>
+        <ul class="list">
+          <li>Landing pages de conversión</li><li>Webs para negocios</li><li>Páginas de marca personal</li>
+          <li>Sitios de presentación de productos</li><li>Experiencias digitales premium</li><li>Integración con WhatsApp y herramientas comerciales</li>
+        </ul>
+        <a class="btn" href="#contacto" data-service="Página web">Quiero mi página web <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="demo demo-web" data-demo="web">
+        <div class="demo-head mono"><span>Construcción por capas</span>
+          <span class="seg" role="group" aria-label="Vista"><button type="button" data-vw="d" aria-pressed="true">Escritorio</button><button type="button" data-vw="m" aria-pressed="false">Móvil</button></span>
         </div>
-        <div class="visual" data-vis="bars">
-          <div class="vh micro"><span>Tienda / ventas semana</span><span>LUN → DOM</span></div>
-          <div class="vbody">
-            <div class="bars"><div style="height:38%"></div><div style="height:52%"></div><div style="height:45%"></div><div style="height:68%"></div><div style="height:74%"></div><div style="height:88%"></div><div style="height:100%"></div></div>
-            <div class="kpis"><div class="kpi"><b>Pedido</b><small>desde el anuncio</small></div><div class="kpi"><b>WhatsApp</b><small>confirmación</small></div><div class="kpi"><b>Entrega</b><small>contraentrega</small></div></div>
-            <p class="micro" style="text-transform:none;letter-spacing:.02em">Gráfico ilustrativo del flujo de una tienda.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel" role="tabpanel" id="p-web" aria-labelledby="t-web" hidden>
-        <div>
-          <h3>Páginas web que convierten visitas en clientes.</h3>
-          <p class="lead">Una web bonita no sirve si no vende. Diseño páginas rápidas, premium y pensadas para una sola acción: que te escriban o que compren.</p>
-          <ul class="feat">
-            <li><span>01</span><div><b>Landing pages de alto impacto</b><small>Para productos, servicios o lanzamientos.</small></div></li>
-            <li><span>02</span><div><b>Webs de marca personal y negocio</b><small>Que transmiten autoridad desde el primer segundo.</small></div></li>
-            <li><span>03</span><div><b>Conectadas a WhatsApp y a tu sistema</b><small>Cada visita puede terminar en una conversación.</small></div></li>
-            <li><span>04</span><div><b>Hechas para el celular</b><small>Ahí está tu cliente, ahí se tiene que ver perfecto.</small></div></li>
-          </ul>
-        </div>
-        <div class="visual" data-vis="web">
-          <div class="vh micro"><span>Build / tu-marca.com</span><span>Mobile first</span></div>
-          <div class="vbody">
-            <div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">tumarca.com</span></div>
-              <div class="mock"><div class="t"></div><div class="t s"></div><div class="t s" style="width:60%"></div><span class="cta"></span></div></div>
-            <div class="score"><div class="ring" id="ring"><span id="ringv">0</span></div><div><b style="font-family:var(--display)">Velocidad y conversión</b><br><small style="color:var(--gray)">Cada página se optimiza para cargar rápido en el celular.</small></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LAB -->
-  <section class="section" id="laboratorio" aria-labelledby="l-title" style="padding-top:0">
-    <div class="wrap lab">
-      <div class="lab-photo rv"><img src="assets/dani.jpg" alt="Dani Boss" width="460" height="460" loading="lazy"><span class="tag"><span class="dot pulse"></span>Laboratorio activo</span></div>
-      <div>
-        <p class="eyebrow rv">Por qué yo</p>
-        <h2 id="l-title" class="quote rv d1">No te vendo teoría. Te instalo <span>lo mismo que uso en mi propio negocio.</span></h2>
-        <p class="lead rv d2">Mi tienda es mi laboratorio. Cada sistema que ofrezco lo pruebo primero vendiendo mis propios productos. Si no me funciona a mí, no te lo vendo.</p>
-        <div class="lab-list">
-          <div class="rv"><b>01</b><span>Vendo productos online y construyo mis propias landings de producto.</span></div>
-          <div class="rv d1"><b>02</b><span>Uso IA todos los días para contenido, ventas, seguimiento y métricas.</span></div>
-          <div class="rv d2"><b>03</b><span>Dirijo MAGNA 8, mi agencia de sistemas de crecimiento para marcas.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORKS -->
-  <section class="section" id="trabajos" aria-labelledby="w-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow rv">Trabajos recientes</p>
-        <h2 id="w-title" class="h2 rv d1">Páginas construidas para vender.</h2>
-      </div>
-      <div class="works">
-        <article class="work rv"><div class="work-cover c1"><h4>GlassShield</h4><small>E-COMMERCE · PRODUCTO</small></div><div class="work-body"><div class="chips"><span>Landing de producto</span><span>Contraentrega</span></div><p>Kit removedor de película de aceite para vidrios. Página de producto con demostración, uso paso a paso y compra directa.</p></div></article>
-        <article class="work rv d1"><div class="work-cover c2"><h4>Crystal Skin</h4><small>E-COMMERCE · PRODUCTO</small></div><div class="work-body"><div class="chips"><span>Landing de producto</span><span>Comparativa</span></div><p>Piedra depiladora de cristal. Landing con beneficios, comparación frente a la competencia y preguntas frecuentes.</p></div></article>
-        <article class="work rv"><div class="work-cover c3"><h4>Tania Eventos</h4><small>NEGOCIO LOCAL · SERVICIOS</small></div><div class="work-body"><div class="chips"><span>Web de negocio</span><span>Cotización por WhatsApp</span></div><p>Flores, regalos, decoración y buffet. Web con catálogo de servicios y cotización directa por WhatsApp.</p></div></article>
-        <article class="work rv d1"><div class="work-cover c4"><h4>JHEYC</h4><small>MARCA PERSONAL · ARTISTA</small></div><div class="work-body"><div class="chips"><span>Web de artista</span><span>Bookings</span></div><p>Artista urbano de Yes Récords. Web editorial con su música, su historia y contacto para bookings.</p></div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section class="section" id="resultados" aria-labelledby="r-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow rv">Resultados reales</p>
-        <h2 id="r-title" class="h2 rv d1">Los sistemas se miden en ventas.</h2>
-      </div>
-      <div class="results">
-        <article class="res rv"><span class="micro">Caso / 01</span><h3 style="font-size:18px;margin-top:14px">Clínica de cirugías</h3>
-          <p class="metric" aria-label="De 2 mil a 80 mil dólares"><span class="from" aria-hidden="true">$<span data-count="2">0</span>K</span> <span class="sep" aria-hidden="true">→</span> <span aria-hidden="true">$<span data-count="80">0</span>K</span></p>
-          <p>Invertidos en publicidad → generados en ventas.</p><div class="foot micro"><span>Periodo</span><span style="color:#fff">90 días</span></div></article>
-        <article class="res rv d1"><span class="micro">Caso / 02</span><h3 style="font-size:18px;margin-top:14px">Marca de tatuajes</h3>
-          <p class="metric" aria-label="20 mil dólares en ventas"><span aria-hidden="true">$<span data-count="20">0</span>K</span></p>
-          <p>En ventas con el sistema de captación y seguimiento.</p><div class="foot micro"><span>Periodo</span><span style="color:#fff">Primer mes</span></div></article>
-        <article class="res rv d2"><span class="micro">Comunidad</span><h3 style="font-size:18px;margin-top:14px">Contenido en Instagram</h3>
-          <p class="metric" aria-label="36 mil visualizaciones"><span aria-hidden="true"><span data-count="36">0</span>K</span></p>
-          <p>Visualizaciones en 30 días enseñando sistemas de IA aplicados.</p><div class="foot micro"><span>Cuenta</span><span style="color:#fff">@thedaniiboss</span></div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS (se muestra solo cuando hay testimonios reales cargados en TESTIMONIOS) -->
-  <section class="section" id="testimonios" aria-labelledby="te-title" style="padding-top:0" hidden>
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow rv">Lo que dicen mis clientes</p>
-        <h2 id="te-title" class="h2 rv d1">Marcas que ya trabajan con un sistema.</h2>
-      </div>
-      <div class="testis" id="testis"></div>
-    </div>
-  </section>
-
-  <!-- PLANS -->
-  <section class="section" id="planes" aria-labelledby="pl-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow rv">Cómo trabajamos</p>
-        <h2 id="pl-title" class="h2 rv d1">Empiezas por un diagnóstico. Escalas con un sistema.</h2>
-      </div>
-      <div class="steps">
-        <article class="step rv"><span class="n">01</span><h3>Diagnóstico con IA</h3><p>Analizo tu negocio, tu embudo y tu competencia. Te muestro dónde estás perdiendo dinero.</p>
-          <ul><li>Auditoría de redes, web y anuncios</li><li>Plan de acción priorizado</li><li>Qué sistema necesitas primero</li></ul>
-          <div class="price"><span class="micro">Desde</span><b>$150</b></div></article>
-        <article class="step star rv d1"><span class="n">02</span><h3>Sistema de ventas</h3><p>Construyo tu sistema: captación, web o tienda, IA y seguimiento, todo conectado.</p>
-          <ul><li>Asistente de IA en WhatsApp</li><li>Landing o tienda que convierte</li><li>Seguimiento automático y métricas</li></ul>
-          <div class="price"><span class="micro">Desde</span><b>$1,500</b><span class="micro">/mes</span></div></article>
-        <article class="step rv d2"><span class="n">03</span><h3>Escalamiento total</h3><p>Branding premium, automatización avanzada y posicionamiento. Tu marca se convierte en una máquina.</p>
-          <ul><li>Identidad y web de marca completa</li><li>Sistema de contenido con IA</li><li>Estrategia y pauta continua</li></ul>
-          <div class="price"><span class="micro">Desde</span><b>$8,000</b></div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" aria-labelledby="f-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="head"><p class="eyebrow rv">Preguntas</p><h2 id="f-title" class="h2 rv d1">Lo que me preguntan antes de empezar.</h2></div>
-      <div class="faq rv">
-        <details><summary>¿Necesito saber de tecnología?</summary><p>No. Yo construyo y conecto todo. Tú recibes el sistema funcionando y te enseño a usarlo en una sesión.</p></details>
-        <details><summary>¿Trabajas solo en Ecuador?</summary><p>Trabajo con marcas de Ecuador y Latinoamérica. Todo se maneja online por WhatsApp y videollamada.</p></details>
-        <details><summary>¿Cuánto tarda en estar listo?</summary><p>Depende del sistema. Una landing o un asistente básico puede estar en días; un sistema completo, en pocas semanas. En el diagnóstico te doy fechas concretas.</p></details>
-        <details><summary>¿Puedo empezar solo con una página web o una tienda?</summary><p>Sí. Puedes empezar por la pieza que más necesitas y conectar el resto después.</p></details>
-        <details><summary>¿Por qué solo 6 clientes activos?</summary><p>Porque cada sistema se construye a medida. Prefiero pocos clientes con resultados que muchos con un servicio genérico.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contacto" aria-labelledby="c-title" style="padding-top:0">
-    <div class="wrap">
-      <div class="contact rv">
-        <div class="c-left">
-          <p class="eyebrow">Hablemos</p>
-          <h2 id="c-title">¿Listo para que tu marca venda sola?</h2>
-          <p class="lead">Escríbeme directo a mi WhatsApp. En 15 minutos te digo qué sistema necesita tu negocio. Sin compromiso. Sin humo.</p>
-          <div class="direct">
-            <a class="btn wa" data-wa="contacto" href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#wa"/></svg>Abrir WhatsApp ahora</a>
-            <a class="btn ghost" href="https://calendly.com/thedaniiboss" target="_blank" rel="noopener noreferrer">Agendar videollamada <span class="ar" aria-hidden="true">→</span></a>
-          </div>
-          <p class="phone-num">WhatsApp: +593 959 639 787</p>
-        </div>
-        <div class="c-right">
-          <form id="lead" novalidate>
-            <p class="micro" style="margin-bottom:4px">O cuéntame en 20 segundos</p>
-            <div class="field"><label for="f-name">Tu nombre</label><input class="input" id="f-name" name="nombre" autocomplete="name" placeholder="Tu nombre" required><p class="err">Escribe tu nombre.</p></div>
-            <div class="field"><label for="f-biz">Tu marca o negocio</label><input class="input" id="f-biz" name="negocio" autocomplete="organization" placeholder="Qué vendes" required><p class="err">Cuéntame qué vendes.</p></div>
-            <fieldset class="field" style="border:0">
-              <legend style="font-size:14px;font-weight:500;margin-bottom:8px">¿Qué necesitas?</legend>
-              <div class="opts">
-                <label><input type="checkbox" name="need" value="Sistema de IA"><span>Sistema de IA</span></label>
-                <label><input type="checkbox" name="need" value="Tienda online"><span>Tienda online</span></label>
-                <label><input type="checkbox" name="need" value="Página web"><span>Página web</span></label>
-                <label><input type="checkbox" name="need" value="No sé, guíame"><span>No sé, guíame</span></label>
+        <div class="build" id="build" data-layer="0">
+          <div class="bw">
+            <div class="bw-bar"><i></i><i></i><i></i><span class="mono">tumarca.com</span></div>
+            <div class="bw-body">
+              <div class="L1 wf wf-nav"></div>
+              <div class="bw-hero">
+                <div class="bw-txt"><div class="L1 wf wf-h"></div><div class="L1 wf wf-h s"></div><p class="L2 tp tp-h">Tu marca,<br>en su mejor versión.</p><p class="L2 tp tp-p">Una página que guía a tu cliente hasta escribirte.</p><span class="L4 ui-btn">Escribir por WhatsApp</span></div>
+                <div class="bw-img"><div class="L1 wf wf-img"></div><div class="L3 im"></div></div>
               </div>
-            </fieldset>
-            <button class="btn wa" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar por WhatsApp</button>
-            <p class="note">Se abre WhatsApp con tu mensaje listo. Solo dale enviar.</p>
-          </form>
-          <div class="sent" id="sent" hidden tabindex="-1"><p class="micro" style="color:var(--wa)">● Último paso</p><h3>Listo, <span id="sname"></span>.</h3><p>Se abrió WhatsApp con tu mensaje. Dale enviar y te respondo personalmente.</p><a class="btn wa" id="sagain" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:16px;width:100%">Abrir WhatsApp de nuevo</a></div>
+              <div class="bw-row"><div class="L1 wf wf-c"></div><div class="L1 wf wf-c"></div><div class="L1 wf wf-c"></div><div class="L3 cards"><span></span><span></span><span></span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="layers" role="group" aria-label="Capas">
+          <button type="button" data-layer="1">01 Estructura</button><button type="button" data-layer="2">02 Tipografía</button><button type="button" data-layer="3">03 Imagen</button><button type="button" data-layer="4">04 Interacción</button>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ============ LABORATORIO ============ -->
+<section class="sec lab" id="laboratorio" aria-labelledby="lb-t">
+  <div class="wrap lab-grid">
+    <div>
+      <p class="idx mono rv">03 — Laboratorio</p>
+      <h2 id="lb-t" class="h2 rv d1">No vendo teoría.<br>Construyo, pruebo y <em>optimizo.</em></h2>
+      <p class="lead rv d2">Uso mis propios proyectos como laboratorio para probar estrategias de marketing, comercio digital e inteligencia artificial antes de llevarlas a una marca.</p>
+      <div class="cycle rv d2" id="cycle" aria-label="Ciclo de trabajo: experimentar, implementar, medir, aprender, optimizar">
+        <span data-c="0">Experimentar</span><span data-c="1">Implementar</span><span data-c="2">Medir</span><span data-c="3">Aprender</span><span data-c="4">Optimizar</span>
+      </div>
+    </div>
+    <div class="console rv d1">
+      <div class="console-head mono"><span><i class="led"></i>lab.daniboss</span><span>privado</span></div>
+      <div class="mods">
+        <article class="mod"><p class="mono">Experimentos</p><h3>Landings de producto</h3><p>Páginas de producto con prueba visual, uso paso a paso y compra directa, como GlassShield y Crystal Skin.</p></article>
+        <article class="mod"><p class="mono">Sistemas</p><h3>DANI OS</h3><p>Mi propio dashboard de finanzas y vida diaria. Lo uso todos los días para decidir con datos.</p></article>
+        <article class="mod"><p class="mono">Implementaciones</p><h3>Guías con IA</h3><p>Dos guías gratuitas que entrego por Instagram y WhatsApp: <a href="/guia">5 sistemas</a> y <a href="/claude">5 proyectos con Claude</a>.</p></article>
+        <article class="mod"><p class="mono">Aprendizajes</p><h3>Contenido que educa</h3><p>Enseño en Instagram los sistemas que uso. Lo que la audiencia pregunta define el próximo experimento.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROYECTOS ============ -->
+<section class="sec" id="proyectos" aria-labelledby="pj-t">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div><p class="idx mono rv">04 — Proyectos</p><h2 id="pj-t" class="h2 rv d1">Experiencias construidas<br>para <em>vender.</em></h2></div>
+      <p class="lead rv d2">Capturas reales de páginas que diseñé y desarrollé. Toca "Ver proyecto" para abrir la vista ampliada en escritorio y móvil.</p>
+    </div>
+    <div class="works">
+      <article class="work rv" data-work="glassshield">
+        <div class="work-img"><img src="assets/work/glassshield.jpg" alt="Captura de la landing de GlassShield" width="1200" height="750" loading="lazy"></div>
+        <div class="work-info"><p class="mono">01 · E-commerce · Producto</p><h3>GlassShield</h3>
+          <dl><dt>Necesidad</dt><dd>Vender un kit removedor de película de aceite para vidrios de auto.</dd><dt>Solución</dt><dd>Landing de producto con demostración, kit, modo de uso, preguntas y compra.</dd></dl>
+          <div class="chips"><span>Landing</span><span>Producto</span><span>Compra directa</span></div>
+          <button class="link-btn" type="button" data-open="glassshield">Ver proyecto <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+      </article>
+      <article class="work rv" data-work="crystalskin">
+        <div class="work-img"><img src="assets/work/crystalskin.jpg" alt="Captura de la landing de Crystal Skin" width="1200" height="750" loading="lazy"></div>
+        <div class="work-info"><p class="mono">02 · E-commerce · Producto</p><h3>Crystal Skin</h3>
+          <dl><dt>Necesidad</dt><dd>Presentar una piedra depiladora de cristal frente a rasuradoras y cera.</dd><dt>Solución</dt><dd>Landing con beneficios, cómo funciona, comparación y preguntas frecuentes.</dd></dl>
+          <div class="chips"><span>Landing</span><span>Comparativa</span><span>Móvil</span></div>
+          <button class="link-btn" type="button" data-open="crystalskin">Ver proyecto <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+      </article>
+      <article class="work rv" data-work="tania">
+        <div class="work-img"><img src="assets/work/tania.jpg" alt="Captura de la web de Tania Eventos y Detalles" width="1200" height="750" loading="lazy"></div>
+        <div class="work-info"><p class="mono">03 · Negocio local · Servicios</p><h3>Tania Eventos</h3>
+          <dl><dt>Necesidad</dt><dd>Mostrar flores, regalos, decoración y buffet en un solo lugar.</dd><dt>Solución</dt><dd>Web de negocio con catálogo de servicios y cotización directa por WhatsApp.</dd></dl>
+          <div class="chips"><span>Web de negocio</span><span>WhatsApp</span></div>
+          <button class="link-btn" type="button" data-open="tania">Ver proyecto <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+      </article>
+      <article class="work rv" data-work="jheyc">
+        <div class="work-img"><img src="assets/work/jheyc.jpg" alt="Captura de la web del artista JHEYC" width="1200" height="750" loading="lazy"></div>
+        <div class="work-info"><p class="mono">04 · Marca personal · Artista</p><h3>JHEYC</h3>
+          <dl><dt>Necesidad</dt><dd>Presentar a un artista urbano de Yes Récords, su música y su historia.</dd><dt>Solución</dt><dd>Web editorial con lanzamientos, biografía y contacto para bookings.</dd></dl>
+          <div class="chips"><span>Marca personal</span><span>Editorial</span><span>Bookings</span></div>
+          <button class="link-btn" type="button" data-open="jheyc">Ver proyecto <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<dialog class="viewer" id="viewer" aria-labelledby="viewerT">
+  <div class="viewer-in">
+    <div class="viewer-head"><h3 id="viewerT">Proyecto</h3><button type="button" class="viewer-x" id="viewerX" aria-label="Cerrar">✕</button></div>
+    <div class="viewer-body"><figure class="vd"><img id="viewerD" alt=""><figcaption class="mono">Escritorio</figcaption></figure><figure class="vm"><img id="viewerM" alt=""><figcaption class="mono">Móvil</figcaption></figure></div>
+  </div>
+</dialog>
+
+<!-- ============ RESULTADOS ============ -->
+<section class="sec" id="resultados" aria-labelledby="rs-t">
+  <div class="wrap">
+    <div class="sec-head"><p class="idx mono rv">05 — Resultados</p><h2 id="rs-t" class="h2 rv d1">La confianza se construye<br>con <em>evidencia.</em></h2></div>
+    <div class="cases">
+      <article class="case rv">
+        <p class="mono">Caso 01 · Salud</p><h3>Clínica de cirugías</h3>
+        <p class="case-num" aria-label="De 2 mil a 80 mil dólares"><span class="dim" aria-hidden="true">$<span data-count="2">2</span>K</span><span class="arr" aria-hidden="true">→</span><span aria-hidden="true">$<span data-count="80">80</span>K</span></p>
+        <dl><dt>Contexto</dt><dd>Inversión en publicidad frente a ventas generadas.</dd><dt>Trabajo</dt><dd>Sistema de captación y seguimiento.</dd><dt>Periodo</dt><dd>90 días</dd></dl>
+      </article>
+      <article class="case rv d1">
+        <p class="mono">Caso 02 · Marca de tatuajes</p><h3>Estudio de tatuajes</h3>
+        <p class="case-num" aria-label="20 mil dólares en ventas"><span aria-hidden="true">$<span data-count="20">20</span>K</span></p>
+        <dl><dt>Contexto</dt><dd>Ventas en el primer mes de trabajo.</dd><dt>Trabajo</dt><dd>Sistema de captación y seguimiento.</dd><dt>Periodo</dt><dd>Primer mes</dd></dl>
+      </article>
+    </div>
+    <div class="testis" id="testis" hidden></div>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section class="sec" id="proceso" aria-labelledby="ps-t">
+  <div class="wrap">
+    <div class="sec-head"><p class="idx mono rv">06 — Proceso</p><h2 id="ps-t" class="h2 rv d1">De la estrategia<br>al <em>sistema.</em></h2></div>
+    <ol class="steps" id="steps">
+      <li class="step"><span class="step-n mono">01</span><h3>Diagnóstico</h3><p>Analizo el negocio, la oferta, los procesos comerciales y las oportunidades de mejora.</p></li>
+      <li class="step"><span class="step-n mono">02</span><h3>Arquitectura</h3><p>Defino qué componentes deben construirse y cómo se conectan entre sí.</p></li>
+      <li class="step"><span class="step-n mono">03</span><h3>Implementación</h3><p>Diseño y desarrollo las páginas, herramientas, automatizaciones o experiencias necesarias.</p></li>
+      <li class="step"><span class="step-n mono">04</span><h3>Optimización</h3><p>Reviso el funcionamiento y, cuando hay datos suficientes, identifico qué mejorar.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="sec" id="servicios" aria-labelledby="sv-t">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div><p class="idx mono rv">07 — Servicios</p><h2 id="sv-t" class="h2 rv d1">Empieza por lo que<br>tu negocio <em>necesita.</em></h2></div>
+      <p class="lead rv d2">Tres formas de trabajar juntos. Si no sabes cuál es la tuya, empieza por el diagnóstico.</p>
+    </div>
+    <div class="plans">
+      <article class="plan rv">
+        <p class="mono">01</p><h3>Diagnóstico estratégico</h3>
+        <dl><dt>Para quién</dt><dd>Negocios que necesitan saber dónde están perdiendo oportunidades.</dd><dt>Incluye</dt><dd>Revisión de redes, web y anuncios · Plan de acción priorizado · Recomendación del siguiente paso.</dd><dt>Qué esperar</dt><dd>Claridad sobre qué construir primero.</dd></dl>
+        <p class="price"><span class="mono">Desde</span><b data-price="diagnostico">$150</b><small data-price-note="diagnostico">pago único</small></p>
+        <a class="btn btn-ghost" href="#contacto" data-service="Estrategia integral">Pedir diagnóstico <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="plan plan-hi rv d1">
+        <p class="mono">02 · Recomendado</p><h3>Construcción de sistemas</h3>
+        <dl><dt>Para quién</dt><dd>Negocios que necesitan páginas, e-commerce o automatizaciones conectadas.</dd><dt>Incluye</dt><dd>Asistente de IA · Landing o tienda · Seguimiento automatizado · Métricas.</dd><dt>Qué esperar</dt><dd>Un sistema funcionando y conectado a tu proceso de venta.</dd></dl>
+        <p class="price"><span class="mono">Desde</span><b data-price="sistema">$1,500</b><small data-price-note="sistema">al mes</small></p>
+        <a class="btn" href="#contacto" data-service="Sistemas de IA">Construir mi sistema <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="plan rv d2">
+        <p class="mono">03</p><h3>Crecimiento y optimización</h3>
+        <dl><dt>Para quién</dt><dd>Marcas que necesitan estrategia amplia y mejora continua.</dd><dt>Incluye</dt><dd>Branding premium · Automatización avanzada · Posicionamiento y contenido.</dd><dt>Qué esperar</dt><dd>Un socio estratégico para crecer con orden.</dd></dl>
+        <p class="price"><span class="mono">Desde</span><b data-price="crecimiento">$8,000</b><small data-price-note="crecimiento">por proyecto</small></p>
+        <a class="btn btn-ghost" href="#contacto" data-service="Estrategia integral">Hablar de crecimiento <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq" aria-labelledby="fq-t">
+  <div class="wrap faq-grid">
+    <div><p class="idx mono rv">08 — Preguntas</p><h2 id="fq-t" class="h2 rv d1">Antes de <em>empezar.</em></h2></div>
+    <div class="faq rv">
+      <details><summary>¿Necesito saber de tecnología?</summary><div><p>No. Yo construyo y conecto todo. Recibes el sistema funcionando y te enseño a usarlo.</p></div></details>
+      <details><summary>¿Trabajas solo en Ecuador?</summary><div><p>Trabajo con marcas de Ecuador y Latinoamérica. Todo se maneja online, por WhatsApp y videollamada.</p></div></details>
+      <details><summary>¿Cuánto tarda en estar listo?</summary><div><p>Depende del sistema. Una landing o un asistente básico puede estar en días; un sistema completo, en pocas semanas. En el diagnóstico te doy fechas concretas.</p></div></details>
+      <details><summary>¿Puedo empezar solo con una página web o una tienda?</summary><div><p>Sí. Empiezas por la pieza que más necesitas y conectamos el resto después.</p></div></details>
+      <details><summary>¿Por qué trabajas con pocos clientes a la vez?</summary><div><p>Porque cada sistema se construye a medida. Prefiero pocos clientes bien atendidos que muchos con un servicio genérico.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIERRE + CONTACTO ============ -->
+<section class="close" id="contacto" aria-labelledby="cl-t">
+  <canvas class="close-canvas" id="closeCanvas" aria-hidden="true"></canvas>
+  <div class="wrap close-grid">
+    <div class="close-copy">
+      <p class="idx mono rv">09 — Hablemos</p>
+      <h2 id="cl-t" class="h2 xl rv d1">Tu negocio no necesita más ruido. Necesita un <em>mejor sistema.</em></h2>
+      <p class="lead rv d2">Cuéntame qué estás construyendo y encontraremos la forma de convertirlo en una experiencia digital más inteligente, eficiente y preparada para crecer.</p>
+      <div class="close-ctas rv d3">
+        <a class="btn btn-wa" data-wa="closing" href="#" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+        <a class="btn btn-ghost" data-calendly href="#" target="_blank" rel="noopener noreferrer">Agendar videollamada <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="mono num" data-wa-display>+593 959 639 787</p>
+    </div>
+
+    <form class="form rv d1" id="form" novalidate aria-labelledby="form-t">
+      <p class="mono" id="form-t">Hablemos de tu proyecto</p>
+      <div class="field"><label for="f-name">Nombre</label><input id="f-name" name="nombre" autocomplete="name" placeholder="Tu nombre" required><p class="err" id="e-name">Escribe tu nombre.</p></div>
+      <div class="field"><label for="f-biz">Marca o negocio</label><input id="f-biz" name="negocio" autocomplete="organization" placeholder="Qué vendes o a qué te dedicas" required><p class="err" id="e-biz">Cuéntame qué es tu negocio.</p></div>
+      <fieldset class="field"><legend>Servicio de interés</legend>
+        <div class="chips-in" id="svcChips">
+          <label><input type="radio" name="servicio" value="Sistemas de IA"><span>Sistemas de IA</span></label>
+          <label><input type="radio" name="servicio" value="E-commerce"><span>E-commerce</span></label>
+          <label><input type="radio" name="servicio" value="Página web"><span>Página web</span></label>
+          <label><input type="radio" name="servicio" value="Estrategia integral"><span>Estrategia integral</span></label>
+          <label><input type="radio" name="servicio" value="Necesito orientación" checked><span>Necesito orientación</span></label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="f-desc">Tu proyecto, en pocas palabras <small>(opcional)</small></label><textarea id="f-desc" name="descripcion" rows="3" maxlength="500" placeholder="Qué quieres lograr"></textarea></div>
+      <button class="btn btn-full" type="submit">Hablemos de tu proyecto <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="form-note">El contacto se completa por WhatsApp: verás tu mensaje antes de enviarlo. No guardo tus datos.</p>
+
+      <div class="preview" id="preview" hidden tabindex="-1">
+        <p class="mono">Vista previa del mensaje</p>
+        <pre id="previewTxt"></pre>
+        <div class="preview-ctas"><a class="btn btn-wa" id="previewGo" href="#" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp</a><button class="btn btn-ghost" type="button" id="previewEdit">Editar</button></div>
+      </div>
+    </form>
+  </div>
+</section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p class="micro"><b style="color:#fff;font-weight:500">DANI <span class="hl">BOSS</span></b> — Sistemas de IA · E-commerce · Webs que convierten</p>
-    <nav aria-label="Enlaces"><a href="https://instagram.com/thedaniiboss" target="_blank" rel="noopener noreferrer">Instagram</a><a href="/guia">Guía 5 sistemas</a><a href="/claude">Guía Claude</a><a href="https://calendly.com/thedaniiboss" target="_blank" rel="noopener noreferrer">Agendar</a></nav>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><span class="brand-mark sm" aria-hidden="true"></span><b>DANI BOSS</b> — Estrategia · IA · E-commerce · Web · Fundador de MAGNA 8</p>
+    <nav aria-label="Enlaces"><a data-ig href="#" target="_blank" rel="noopener noreferrer">Instagram</a><a href="/guia">Guía 5 sistemas</a><a href="/claude">Guía Claude</a><a href="#main">Arriba ↑</a></nav>
   </div>
 </footer>
 
-<a class="fab" id="fab" data-wa="flotante" href="#" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg style="color:#fff" aria-hidden="true"><use href="#wa"/></svg></a>
+<a class="fab" id="fab" data-wa="float" href="#" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 
-<script>
-(function(){
-'use strict';
-document.body.classList.remove('no-js');
-var RM=matchMedia('(prefers-reduced-motion: reduce)').matches, IO='IntersectionObserver' in window;
-
-/* ---------- CONFIG ---------- */
-var WA='593959639787';
-var WA_MSG={
-  topbar:'Hola Dani, vi tu web y quiero más información.',
-  hero:'Hola Dani, vi tu web y quiero que mi marca venda sola. ¿Hablamos?',
-  contacto:'Hola Dani, quiero mi diagnóstico de 15 minutos.',
-  flotante:'Hola Dani, vi tu web y tengo una pregunta.'
-};
-/* Testimonios REALES de clientes. Agrega objetos así:
-   {texto:'Lo que dijo el cliente', nombre:'Nombre', marca:'Negocio / ciudad'}
-   La sección aparece sola cuando hay al menos uno. */
-var TESTIMONIOS=[];
-
-function wa(text){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(text);}
-document.querySelectorAll('[data-wa]').forEach(function(a){a.href=wa(WA_MSG[a.getAttribute('data-wa')]||WA_MSG.flotante);});
-
-/* ---------- testimonials ---------- */
-if(TESTIMONIOS.length){
-  var box=document.getElementById('testis');
-  TESTIMONIOS.forEach(function(t,i){
-    var el=document.createElement('figure');el.className='testi rv'+(i%3?' d'+(i%3):'');
-    var q=document.createElement('blockquote');q.textContent=t.texto;
-    var who=document.createElement('figcaption');who.className='who';
-    var av=document.createElement('span');av.className='av';av.textContent=(t.nombre||'?').charAt(0);
-    var d=document.createElement('div');var b=document.createElement('b');b.textContent=t.nombre;var s=document.createElement('small');s.textContent=t.marca||'';
-    d.appendChild(b);d.appendChild(s);who.appendChild(av);who.appendChild(d);el.appendChild(q);el.appendChild(who);box.appendChild(el);
-  });
-  document.getElementById('testimonios').hidden=false;
-}
-
-/* ---------- reveal ---------- */
-var rvs=document.querySelectorAll('.rv');
-if(!IO||RM){rvs.forEach(function(e){e.classList.add('in')});}
-else{var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});rvs.forEach(function(e){ro.observe(e)});}
-
-/* ---------- counters ---------- */
-function count(el){var end=+el.getAttribute('data-count');if(RM){el.textContent=end;return;}var t0=null;(function tick(n){if(!t0)t0=n;var p=Math.min((n-t0)/1500,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);})(performance.now());}
-var cs=document.querySelectorAll('[data-count]');
-if(!IO){cs.forEach(function(e){e.textContent=e.getAttribute('data-count')});}
-else{var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);co.unobserve(e.target);}})},{threshold:.6});cs.forEach(function(e){co.observe(e)});}
-
-/* ---------- chat demo ---------- */
-var chat=document.getElementById('chat');
-var SCRIPT=[
-  ['in','Hola, vi su anuncio 👀 ¿cuánto cuesta?'],
-  ['out','¡Hola! 👋 Claro, te ayudo. ¿Es para ti o para regalo? Así te recomiendo la mejor opción.'],
-  ['in','Para mí, ¿hacen envíos a Quito?'],
-  ['out','Sí, envío a todo Ecuador y pagas al recibir 📦 Te queda en $29.99 con envío gratis hoy.'],
-  ['in','Ok, lo quiero'],
-  ['out','¡Perfecto! Te confirmo el pedido. Pásame tu nombre y dirección y queda listo ✅']
-];
-function addMsg(side,text){
-  var m=document.createElement('div');m.className='msg '+side;m.textContent=text;
-  var t=document.createElement('small');t.textContent=side==='out'?'IA · respondió en 4s':'cliente';m.appendChild(t);
-  chat.appendChild(m);while(chat.children.length>1&&chat.scrollHeight>chat.clientHeight+2)chat.removeChild(chat.firstChild);
-}
-var ci=0,chatTimer=null,chatOn=false;
-function stepChat(){
-  if(ci>=SCRIPT.length){chatTimer=setTimeout(function(){chat.innerHTML='';ci=0;stepChat();},3500);return;}
-  var s=SCRIPT[ci];
-  if(s[0]==='out'&&!RM){var ty=document.createElement('div');ty.className='typing';ty.innerHTML='<i></i><i></i><i></i>';chat.appendChild(ty);
-    chatTimer=setTimeout(function(){ty.remove();addMsg(s[0],s[1]);ci++;chatTimer=setTimeout(stepChat,1500);},1100);}
-  else{addMsg(s[0],s[1]);ci++;chatTimer=setTimeout(stepChat,RM?0:1300);}
-}
-if(RM){SCRIPT.forEach(function(s){addMsg(s[0],s[1])});}
-else if(IO){new IntersectionObserver(function(es){if(es[0].isIntersecting&&!chatOn){chatOn=true;stepChat();}},{threshold:.3}).observe(chat);}
-else stepChat();
-
-/* ---------- tabs ---------- */
-var tabs=[].slice.call(document.querySelectorAll('.tab'));
-var flowTimer=null;
-function runVisual(panel){
-  var v=panel.querySelector('.visual');if(!v)return;
-  var kind=v.getAttribute('data-vis');
-  clearInterval(flowTimer);
-  if(kind==='flow'){var ns=v.querySelectorAll('.node'),k=0;
-    function on(){ns.forEach(function(n,i){var a=i<=k;n.classList.toggle('on',a);n.querySelector('.st').textContent=a?'DONE':'IDLE';});k=(k+1)%(ns.length+1);}
-    on();if(!RM)flowTimer=setInterval(on,1200);else ns.forEach(function(n){n.classList.add('on');n.querySelector('.st').textContent='DONE';});}
-  if(kind==='bars'){v.classList.remove('go');void v.offsetWidth;v.classList.add('go');}
-  if(kind==='web'){var r=document.getElementById('ring'),rv=document.getElementById('ringv'),target=96,t0=null;
-    if(RM){r.style.setProperty('--v',target);rv.textContent=target;return;}
-    (function tick(n){if(!t0)t0=n;var p=Math.min((n-t0)/1200,1),val=Math.round(target*(1-Math.pow(1-p,3)));r.style.setProperty('--v',val);rv.textContent=val;if(p<1)requestAnimationFrame(tick);})(performance.now());}
-}
-function select(tab,focus){
-  tabs.forEach(function(t){var on=t===tab;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
-  if(focus)tab.focus();
-  runVisual(document.getElementById(tab.getAttribute('aria-controls')));
-}
-tabs.forEach(function(t,i){
-  t.addEventListener('click',function(){select(t)});
-  t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();select(tabs[(i+d+tabs.length)%tabs.length],true);}});
-});
-var svc=document.getElementById('servicios');
-if(IO){var once=false;new IntersectionObserver(function(es){if(es[0].isIntersecting&&!once){once=true;runVisual(document.getElementById('p-ia'));}},{threshold:.25}).observe(svc);}
-else runVisual(document.getElementById('p-ia'));
-document.querySelectorAll('[data-goto]').forEach(function(b){b.addEventListener('click',function(){
-  select(document.getElementById('t-'+b.getAttribute('data-goto')));
-  svc.scrollIntoView({behavior:RM?'auto':'smooth'});
-});});
-
-/* ---------- floating WhatsApp ---------- */
-var fab=document.getElementById('fab'),hero=document.querySelector('.hero'),contact=document.getElementById('contacto'),past=false,atC=false;
-function upd(){fab.classList.toggle('show',past&&!atC);}
-if(IO){new IntersectionObserver(function(es){past=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;upd();}).observe(hero);
-  new IntersectionObserver(function(es){atC=es[0].isIntersecting;upd();},{threshold:.2}).observe(contact);}
-else fab.classList.add('show');
-
-/* ---------- form → WhatsApp ---------- */
-var form=document.getElementById('lead');
-function check(id,min){var i=document.getElementById(id),ok=i.value.trim().length>=min;i.closest('.field').classList.toggle('bad',!ok);i.setAttribute('aria-invalid',!ok);return ok;}
-form.addEventListener('submit',function(e){
-  e.preventDefault();
-  var a=check('f-name',2),b=check('f-biz',2);
-  if(!a){document.getElementById('f-name').focus();return;}if(!b){document.getElementById('f-biz').focus();return;}
-  var needs=[].slice.call(form.querySelectorAll('input[name=need]:checked')).map(function(x){return x.value});
-  var name=form.nombre.value.trim();
-  var msg='Hola Dani, soy '+name+'.\nMi marca/negocio: '+form.negocio.value.trim()+'\nNecesito: '+(needs.length?needs.join(', '):'que me guíes')+'\n\nVi tu web y quiero mi diagnóstico.';
-  var url=wa(msg);
-  document.getElementById('sagain').href=url;
-  var w=window.open(url,'_blank');if(w)w.opener=null;else location.href=url;
-  document.getElementById('sname').textContent=name.split(' ')[0];
-  form.hidden=true;var s=document.getElementById('sent');s.hidden=false;s.focus();
-});
-['f-name','f-biz'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){if(this.getAttribute('aria-invalid')==='true')check(id,2);});});
-
-/* ---------- particles ---------- */
-var cv=document.getElementById('particles'),cx=cv.getContext('2d'),P=[],w,h,raf=null,last=0;
-function rs(){var d=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;cv.width=w*d;cv.height=h*d;cx.setTransform(d,0,0,d,0,0);}
-function mk(r){return{x:Math.random()*w,y:r?Math.random()*h:h+10,r:Math.random()*1.4+.4,a:Math.random()*.22+.08,v:Math.random()*.12+.04,d:Math.random()*6.28};}
-function draw(){cx.clearRect(0,0,w,h);cx.fillStyle='#8654D6';P.forEach(function(p){cx.globalAlpha=p.a;cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fill();});cx.globalAlpha=1;}
-function loop(n){var dt=last?Math.min((n-last)/16.7,3):1;last=n;P.forEach(function(p,i){p.y-=p.v*dt;p.d+=.004*dt;p.x+=Math.sin(p.d)*.06*dt;if(p.y<-10)P[i]=mk(false);});draw();raf=requestAnimationFrame(loop);}
-rs();for(var i=0;i<40;i++)P.push(mk(true));
-if(RM)draw();else raf=requestAnimationFrame(loop);
-var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){rs();if(!raf)draw();},150);},{passive:true});
-document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);raf=null;clearTimeout(chatTimer);}else{if(!RM){last=0;raf=requestAnimationFrame(loop);}if(chatOn)stepChat();}});
-})();
-</script>
+<script src="assets/js/content.js"></script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
