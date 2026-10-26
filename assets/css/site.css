@@ -657,3 +657,15 @@ main,.foot{position:relative;z-index:1}
 .intro-name .w2{color:var(--brand)}
 .label,.idx,.mono-hi,.mod .mono,.work-info .mono,.case .mono{color:var(--brand)!important}
 .foot b,.hero-sig b{color:#fff}
+
+/* v2.4 — futuristic header brand */
+.top-in{height:84px}
+.brand{font-family:'Unbounded','Inter Tight',sans-serif;font-weight:900;font-size:22px;letter-spacing:.06em;gap:16px}
+.brand>span:last-child{gap:.3em;text-transform:uppercase}
+.brand>span:last-child{text-shadow:0 0 18px rgba(134,84,214,.45)}
+.brand b{background:linear-gradient(100deg,#7A45D0,#9B5CF0 40%,#E6D7FF 50%,#9B5CF0 60%,#7A45D0);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:brandShine 5s linear infinite;filter:drop-shadow(0 0 10px rgba(134,84,214,.6))}
+@keyframes brandShine{from{background-position:150% 0}to{background-position:-100% 0}}
+.brand .brand-mark{width:50px;height:50px}
+@media(max-width:480px){.brand{font-size:16px;letter-spacing:.04em;gap:12px}.brand .brand-mark{width:40px;height:40px}.top-in{height:72px}}
+@media(max-width:360px){.brand{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.brand b{animation:none}}
