@@ -472,3 +472,188 @@ dd{color:var(--w2);font-size:15px}
   .js .work-img{clip-path:none}
   .cursor{display:none}
 }
+
+/* ============================================================
+   v2.1 — Socratic layer: more purple, Socrates backdrops
+   ============================================================ */
+:root{--p2:#6D2CFF;--gold:#D6A84F}
+body{background:radial-gradient(1200px 800px at 85% -10%,rgba(109,44,255,.16),transparent 60%),var(--k0)}
+
+/* hero with full-bleed Socrates */
+.hero{min-height:100svh;overflow:hidden;align-items:flex-end;padding-bottom:clamp(80px,10vw,120px)}
+@media(min-width:900px){.hero{align-items:center}}
+.hero-photo{position:absolute;inset:0;z-index:0;transform:translate3d(calc(var(--lx,0)*-14px),calc(var(--ly,0)*-10px),0) scale(1.06);transition:transform .9s var(--ease)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:67% center;filter:saturate(1.15) contrast(1.05)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.86) 32%,rgba(5,5,5,.35) 58%,rgba(5,5,5,.15) 100%),
+  linear-gradient(180deg,rgba(5,5,5,.55) 0%,transparent 25%,transparent 70%,var(--k0) 100%),
+  radial-gradient(60% 60% at 75% 45%,rgba(109,44,255,.22),transparent 70%)}
+@media(max-width:899px){
+  .hero-photo img{object-position:72% 20%}
+  .hero-photo::after{background:linear-gradient(180deg,rgba(5,5,5,.35) 0%,rgba(5,5,5,.55) 35%,rgba(5,5,5,.94) 62%,var(--k0) 100%),radial-gradient(70% 40% at 70% 25%,rgba(109,44,255,.25),transparent 70%)}
+  .hero{padding-top:52svh}
+}
+.hero-bg{z-index:1;opacity:.55}
+.hero-grid{z-index:2;grid-template-columns:1fr!important}
+.hero-copy{max-width:720px}
+.quote-k{color:var(--gold);letter-spacing:.2em;margin:-12px 0 22px;opacity:.9}
+.hero-title em,.h2 em{background:linear-gradient(90deg,#B74CFF,var(--pll) 55%,#E6D7FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-title{text-shadow:0 2px 40px rgba(0,0,0,.6)}
+.scroll-cue{z-index:2}
+
+/* primary buttons go purple */
+.btn{background:linear-gradient(135deg,var(--p2),var(--p));color:#fff;border-color:rgba(184,154,240,.5);box-shadow:0 10px 30px -12px rgba(109,44,255,.8),inset 0 1px 0 rgba(255,255,255,.18)}
+.btn::before{background:linear-gradient(135deg,#8a4dff,#B74CFF)}
+.btn:hover{border-color:#B74CFF;box-shadow:0 14px 40px -10px rgba(183,76,255,.9),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-ghost{background:rgba(10,8,16,.5);border-color:rgba(134,84,214,.45);box-shadow:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.btn-ghost::before{background:rgba(134,84,214,.22)}
+.btn-wa{background:var(--wa);border-color:var(--wa);color:#03210f;box-shadow:0 10px 30px -12px rgba(37,211,102,.7)}
+
+/* map section */
+.sec-map{padding-top:clamp(80px,10vw,130px)}
+.map-grid{display:grid;gap:48px;align-items:center}
+@media(min-width:1000px){.map-grid{grid-template-columns:.85fr 1.15fr;gap:64px}}
+.map-grid .lead{margin-top:24px}
+.sys{max-width:600px;background:linear-gradient(180deg,rgba(28,18,48,.75),rgba(10,8,16,.8));border-color:rgba(134,84,214,.4);box-shadow:0 40px 90px -30px rgba(109,44,255,.55)}
+
+/* Socrates backdrops */
+.bg-soc{position:absolute;pointer-events:none;z-index:0;background-repeat:no-repeat;background-size:cover}
+.bg-soc~*{position:relative;z-index:1}
+.bg-soc-l{inset:0 auto 0 0;width:min(70%,900px);background-image:url(../bg/soc-dark.jpg);background-position:30% center;opacity:.42;
+  -webkit-mask:linear-gradient(90deg,#000 20%,transparent 95%),linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);-webkit-mask-composite:source-in;
+  mask:linear-gradient(90deg,#000 20%,transparent 95%) intersect,linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent)}
+.bg-soc-r{inset:0 0 0 auto;width:min(60%,820px);background-image:url(../bg/soc-dark.jpg);background-position:72% 30%;opacity:.22;
+  -webkit-mask:linear-gradient(270deg,#000 15%,transparent 90%),linear-gradient(180deg,transparent,#000 25%,#000 70%,transparent);-webkit-mask-composite:source-in;
+  mask:linear-gradient(270deg,#000 15%,transparent 90%) intersect,linear-gradient(180deg,transparent,#000 25%,#000 70%,transparent)}
+.bg-soc-close{inset:0;background-image:url(../bg/soc-dark.jpg);background-position:70% center;opacity:.5;
+  -webkit-mask:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 35%,#000 70%);mask:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 35%,#000 70%)}
+@media(max-width:999px){.bg-soc-close{opacity:.28;background-position:70% top}.bg-soc-l{width:100%;opacity:.28}.bg-soc-r{width:100%;opacity:.14}}
+.lab{padding-bottom:clamp(40px,6vw,80px)}
+.lab .console{background:linear-gradient(180deg,rgba(22,14,38,.85),rgba(10,8,16,.9));-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-color:rgba(134,84,214,.35)}
+.close{background:radial-gradient(70% 60% at 80% 50%,rgba(109,44,255,.22),transparent 70%)}
+.close-canvas{z-index:1}
+
+/* more purple across surfaces */
+.sec{background-image:radial-gradient(50% 40% at 0% 0%,rgba(109,44,255,.07),transparent 70%)}
+.idx{color:#B74CFF}
+.label{color:#C9A8FF}
+.cmp,.demo,.case,.plan,.console,.form,.work-img{border-color:rgba(134,84,214,.28)}
+.demo{background:linear-gradient(180deg,#0e0b15,#0a0a0a)}
+.plan-hi{background:linear-gradient(180deg,#1d1236,#0c0a12);box-shadow:inset 0 0 0 1px rgba(183,76,255,.45)}
+.case{background:radial-gradient(110% 80% at 0% 0%,rgba(109,44,255,.26),transparent 60%),#0b0910}
+.tab::after,.flow button::after,.ec-steps button::after{background:linear-gradient(90deg,var(--p2),#B74CFF)}
+.list li::before{background:#B74CFF}
+.work-img{box-shadow:0 40px 80px -40px rgba(109,44,255,.6)}
+.top.solid{background:rgba(8,5,14,.78);border-color:rgba(134,84,214,.25)}
+.form{background:linear-gradient(180deg,rgba(22,14,38,.82),rgba(8,6,12,.9))}
+.foot{background:linear-gradient(180deg,transparent,rgba(109,44,255,.08))}
+@media(min-width:900px){
+  .hero{padding-top:110px;padding-bottom:70px}
+  .hero-title{font-size:clamp(44px,5.4vw,80px)}
+  .hero-sub{margin-top:22px}
+  .hero-ctas{margin-top:30px}
+  .hero-sig{margin-top:30px}
+}
+/* seam + mask fixes */
+body{background:var(--k0)}
+.sec{background-image:none}
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(900px 600px at 90% 0%,rgba(109,44,255,.12),transparent 70%),radial-gradient(800px 600px at 0% 100%,rgba(75,29,143,.12),transparent 70%)}
+main,.foot{position:relative;z-index:1}
+.bg-soc-l,.bg-soc-r,.bg-soc-close{-webkit-mask-composite:initial;mask-composite:initial}
+.bg-soc-l{-webkit-mask:radial-gradient(ellipse 70% 60% at 35% 50%,#000 30%,transparent 75%);mask:radial-gradient(ellipse 70% 60% at 35% 50%,#000 30%,transparent 75%)}
+.bg-soc-r{-webkit-mask:radial-gradient(ellipse 65% 55% at 65% 45%,#000 25%,transparent 75%);mask:radial-gradient(ellipse 65% 55% at 65% 45%,#000 25%,transparent 75%)}
+.bg-soc-close{-webkit-mask:radial-gradient(ellipse 60% 70% at 72% 50%,#000 30%,transparent 78%);mask:radial-gradient(ellipse 60% 70% at 72% 50%,#000 30%,transparent 78%)}
+.bg-soc~.close-canvas{position:absolute;z-index:1}.bg-soc~.wrap{position:relative;z-index:2}
+
+/* ============ v2.2 — dynamic imagery ============ */
+/* hero slideshow */
+.hero-photo{transform:translate3d(calc(var(--lx,0)*-14px),calc(var(--ly,0)*-10px),0)}
+.hero-photo .slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.6s var(--ease)}
+.hero-photo .slide.on{opacity:1}
+.hero-photo .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);filter:saturate(1.15) contrast(1.05)}
+.hero-photo .slide.on img{animation:kb 9s linear forwards}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.16)}}
+.tint img{filter:grayscale(1) contrast(1.15) brightness(.85)!important}
+.tint::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,#6D2CFF,#2a0f55 70%);mix-blend-mode:color;opacity:.95}
+.tint::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 60% 30%,rgba(183,76,255,.35),transparent 70%);mix-blend-mode:screen;z-index:1}
+@media(min-width:900px){.hero-photo .slide:not(:first-child){left:42%}
+  .hero-photo .slide:not(:first-child)::after{-webkit-mask:linear-gradient(90deg,transparent,#000 30%);mask:linear-gradient(90deg,transparent,#000 30%)}}
+.hero-photo::after{z-index:2}
+.hero-dots{position:absolute;z-index:3;right:var(--gut);bottom:30px;display:flex;gap:10px;align-items:center}
+.hero-dots button{display:flex;flex-direction:column;gap:8px;align-items:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--g2);padding:6px 0;min-width:64px;transition:color .3s}
+.hero-dots button i{display:block;width:100%;height:2px;background:rgba(255,255,255,.15);position:relative;overflow:hidden}
+.hero-dots button i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--p2),#B74CFF);transform:scaleX(0);transform-origin:left}
+.hero-dots button.on{color:#fff}
+.hero-dots button.on i::after{animation:prog var(--dur,6s) linear forwards}
+.hero-dots button.done i::after{transform:scaleX(1)}
+@keyframes prog{to{transform:scaleX(1)}}
+@media(max-width:899px){.hero-dots{left:var(--gut);right:auto;top:calc(52svh - 48px);bottom:auto}.hero-dots button{min-width:48px;font-size:0;gap:0}}
+
+/* philosophy panels */
+.panels{display:flex;gap:10px;height:clamp(420px,58vh,600px)}
+.panel-i{position:relative;flex:1;min-width:0;overflow:hidden;border:1px solid rgba(134,84,214,.28);background:#0a0810;text-align:left;transition:flex 1s var(--ease),border-color .5s;isolation:isolate}
+.panel-i::before{content:"";position:absolute;inset:0;background:var(--img) var(--pos)/cover no-repeat;filter:grayscale(1) contrast(1.1) brightness(.7);transform:scale(1.08);transition:transform 1.4s var(--ease),filter 1s;z-index:-2}
+.panel-i::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(109,44,255,.55),rgba(43,21,82,.6) 50%,rgba(5,5,5,.95)),linear-gradient(160deg,#6D2CFF,#180A2E);mix-blend-mode:multiply;transition:opacity .8s}
+.panel-i.on{flex:4.2;border-color:rgba(183,76,255,.8);box-shadow:0 30px 80px -30px rgba(109,44,255,.8)}
+.panel-i.on::before{transform:scale(1);filter:grayscale(.35) contrast(1.1) brightness(.95) saturate(1.2) hue-rotate(-8deg)}
+.panel-i:hover::before{transform:scale(1.02)}
+.p-n{position:absolute;top:18px;left:18px;color:var(--pll)}
+.p-v{position:absolute;left:50%;bottom:34px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:.04em;white-space:nowrap;transition:opacity .4s}
+.panel-i.on .p-v{opacity:0}
+.p-body{position:absolute;left:clamp(20px,3vw,36px);right:clamp(20px,3vw,36px);bottom:clamp(22px,3vw,36px);display:grid;gap:10px;color:var(--w2);font-size:clamp(14.5px,1.3vw,17px);max-width:30em;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .7s var(--ease)}
+.p-body b{font-family:var(--disp);font-weight:900;font-size:clamp(24px,2.8vw,40px);line-height:1.02;letter-spacing:-.03em;color:#fff}
+.panel-i.on .p-body{opacity:1;transform:none;transition-delay:.35s}
+.panel-i:focus-visible{outline:2px solid #B74CFF;outline-offset:3px}
+@media(max-width:760px){
+  .panels{flex-direction:column;height:auto}
+  .panel-i{flex:none;height:76px;transition:height .9s var(--ease),border-color .5s}
+  .panel-i.on{height:400px}
+  .p-v{writing-mode:horizontal-tb;transform:none;left:60px;bottom:auto;top:24px;font-size:20px}
+  .p-n{top:28px}
+}
+
+/* new section backdrops */
+.bg-soc-l{background-image:url(../bg/soc-dark.jpg)!important;background-position:40% 30%!important;filter:grayscale(1) contrast(1.1)}
+.bg-soc-r{background-image:url(../bg/soc-dark.jpg)!important;background-position:50% 20%!important;opacity:.3!important;filter:grayscale(1)}
+.bg-soc-close{background-image:url(../bg/soc-dark.jpg)!important;background-size:auto 130%!important;background-position:78% 30%!important;opacity:.9!important;filter:contrast(1.2) brightness(1.4)}
+.bg-soc-l::after,.bg-soc-r::after,.bg-soc-close::after{content:"";position:absolute;inset:0;background:#6D2CFF;mix-blend-mode:color}
+@media(prefers-reduced-motion:reduce){.hero-photo .slide.on img{animation:none}}
+/* v2.2 fixes: purple tint via filter (no blend overlays) */
+.bg-soc-l::after,.bg-soc-r::after,.bg-soc-close::after{display:none}
+.bg-soc-l{filter:grayscale(1) sepia(1) hue-rotate(225deg) saturate(2.6) brightness(.85) contrast(1.1)}
+.bg-soc-r{filter:grayscale(1) sepia(1) hue-rotate(225deg) saturate(2.4) brightness(.8)}
+.bg-soc-close{background-size:cover!important;background-position:75% 35%!important;opacity:.85!important;filter:grayscale(1) sepia(1) hue-rotate(225deg) saturate(3) brightness(1.6) contrast(1.2)}
+.panel-i::before{filter:grayscale(1) sepia(1) hue-rotate(225deg) saturate(2.2) brightness(.6) contrast(1.1)}
+.panel-i.on::before{filter:grayscale(.2) sepia(.35) hue-rotate(225deg) saturate(1.6) brightness(.95) contrast(1.1)}
+.panel-i::after{mix-blend-mode:normal;background:linear-gradient(180deg,rgba(24,10,46,.15) 0%,rgba(24,10,46,.35) 45%,rgba(5,5,5,.92) 100%)}
+.panel-i.on::after{background:linear-gradient(180deg,rgba(109,44,255,.12) 0%,transparent 40%,rgba(5,5,5,.9) 100%)}
+.pane>*,.map-grid>*,.lab-grid>*,.close-grid>*,.hero-grid>*{min-width:0}.h3,.h2{overflow-wrap:break-word}html,body{overflow-x:clip}
+
+/* ============ v2.3 — single Socrates, stronger brand ============ */
+:root{--brand:#8654D6;--brand2:#9B5CF0}
+/* hero: one dark Socrates, purple rim light */
+.hero-photo .slide.solo img{object-fit:cover;object-position:50% 28%;filter:grayscale(1) sepia(1) hue-rotate(225deg) saturate(2.4) brightness(1.35) contrast(1.15)}
+@media(min-width:900px){.hero-photo .slide.solo{left:38%}.hero-photo .slide.solo img{object-fit:contain;object-position:70% 40%}}
+.hero-photo .slide.solo img{animation:breathe 14s ease-in-out infinite alternate}
+@keyframes breathe{from{transform:scale(1.02)}to{transform:scale(1.08)}}
+.hero-photo::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(40% 45% at 70% 35%,rgba(134,84,214,.28),transparent 70%);pointer-events:none}
+.hero-dots{display:none}
+@media(max-width:899px){.hero-photo .slide.solo img{object-position:60% 20%}}
+/* panels: same image, different crops */
+.panel-i::before{background:var(--img) var(--pos)/var(--zoom,cover) no-repeat;background-color:#050505}
+/* lab + close backdrop = dark Socrates */
+.bg-soc-l{background-image:url(../bg/soc-dark.jpg)!important;background-size:auto 120%!important;background-position:20% 30%!important;opacity:.7!important;filter:grayscale(1) sepia(1) hue-rotate(225deg) saturate(2.6) brightness(1.5) contrast(1.15)}
+.bg-soc-close{background-size:auto 125%!important;background-position:82% 30%!important}
+/* brand: bigger, branding purple */
+.top-in{height:76px}
+.brand{gap:14px;font-size:19px;font-weight:900;letter-spacing:.16em}
+.brand>span:last-child{display:flex;gap:.36em}
+.brand b{color:var(--brand);background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
+.brand .brand-mark{width:44px;height:44px;box-shadow:0 0 0 1.5px var(--brand),0 0 0 5px rgba(134,84,214,.15),0 0 22px -2px rgba(134,84,214,.8);transition:transform .5s var(--ease)}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.05)}
+@media(max-width:480px){.brand{font-size:16px;letter-spacing:.12em}.brand .brand-mark{width:38px;height:38px}}
+/* all accents = branding purple */
+.hero-title em,.h2 em{background:linear-gradient(90deg,#7A45D0,var(--brand) 45%,#A676F0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro-name .w2{color:var(--brand)}
+.label,.idx,.mono-hi,.mod .mono,.work-info .mono,.case .mono{color:var(--brand)!important}
+.foot b,.hero-sig b{color:#fff}

@@ -104,20 +104,6 @@
       g.addColorStop(0, 'rgba(134,84,214,0)'); g.addColorStop(.5, 'rgba(184,154,240,.9)'); g.addColorStop(1, 'rgba(134,84,214,0)');
       cx.fillStyle = g; cx.fillRect(cxp - l, cyp - .5, l * 2, 1);
       cx.globalAlpha = 1 - ease((t - .9) / .45); cx.fillStyle = '#B89AF0'; cx.beginPath(); cx.arc(cxp, cyp, 2 + Math.sin(t * 6) * .6, 0, 6.283); cx.fill(); cx.globalAlpha = 1;
-      // phase 2: nodes converge into a system ring
-      var k = ease((t - .45) / 1.2);
-      var pts = nodes.map(function (n) {
-        var r = n.r0 + (n.r1 - n.r0) * k, a = n.a + t * .05 * n.s;
-        return [cxp + Math.cos(a) * r, cyp + Math.sin(a) * r * .62];
-      });
-      cx.lineWidth = 1;
-      for (var q = 0; q < pts.length; q++) {
-        var p = pts[q], nx = pts[(q + 1) % pts.length], op = pts[(q + 5) % pts.length];
-        cx.strokeStyle = 'rgba(134,84,214,' + (.42 * k) + ')';
-        cx.beginPath(); cx.moveTo(p[0], p[1]); cx.lineTo(nx[0], nx[1]); cx.stroke();
-        if (q % 3 === 0) { cx.strokeStyle = 'rgba(255,255,255,' + (.06 * k) + ')'; cx.beginPath(); cx.moveTo(p[0], p[1]); cx.lineTo(op[0], op[1]); cx.stroke(); }
-        cx.fillStyle = 'rgba(184,154,240,' + (.35 + .6 * k) + ')'; cx.beginPath(); cx.arc(p[0], p[1], 2.4, 0, 6.283); cx.fill();
-      }
       introRaf = requestAnimationFrame(frame);
     }
     introRaf = requestAnimationFrame(frame);
@@ -412,6 +398,55 @@
     if (!IO) { fab.classList.add('show'); return; }
     new IntersectionObserver(function (es) { past = !es[0].isIntersecting; upd(); }, { threshold: 0 }).observe(hero);
     new IntersectionObserver(function (es) { atClose = es[0].isIntersecting; upd(); }, { threshold: .15 }).observe(close);
+  })();
+
+  /* ---------- Hero slideshow ---------- */
+  (function () {
+    var slides = $$('#heroPhoto .slide'), dots = $('#heroDots'); if (slides.length < 2 || !dots) return;
+    var cur = 0, timer = null, DUR = 6000, btns = [];
+    dots.style.setProperty('--dur', DUR + 'ms');
+    slides.forEach(function (sl, i) {
+      var b = document.createElement('button'); b.type = 'button';
+      b.innerHTML = '<i></i>' + sl.getAttribute('data-label');
+      b.setAttribute('aria-label', 'Imagen ' + (i + 1) + ': ' + sl.getAttribute('data-label'));
+      b.addEventListener('click', function () { go(i); restart(); });
+      dots.appendChild(b); btns.push(b);
+    });
+    function go(i) {
+      cur = i;
+      slides.forEach(function (sl, k) { sl.classList.toggle('on', k === i); });
+      btns.forEach(function (b, k) { b.classList.remove('on'); b.classList.toggle('done', k < i); });
+      void btns[i].offsetWidth; btns[i].classList.add('on'); btns[i].setAttribute('aria-current', 'true');
+    }
+    function next() { go((cur + 1) % slides.length); }
+    function restart() { clearInterval(timer); timer = RM ? null : setInterval(next, DUR); }
+    go(0);
+    if (!RM) whileVisible($('.hero'), restart, function () { clearInterval(timer); timer = null; });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) { clearInterval(timer); timer = null; } else restart(); });
+  })();
+
+  /* ---------- Philosophy panels ---------- */
+  (function () {
+    var ps = $$('#panels .panel-i'); if (!ps.length) return;
+    var cur = 0, timer = null, touched = false;
+    function sel(i) { cur = i; ps.forEach(function (p, k) { p.classList.toggle('on', k === i); p.setAttribute('aria-expanded', k === i); }); }
+    ps.forEach(function (p, i) {
+      p.addEventListener('click', function () { touched = true; clearInterval(timer); sel(i); });
+      p.addEventListener('mouseenter', function () { if (FINE) { touched = true; clearInterval(timer); sel(i); } });
+      p.addEventListener('focus', function () { touched = true; clearInterval(timer); sel(i); });
+    });
+    sel(0);
+    if (!RM) whileVisible($('#panels'), function () { if (!touched && !timer) timer = setInterval(function () { sel((cur + 1) % ps.length); }, 3800); }, function () { clearInterval(timer); timer = null; });
+  })();
+
+  /* ---------- Hero parallax (desktop) ---------- */
+  (function () {
+    var hp = $('#heroPhoto'), hero = $('.hero'); if (!hp || !FINE || RM) return;
+    var raf = null, lx = 0, ly = 0;
+    hero.addEventListener('pointermove', function (e) {
+      lx = (e.clientX / innerWidth - .5) * 2; ly = (e.clientY / innerHeight - .5) * 2;
+      if (!raf) raf = requestAnimationFrame(function () { raf = null; hp.style.setProperty('--lx', lx.toFixed(3)); hp.style.setProperty('--ly', ly.toFixed(3)); });
+    }, { passive: true });
   })();
 
   /* ---------- Cursor (desktop only, native cursor stays) ---------- */

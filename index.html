@@ -35,6 +35,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
+<div class="ambient" aria-hidden="true"></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1 0-.3-.1-.5-.2z"/></symbol>
@@ -60,7 +61,7 @@
   <div class="wrap top-in">
     <a class="brand" href="#main" aria-label="DANI BOSS, inicio"><span class="brand-mark" aria-hidden="true"></span><span>DANI <b>BOSS</b></span></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#disciplinas">Disciplinas</a><a href="#laboratorio">Laboratorio</a><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a>
+      <a href="#sistema">Sistema</a><a href="#disciplinas">Disciplinas</a><a href="#filosofia">Filosofía</a><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a>
     </nav>
     <span class="avail" aria-label="Agenda abierta"><i class="led"></i>Agenda abierta</span>
     <a class="btn btn-sm" href="#contacto">Hablemos <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -71,10 +72,12 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" aria-labelledby="hero-t">
+  <div class="hero-photo" id="heroPhoto" aria-hidden="true"><figure class="slide on solo"><img src="assets/bg/soc-dark.jpg" alt="" fetchpriority="high" decoding="async"></figure></div>
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="label rv">Estrategia · IA · E-commerce · Web</p>
+      <p class="quote-k mono rv">Sócrates pregunta. Dani Boss construye.</p>
       <h1 id="hero-t" class="hero-title">
         <span class="mask"><span class="line">No construyo solo marcas.</span></span>
         <span class="mask"><span class="line">Construyo <em>sistemas</em></span></span>
@@ -88,7 +91,19 @@
       <div class="hero-sig rv d3"><img src="assets/dani.jpg" alt="Dani Boss" width="44" height="44"><p><b>Dani Boss</b> · Fundador de MAGNA 8<br><span>Ecuador → Latinoamérica</span></p></div>
     </div>
 
-    <div class="sys rv d2" id="sys">
+  </div>
+  <a class="scroll-cue mono" href="#sistema" aria-label="Bajar a la siguiente sección"><i></i>Scroll</a>
+</section>
+
+<!-- ============ SISTEMA ============ -->
+<section class="sec sec-map" id="sistema" aria-labelledby="sm-t">
+  <div class="wrap map-grid">
+    <div>
+      <p class="idx mono rv">00 — El sistema</p>
+      <h2 id="sm-t" class="h2 rv d1">Seis piezas.<br>Una sola <em>máquina.</em></h2>
+      <p class="lead rv d2">Antes de construir, hago la pregunta correcta: ¿dónde se pierde tu cliente? Después conecto cada pieza para que nadie se quede sin respuesta. Toca cada nodo.</p>
+    </div>
+    <div class="sys rv d1" id="sys">
       <div class="sys-head mono"><span>Sistema / mapa interactivo</span><span class="mono-hi">Toca un nodo</span></div>
       <div class="sys-stage">
         <svg class="sys-lines" viewBox="0 0 400 400" aria-hidden="true">
@@ -102,8 +117,8 @@
       </div>
       <div class="sys-info" aria-live="polite"><span class="mono" id="sysK">01 / CAPTACIÓN</span><p id="sysT">Atrae a las personas correctas: anuncios, contenido y perfiles que llevan tráfico al sistema.</p></div>
     </div>
+  
   </div>
-  <a class="scroll-cue mono" href="#problema" aria-label="Bajar a la siguiente sección"><i></i>Scroll</a>
 </section>
 
 <!-- ============ PROBLEMA ============ -->
@@ -247,6 +262,7 @@
 
 <!-- ============ LABORATORIO ============ -->
 <section class="sec lab" id="laboratorio" aria-labelledby="lb-t">
+  <div class="bg-soc bg-soc-l" aria-hidden="true"></div>
   <div class="wrap lab-grid">
     <div>
       <p class="idx mono rv">03 — Laboratorio</p>
@@ -265,6 +281,23 @@
         <article class="mod"><p class="mono">Aprendizajes</p><h3>Contenido que educa</h3><p>Enseño en Instagram los sistemas que uso. Lo que la audiencia pregunta define el próximo experimento.</p></article>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ FILOSOFÍA ============ -->
+<section class="sec phil" id="filosofia" aria-labelledby="ph-t">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div><p class="idx mono rv">Filosofía</p><h2 id="ph-t" class="h2 rv d1">Mente clásica.<br>Ejecución <em>futurista.</em></h2></div>
+      <p class="lead rv d2">Cinco principios que guían cada sistema que construyo. Pasa el cursor o toca cada panel.</p>
+    </div>
+    <div class="panels rv" id="panels">
+      <button type="button" class="panel-i on" style="--img:url(/assets/bg/soc-dark.jpg);--pos:50% 22%;--zoom:150%"><span class="p-n mono">01</span><span class="p-v">Estrategia</span><span class="p-body"><b>Estrategia antes que ejecución.</b>Primero la pregunta correcta: qué vendes, a quién y qué debe pasar después del clic.</span></button>
+      <button type="button" class="panel-i" style="--img:url(/assets/bg/soc-dark.jpg);--pos:42% 30%;--zoom:190%"><span class="p-n mono">02</span><span class="p-v">Inteligencia</span><span class="p-body"><b>Inteligencia antes que ruido.</b>La IA trabaja en silencio: responde, ordena y libera tu tiempo para lo importante.</span></button>
+      <button type="button" class="panel-i" style="--img:url(/assets/bg/soc-dark.jpg);--pos:60% 38%;--zoom:230%"><span class="p-n mono">03</span><span class="p-v">Autoridad</span><span class="p-body"><b>Autoridad antes que popularidad.</b>No se trata de más seguidores, sino de que te elijan las personas correctas.</span></button>
+      <button type="button" class="panel-i" style="--img:url(/assets/bg/soc-dark.jpg);--pos:35% 18%;--zoom:170%"><span class="p-n mono">04</span><span class="p-v">Sistemas</span><span class="p-body"><b>Sistemas antes que improvisación.</b>Cada pieza conectada: lo que funciona se repite solo, todos los días.</span></button>
+      <button type="button" class="panel-i" style="--img:url(/assets/bg/soc-dark.jpg);--pos:55% 45%;--zoom:260%"><span class="p-n mono">05</span><span class="p-v">Calidad</span><span class="p-body"><b>Calidad antes que cantidad.</b>Pocos clientes, sistemas a medida y una ejecución que se nota.</span></button>
+      </div>
   </div>
 </section>
 
@@ -394,6 +427,7 @@
 
 <!-- ============ CIERRE + CONTACTO ============ -->
 <section class="close" id="contacto" aria-labelledby="cl-t">
+  <div class="bg-soc bg-soc-close" aria-hidden="true"></div>
   <canvas class="close-canvas" id="closeCanvas" aria-hidden="true"></canvas>
   <div class="wrap close-grid">
     <div class="close-copy">
