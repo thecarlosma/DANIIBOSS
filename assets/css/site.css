@@ -402,6 +402,9 @@ dd{color:var(--w2);font-size:15px}
 .price b{font-family:var(--disp);font-size:36px;font-weight:900;letter-spacing:-.03em}
 .price small{color:var(--g);font-size:13px}
 
+.guides .plan dl{margin:18px 0 28px}
+.guides .btn{align-self:flex-start}
+
 /* ============ FAQ ============ */
 .faq-grid{display:grid;gap:40px}
 @media(min-width:960px){.faq-grid{grid-template-columns:.8fr 1.2fr;gap:72px}}

@@ -21,9 +21,9 @@ window.DB_CONTENT = {
 
   // Precios vigentes (fuente: Escalera de Valor DANI BOSS × MAGNA)
   prices: {
-    diagnostico: { from: '$150',   note: 'pago único' },
-    sistema:     { from: '$1,500', note: 'al mes' },
-    crecimiento: { from: '$8,000', note: 'por proyecto' }
+    diagnostico: { from: '$33',    note: 'pago único' },
+    sistema:     { from: '$500',   note: 'al mes' },
+    crecimiento: { from: '$1,500', note: 'por proyecto' }
   },
 
   /* Testimonios REALES. Agrega objetos así y la sección aparece sola:
