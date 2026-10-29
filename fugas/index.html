@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0A0A">
+<title>Plan Anti-Fugas — DANI BOSS</title>
+<meta name="description" content="Test gratis: descubre por dónde se te están yendo los clientes y tapa cada fuga con pasos y mensajes listos para copiar.">
+<meta property="og:title" content="¿Tu negocio está perdiendo clientes? | DANI BOSS">
+<meta property="og:description" content="Haz el test de 5 preguntas y tapa cada fuga paso a paso.">
+<meta property="og:image" content="https://daniiboss.vercel.app/assets/dani.jpg">
+<link rel="icon" type="image/png" href="/assets/favicon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: mobile-first single column; test on top drives the result card and marks which fugas apply; each fuga is a module with checklist + copyable templates; WhatsApp dock at the bottom */
+:root{
+  --bg:#0A0A0A; --surface:#111112; --fg:#FFFFFF; --muted:#A3A3A9; --dim:#6E6E74;
+  --line:#232326; --accent:#8654D6; --accent-deep:#4B1D8F;
+  --green:#22C55E; --amber:#F5B83D; --red:#EF4444;
+  --display:'Inter Tight','Inter',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:680px;margin:0 auto;padding:24px 16px 120px;display:grid;gap:40px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.025em;line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.micro{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.eb{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:12px}
+.eb:before{content:"";width:22px;height:1px;background:var(--accent)}
+
+header{display:grid;gap:20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-weight:900;letter-spacing:.02em;font-size:15px;text-decoration:none}
+.brand span{color:var(--accent)}
+h1{font-size:clamp(32px,9vw,60px);font-weight:900;line-height:1.02}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);font-size:16px;max-width:36em}
+
+/* test */
+.test{border:1px solid rgba(134,84,214,.5);background:var(--surface);display:grid;scroll-margin-top:16px}
+.test-head{padding:20px 16px;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.test-head h2{font-size:clamp(23px,6.4vw,30px);font-weight:800}
+.qs{list-style:none;margin:0;padding:0}
+.qs li{padding:16px;display:grid;gap:12px}
+.qs li + li{border-top:1px solid var(--line)}
+.qs .qt{font-weight:600;font-size:16.5px;line-height:1.4;display:grid;grid-template-columns:32px 1fr;gap:8px}
+.qs .qt b{font-family:var(--display);color:var(--accent)}
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-left:40px}
+.yn button{min-height:48px;font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:.04em;border:1px solid var(--line);background:var(--bg);color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .2s,border-color .2s,color .2s}
+.yn button[aria-pressed=true].si{background:var(--accent-deep);border-color:var(--accent);color:var(--fg);box-shadow:0 0 24px rgba(134,84,214,.35)}
+.yn button[aria-pressed=true].no{border-color:#3d3d42;color:var(--fg)}
+.yn button:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+
+.result{padding:22px 16px;border-top:1px solid var(--line);display:grid;gap:12px;background:radial-gradient(90% 80% at 0% 0%,color-mix(in srgb,var(--c,var(--accent)) 14%,transparent),transparent 70%)}
+.result .score{display:flex;align-items:baseline;gap:12px}
+.result .score strong{font-family:var(--display);font-weight:900;font-size:56px;line-height:1;letter-spacing:-.04em;color:var(--c,var(--accent))}
+.result .score span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.result h3{font-size:24px;font-weight:800}
+.result p{color:var(--muted);font-size:15.5px}
+.result .go{justify-self:start;font-family:var(--display);font-weight:700;font-size:15px;color:var(--fg);text-decoration:none;border-bottom:1px solid var(--accent);padding:6px 0}
+.result[hidden]{display:none}
+
+.jump{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:0 0 auto;text-decoration:none;font-size:14px;padding:10px 14px;border:1px solid var(--line);background:var(--surface);min-height:44px;display:flex;align-items:center;gap:8px}
+.jump a b{font-family:var(--display);color:var(--accent)}
+.jump a.hit{border-color:var(--red)}
+.jump a.hit:after{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+
+.sys{border:1px solid var(--line);background:var(--surface);display:grid;scroll-margin-top:16px}
+.sys.hit{border-color:rgba(239,68,68,.5)}
+.sys-head{padding:22px 16px 0;display:grid;gap:10px}
+.sys-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.num{font-family:var(--display);font-weight:900;font-size:40px;line-height:1;color:var(--accent);letter-spacing:-.04em}
+.flag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border:1px solid rgba(239,68,68,.45);background:rgba(239,68,68,.08);padding:6px 10px}
+.sys.hit .flag{display:inline-block}
+h2{font-size:clamp(23px,6.4vw,30px);font-weight:800}
+.why{color:var(--muted);font-size:15.5px}
+.block{padding:18px 16px 20px;display:grid;gap:12px}
+.block + .block{border-top:1px solid var(--line)}
+ul.check{list-style:none;margin:0;padding:0;display:grid}
+ul.check li + li{border-top:1px solid rgba(35,35,38,.7)}
+label.item{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start;padding:14px 0;min-height:52px;cursor:pointer;font-size:16px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+label.item input{appearance:none;-webkit-appearance:none;width:24px;height:24px;margin:0;border:1px solid #3d3d42;background:var(--bg);cursor:pointer;display:grid;place-items:center;transition:border-color .2s,background .2s}
+label.item input:checked{background:var(--accent-deep);border-color:var(--accent)}
+label.item input:checked::after{content:"";width:6px;height:11px;border:solid var(--fg);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+label.item input:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+label.item span{min-width:0}
+label.item:has(input:checked) span{color:var(--dim);text-decoration:line-through;text-decoration-color:#3d3d42}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tool{font-size:14px;padding:8px 12px;border:1px solid var(--line);background:var(--bg);line-height:1.3}
+.tool small{color:var(--dim);margin-left:6px;font-size:12.5px}
+.tip{font-size:15px;color:var(--muted);padding:14px;border-left:2px solid var(--accent);background:rgba(134,84,214,.07)}
+.tip b{color:var(--fg)}
+
+.prompt{position:relative;border:1px solid var(--line);background:var(--bg)}
+.prompt + .prompt{margin-top:4px}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 14px;border-bottom:1px solid var(--line)}
+.copy{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);background:var(--accent-deep);border:1px solid var(--accent);min-height:40px;padding:0 14px;cursor:pointer;-webkit-tap-highlight-color:transparent;flex:0 0 auto}
+.copy.ok{background:transparent;color:var(--accent)}
+.prompt pre{margin:0;padding:14px;font-family:var(--mono);font-size:13.5px;line-height:1.6;color:#D6D6DA;white-space:pre-wrap;word-break:break-word}
+.prompt pre i{font-style:normal;color:var(--accent)}
+
+.progress{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin:0 -16px;padding:12px 16px;background:rgba(10,10,10,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:grid;gap:8px}
+.progress .row{display:flex;justify-content:space-between;align-items:center}
+.progress .row b{color:var(--fg);font-weight:500}
+.bar{height:3px;background:var(--line)}
+.bar i{display:block;height:100%;width:0;background:var(--accent);box-shadow:0 0 10px var(--accent);transition:width .4s ease}
+
+.cta{scroll-margin-top:16px;border:1px solid rgba(134,84,214,.5);background:radial-gradient(90% 60% at 50% 0%,rgba(75,29,143,.28),transparent 70%),var(--surface);padding:32px 16px;display:grid;gap:16px}
+.cta h2{font-size:clamp(28px,8vw,40px);font-weight:900}
+.cta p{color:var(--muted)}
+.cta ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--muted)}
+.cta ul li:before{content:"→ ";color:var(--accent)}
+.btns{display:grid;gap:12px;margin-top:6px}
+.btn{display:flex;justify-content:center;align-items:center;gap:10px;min-height:56px;padding:0 22px;font-family:var(--display);font-weight:700;font-size:16px;text-decoration:none;border:1px solid var(--accent);background:var(--accent-deep);color:var(--fg);-webkit-tap-highlight-color:transparent;transition:box-shadow .3s}
+.btn:hover,.btn:active{box-shadow:0 0 32px rgba(134,84,214,.4)}
+.btn.ghost{background:transparent;border-color:var(--line)}
+.contact{font-family:var(--mono);font-size:12px;color:var(--dim);text-align:center;user-select:all}
+footer{display:grid;gap:10px;padding-top:18px;border-top:1px solid var(--line)}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:10;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(10,10,10,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid rgba(134,84,214,.4);display:flex;gap:12px;align-items:center;transition:transform .35s ease}
+.dock.hide{transform:translateY(110%)}
+.dock p{flex:1;min-width:0;font-family:var(--display);font-weight:700;font-size:14.5px;line-height:1.25}
+.dock .btn{min-height:46px;padding:0 18px;font-size:15px;white-space:nowrap}
+
+@media (min-width:700px){
+  .wrap{padding:56px 24px 120px;gap:56px}
+  .progress,.jump{margin:0}
+  .progress{border:1px solid var(--line)}
+  .test-head,.qs li,.result{padding-left:24px;padding-right:24px}
+  .sys-head{padding:28px 24px 0}
+  .block{padding:22px 24px 24px}
+  .cta{padding:28px 24px}
+  footer{display:flex;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="top"><a class="brand" href="/">DANI <span>BOSS</span></a><span class="micro">Guía gratis</span></div>
+    <p class="eb">Plan anti-fugas</p>
+    <h1>Descubre por dónde se te están <em>yendo los clientes</em> y tápalo</h1>
+    <p class="lead">Esta es la guía que te prometí en el carrusel. Primero haz el test, que dura 30 segundos. Después ve directo a tus fugas: cada una trae los pasos y los mensajes listos para copiar. Lo que marques se guarda en este navegador.</p>
+  </header>
+
+  <section class="test" id="test" aria-labelledby="t-title">
+    <div class="test-head">
+      <p class="micro">Test · 5 preguntas</p>
+      <h2 id="t-title">¿Tu negocio está perdiendo clientes?</h2>
+    </div>
+    <ol class="qs">
+      <li data-q="1"><p class="qt"><b>01</b><span>¿Tardas más de 1 hora en contestar un mensaje?</span></p><div class="yn"><button type="button" class="si" aria-pressed="false">SÍ</button><button type="button" class="no" aria-pressed="false">NO</button></div></li>
+      <li data-q="2"><p class="qt"><b>02</b><span>¿Le escribes una sola vez a la persona que preguntó y no compró?</span></p><div class="yn"><button type="button" class="si" aria-pressed="false">SÍ</button><button type="button" class="no" aria-pressed="false">NO</button></div></li>
+      <li data-q="3"><p class="qt"><b>03</b><span>¿Respondes las mismas preguntas muchas veces al día (precio, envío, ubicación)?</span></p><div class="yn"><button type="button" class="si" aria-pressed="false">SÍ</button><button type="button" class="no" aria-pressed="false">NO</button></div></li>
+      <li data-q="4"><p class="qt"><b>04</b><span>¿El link de tu bio no lleva directo a comprar o a escribirte?</span></p><div class="yn"><button type="button" class="si" aria-pressed="false">SÍ</button><button type="button" class="no" aria-pressed="false">NO</button></div></li>
+      <li data-q="5"><p class="qt"><b>05</b><span>¿No sabes cuántas ventas te trajo tu publicidad este mes?</span></p><div class="yn"><button type="button" class="si" aria-pressed="false">SÍ</button><button type="button" class="no" aria-pressed="false">NO</button></div></li>
+    </ol>
+    <div class="result" id="result" hidden aria-live="polite">
+      <div class="score"><strong id="r-score">0</strong><span>de 5 · tus SÍ</span></div>
+      <h3 id="r-title"></h3>
+      <p id="r-text"></p>
+      <a class="go" id="r-go" href="#f1">Empieza por aquí ↓</a>
+    </div>
+  </section>
+
+  <div class="progress">
+    <div class="row micro"><span>Fugas tapadas</span><span><b id="pct">0</b> / <span id="tot">0</span> pasos</span></div>
+    <div class="bar"><i id="bar"></i></div>
+  </div>
+
+  <nav class="jump" aria-label="Ir a una fuga">
+    <a href="#f1" data-f="1"><b>01</b>Respuesta</a>
+    <a href="#f2" data-f="2"><b>02</b>Seguimiento</a>
+    <a href="#f3" data-f="3"><b>03</b>Preguntas</a>
+    <a href="#f4" data-f="4"><b>04</b>Tu link</a>
+    <a href="#f5" data-f="5"><b>05</b>Números</a>
+  </nav>
+
+  <article class="sys" id="f1">
+    <div class="sys-head">
+      <div class="sys-top"><span class="num">01</span><span class="flag">Te pasa</span><span class="micro">Respuesta</span></div>
+      <h2>Contestas tarde y el cliente se va con otro</h2>
+      <p class="why">Quien te escribe casi siempre le escribe también a 2 o 3 negocios más, y el primero que responde bien se lleva la venta. No necesitas estar pegado al celular: necesitas que nadie se quede sin respuesta.</p>
+    </div>
+    <div class="block">
+      <p class="micro">Paso a paso</p>
+      <ul class="check">
+        <li><label class="item"><input type="checkbox" id="f1-1"><span>Activa el <b>mensaje de bienvenida</b> y el <b>mensaje de ausencia</b> en WhatsApp Business (Herramientas para la empresa).</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f1-2"><span>En Instagram, activa una respuesta automática a los DM nuevos con ManyChat o con las respuestas guardadas.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f1-3"><span>Ponte una meta: responder en menos de 15 minutos en horario de atención.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f1-4"><span>Haz que tu mensaje automático termine con <b>una pregunta</b> que acerque la venta, no solo con un "ya te atendemos".</span></label></li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="prompt">
+        <div class="prompt-head"><span class="micro">Mensaje de bienvenida</span><button class="copy" type="button">Copiar</button></div>
+        <pre>¡Hola! 👋 Gracias por escribir a <i>[tu negocio]</i>.
+Te respondo personalmente en máximo <i>[15 minutos / mañana a las 9:00]</i>.
+
+Para ayudarte más rápido, cuéntame:
+1. ¿Qué <i>[producto/servicio]</i> te interesa?
+2. ¿A qué ciudad sería el envío?</pre>
+      </div>
+      <div class="tools"><span class="tool">WhatsApp Business<small>bienvenida + ausencia</small></span><span class="tool">ManyChat<small>Instagram DM</small></span></div>
+    </div>
+  </article>
+
+  <article class="sys" id="f2">
+    <div class="sys-head">
+      <div class="sys-top"><span class="num">02</span><span class="flag">Te pasa</span><span class="micro">Seguimiento</span></div>
+      <h2>Escribes una vez y te olvidas</h2>
+      <p class="why">La mayoría de clientes no te dice que no: dice "lo reviso" y se le olvida. La venta suele estar en el segundo o tercer mensaje, siempre que cada uno aporte algo nuevo.</p>
+    </div>
+    <div class="block">
+      <p class="micro">Paso a paso</p>
+      <ul class="check">
+        <li><label class="item"><input type="checkbox" id="f2-1"><span>Crea una etiqueta en WhatsApp Business: <b>"Interesado – no compró"</b>.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f2-2"><span>Cada noche, etiqueta a quien preguntó y no cerró.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f2-3"><span>Envía los 3 toques de abajo: día 1, día 3 y día 7.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f2-4"><span>Si compra o te dice que no, quítale la etiqueta y sale de la secuencia.</span></label></li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="prompt">
+        <div class="prompt-head"><span class="micro">Toque 1 · Día 1 · aporta valor</span><button class="copy" type="button">Copiar</button></div>
+        <pre>¡Hola <i>[nombre]</i>! Te dejo un video corto de cómo funciona <i>[producto]</i> para que lo veas en acción 👇
+<i>[link]</i>
+Si te queda alguna duda, aquí estoy.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="micro">Toque 2 · Día 3 · prueba</span><button class="copy" type="button">Copiar</button></div>
+        <pre><i>[nombre]</i>, esta semana <i>[cliente]</i> lo pidió para <i>[uso]</i> y nos dijo: "<i>[testimonio corto]</i>".
+¿Quieres que te separe uno?</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="micro">Toque 3 · Día 7 · cierre</span><button class="copy" type="button">Copiar</button></div>
+        <pre><i>[nombre]</i>, te escribo una última vez para no molestarte 🙏
+¿Lo dejamos para más adelante o te lo envío esta semana?</pre>
+      </div>
+      <p class="tip"><b>Regla:</b> "¿Pudiste ver mi mensaje?" no cuenta como seguimiento. Cada toque tiene que darle una razón nueva para responder.</p>
+    </div>
+  </article>
+
+  <article class="sys" id="f3">
+    <div class="sys-head">
+      <div class="sys-top"><span class="num">03</span><span class="flag">Te pasa</span><span class="micro">Tu tiempo</span></div>
+      <h2>Respondes lo mismo 20 veces al día</h2>
+      <p class="why">Precio, envío, ubicación, tallas… Si escribes siempre lo mismo a mano, estás haciendo un trabajo que puede hacer una plantilla, y después una IA entrenada con tus respuestas.</p>
+    </div>
+    <div class="block">
+      <p class="micro">Paso a paso</p>
+      <ul class="check">
+        <li><label class="item"><input type="checkbox" id="f3-1"><span>Durante 2 días, anota cada pregunta que te hacen.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f3-2"><span>Quédate con las 10 más repetidas y escribe tu mejor respuesta para cada una.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f3-3"><span>Guárdalas como respuestas rápidas en WhatsApp Business: <b>/precio</b>, <b>/envio</b>, <b>/ubicacion</b>…</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f3-4"><span>Cuando ya funcionen, usa el prompt de abajo para crear tu asistente de IA con esas mismas respuestas.</span></label></li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="prompt">
+        <div class="prompt-head"><span class="micro">Prompt · asistente de ventas IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre>Eres el asistente de ventas de <i>[tu negocio]</i>, que vende <i>[qué vendes]</i> en <i>[ciudad/país]</i>.
+
+Estas son las preguntas frecuentes con la respuesta oficial:
+<i>[pega aquí tus 10 preguntas y respuestas]</i>
+
+Reglas:
+1. Responde corto, amable y en el tono de la marca: <i>[cercano / formal]</i>.
+2. Usa SOLO la información de arriba. Nunca inventes precios, plazos ni promociones.
+3. Termina cada respuesta con una pregunta que acerque la compra.
+4. Si no sabes algo o el cliente quiere comprar ya, di: "Te paso con <i>[nombre]</i> para ayudarte personalmente".</pre>
+      </div>
+      <p class="tip"><b>Ojo:</b> primero las respuestas rápidas, después la IA. Si todavía no tienes claras tus respuestas, la IA va a responder mal y más rápido.</p>
+    </div>
+  </article>
+
+  <article class="sys" id="f4">
+    <div class="sys-head">
+      <div class="sys-top"><span class="num">04</span><span class="flag">Te pasa</span><span class="micro">Tu página</span></div>
+      <h2>Tu link de la bio confunde en vez de vender</h2>
+      <p class="why">Nueve botones, promociones vencidas y un catálogo que pesa 12 MB. Si tu cliente tiene que pensar cómo comprarte, ya lo perdiste. Un link, una acción.</p>
+    </div>
+    <div class="block">
+      <p class="micro">Paso a paso</p>
+      <ul class="check">
+        <li><label class="item"><input type="checkbox" id="f4-1"><span>Deja <b>un solo link principal</b> en la bio.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f4-2"><span>Que lleve a una página con tu producto o servicio, el precio (o "desde $"), una prueba real y <b>un solo botón</b> a WhatsApp.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f4-3"><span>Usa un link de WhatsApp con el mensaje ya escrito (el de abajo).</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f4-4"><span>La prueba de los 10 segundos: abre tu link desde el celular. ¿Se entiende qué vendes y cómo comprar?</span></label></li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="prompt">
+        <div class="prompt-head"><span class="micro">Link de WhatsApp con mensaje</span><button class="copy" type="button">Copiar</button></div>
+        <pre>https://wa.me/<i>593XXXXXXXXX</i>?text=Hola%2C%20vengo%20de%20Instagram%20y%20quiero%20informaci%C3%B3n</pre>
+      </div>
+      <p class="tip"><b>Cómo se arma:</b> cambia <span style="color:var(--accent)">593XXXXXXXXX</span> por tu número con código de país, sin el + ni el 0 inicial. Así sabes que el mensaje vino de Instagram.</p>
+    </div>
+  </article>
+
+  <article class="sys" id="f5">
+    <div class="sys-head">
+      <div class="sys-top"><span class="num">05</span><span class="flag">Te pasa</span><span class="micro">Tus números</span></div>
+      <h2>No sabes qué te trae ventas</h2>
+      <p class="why">Si no sabes cuánto te cuesta cada venta, no sabes si estás invirtiendo o regalando plata. No necesitas un dashboard complicado: con una hoja y 10 minutos a la semana basta.</p>
+    </div>
+    <div class="block">
+      <p class="micro">Paso a paso</p>
+      <ul class="check">
+        <li><label class="item"><input type="checkbox" id="f5-1"><span>Crea una hoja en Google Sheets con las columnas de abajo.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f5-2"><span>A cada cliente nuevo pregúntale: <b>"¿Cómo nos encontraste?"</b></span></label></li>
+        <li><label class="item"><input type="checkbox" id="f5-3"><span>Si haces anuncios, instala el Pixel de Meta en tu página.</span></label></li>
+        <li><label class="item"><input type="checkbox" id="f5-4"><span>Cada lunes calcula: lo invertido ÷ las ventas = <b>lo que te costó cada venta</b>.</span></label></li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="prompt">
+        <div class="prompt-head"><span class="micro">Columnas de tu hoja</span><button class="copy" type="button">Copiar</button></div>
+        <pre>Fecha	Nombre	¿De dónde llegó?	¿Qué preguntó?	¿Compró? (Sí/No)	Monto	Notas</pre>
+      </div>
+      <p class="tip"><b>Ejemplo:</b> invertiste $300 y tuviste 15 ventas, así que cada venta te costó $20. Si ganas $25 por venta, funciona. Si ganas $15, hay que ajustar el anuncio o la oferta.</p>
+    </div>
+  </article>
+
+  <section class="cta" id="cta">
+    <p class="eb">Siguiente paso</p>
+    <h2>¿Prefieres que te las tape yo?</h2>
+    <p>En el diagnóstico reviso tus redes, tu página y tus anuncios, y te entrego un plan con lo que hay que arreglar primero. Si después quieres, te monto el sistema completo.</p>
+    <ul>
+      <li>Revisión de redes, web y anuncios</li>
+      <li>Plan de acción priorizado</li>
+      <li>Recomendación del siguiente paso</li>
+    </ul>
+    <div class="btns">
+      <a class="btn wa" href="https://wa.me/593959639787?text=Hola%20Dani%2C%20hice%20el%20test%20de%20fugas%20y%20quiero%20mi%20diagn%C3%B3stico" target="_blank" rel="noopener noreferrer">Quiero mi diagnóstico →</a>
+      <a class="btn ghost" href="https://calendly.com/thedaniiboss" target="_blank" rel="noopener noreferrer">Agendar videollamada →</a>
+      <a class="btn ghost" href="/">Ver mis servicios →</a>
+    </div>
+    <p class="contact">WhatsApp +593 959639787</p>
+  </section>
+
+  <footer>
+    <span class="micro">Dani Boss — Estrategia + IA aplicada a ventas reales</span>
+    <a class="micro" href="https://instagram.com/thedaniiboss" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">@thedaniiboss</a>
+  </footer>
+</div>
+
+<div class="dock" id="dock">
+  <p>¿Te las tapo yo?</p>
+  <a class="btn wa" href="https://wa.me/593959639787?text=Hola%20Dani%2C%20hice%20el%20test%20de%20fugas%20y%20quiero%20mi%20diagn%C3%B3stico" target="_blank" rel="noopener noreferrer">WhatsApp →</a>
+</div>
+
+<script>
+(function(){
+  var KEY='fugas-progress', saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}}
+  saved.ans=saved.ans||{};
+
+  // test
+  var TIERS=[
+    {max:1,c:'var(--green)',t:'Vas bien 👏',x:'Tienes buena base. Revisa la fuga que marcaste y empieza a medir tus números para crecer con datos.'},
+    {max:3,c:'var(--amber)',t:'Se te están yendo ventas cada semana',x:'No es falta de clientes: es lo que pasa después del primer mensaje. Tapa tus fugas en orden, empezando por la primera que marcaste.'},
+    {max:5,c:'var(--red)',t:'Tu negocio depende 100% de ti 🚨',x:'Si tú paras, el negocio para. Empieza hoy por la primera fuga y, si quieres avanzar más rápido, pide tu diagnóstico.'}
+  ];
+  var qs=[].slice.call(document.querySelectorAll('.qs li'));
+  var result=document.getElementById('result');
+  function renderTest(){
+    var yes=0, answered=0, first=null;
+    qs.forEach(function(li){
+      var q=li.dataset.q, a=saved.ans[q];
+      li.querySelector('.si').setAttribute('aria-pressed',a==='si');
+      li.querySelector('.no').setAttribute('aria-pressed',a==='no');
+      if(a)answered++;
+      if(a==='si'){yes++; if(!first)first=q;}
+      document.getElementById('f'+q).classList.toggle('hit',a==='si');
+      document.querySelector('.jump a[data-f="'+q+'"]').classList.toggle('hit',a==='si');
+    });
+    result.hidden=answered<qs.length;
+    if(result.hidden)return;
+    var tier=TIERS.filter(function(t){return yes<=t.max})[0];
+    result.style.setProperty('--c',tier.c);
+    document.getElementById('r-score').textContent=yes;
+    document.getElementById('r-title').textContent=tier.t;
+    document.getElementById('r-text').textContent=tier.x;
+    var go=document.getElementById('r-go');
+    go.href='#f'+(first||'5'); go.textContent=first?'Empieza por la fuga '+('0'+first)+' ↓':'Revisa la fuga 05: tus números ↓';
+    var msg='Hola Dani, hice el test de fugas y saqué '+yes+'/5. Quiero mi diagnóstico';
+    document.querySelectorAll('a.wa').forEach(function(a){a.href='https://wa.me/593959639787?text='+encodeURIComponent(msg)});
+  }
+  qs.forEach(function(li){
+    li.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        saved.ans[li.dataset.q]=b.classList.contains('si')?'si':'no'; save(); renderTest();
+        var next=li.nextElementSibling;
+        if(next&&!saved.ans[next.dataset.q]&&next.getBoundingClientRect().bottom>innerHeight)next.scrollIntoView({behavior:'smooth',block:'center'});
+        else if(!result.hidden&&!next)result.scrollIntoView({behavior:'smooth',block:'nearest'});
+      });
+    });
+  });
+  renderTest();
+
+  // checklist
+  var boxes=[].slice.call(document.querySelectorAll('input[type=checkbox]'));
+  document.getElementById('tot').textContent=boxes.length;
+  function update(){
+    var done=boxes.filter(function(b){return b.checked}).length;
+    document.getElementById('pct').textContent=done;
+    document.getElementById('bar').style.width=(done/boxes.length*100)+'%';
+  }
+  boxes.forEach(function(b){
+    b.checked=!!saved[b.id];
+    b.addEventListener('change',function(){saved[b.id]=b.checked;save();update();});
+  });
+  update();
+
+  // copy
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var pre=btn.closest('.prompt').querySelector('pre');
+      function done(){btn.textContent='Copiado ✓';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copiar';btn.classList.remove('ok')},2000);}
+      function fallback(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){}}
+      if(navigator.clipboard){navigator.clipboard.writeText(pre.innerText).then(done,fallback);}else fallback();
+    });
+  });
+
+  var dock=document.getElementById('dock'), cta=document.getElementById('cta');
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e){dock.classList.toggle('hide',e[0].isIntersecting)},{threshold:0.1}).observe(cta);}
+})();
+</script>
+</body>
+</html>
