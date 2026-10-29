@@ -7,7 +7,7 @@ window.DB_CONTENT = {
   contact: {
     whatsapp: '593959639787',            // sin "+" ni espacios
     whatsappDisplay: '+593 959 639 787',
-    calendly: 'https://calendly.com/thedaniiboss',
+    calendly: 'https://calendly.com/thedaniiboss/llamada-de-diagnostico-dani-boss',
     instagram: 'https://instagram.com/thedaniiboss'
   },
 
