@@ -325,6 +325,16 @@ em{font-style:normal;color:var(--pll)}
 .mod h3{font-size:22px;margin:12px 0 10px}
 .mod p:not(.mono){color:var(--g);font-size:14.5px}
 .mod .mod-go{margin-top:14px;padding:8px 0;font-size:12px}
+.mod p b{color:var(--w);font-weight:600}
+.mod-demo{background:radial-gradient(90% 70% at 0% 0%,rgba(109,44,255,.16),transparent 70%)}
+.btn-demo{margin-top:18px;width:100%;min-height:58px;padding:0 16px;font-size:13px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;animation:demoPulse 2.4s ease-in-out infinite,demoFloat 3.2s ease-in-out infinite}
+.btn-demo::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:35%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);animation:demoShine 2.8s ease-in-out infinite;pointer-events:none}
+.btn-demo-dot{width:8px;height:8px;border-radius:50%;background:#7CFFB2;box-shadow:0 0 0 0 rgba(124,255,178,.7);animation:demoDot 1.6s ease-out infinite}
+@keyframes demoPulse{0%,100%{box-shadow:0 10px 30px -12px rgba(109,44,255,.8),0 0 0 0 rgba(134,84,214,.55)}50%{box-shadow:0 14px 40px -10px rgba(109,44,255,.95),0 0 0 10px rgba(134,84,214,0)}}
+@keyframes demoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes demoShine{0%{left:-40%}55%,100%{left:120%}}
+@keyframes demoDot{0%{box-shadow:0 0 0 0 rgba(124,255,178,.7)}100%{box-shadow:0 0 0 9px rgba(124,255,178,0)}}
+@media(prefers-reduced-motion:reduce){.btn-demo,.btn-demo::after,.btn-demo-dot{animation:none}}
 .mod a{color:var(--w);border-bottom:1px solid var(--pl)}
 
 /* ============ WORKS ============ */
