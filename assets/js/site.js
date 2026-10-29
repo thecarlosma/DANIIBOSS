@@ -298,6 +298,8 @@
       var d = $('#viewerD'), m = $('#viewerM');
       d.src = 'assets/work/' + key + '.jpg'; d.alt = 'Vista de escritorio de ' + name;
       m.src = 'assets/work/' + key + '-m.jpg'; m.alt = 'Vista móvil de ' + name;
+      var go = $('#viewerGo'), url = art.getAttribute('data-url');
+      if (go) { if (url) { go.href = url; go.hidden = false; } else go.hidden = true; }
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
     }
     $$('[data-open]').forEach(function (b) { b.addEventListener('click', function () { open(b.getAttribute('data-open')); }); });
