@@ -614,7 +614,7 @@ main,.foot{position:relative;z-index:1}
 @media(max-width:760px){
   .panels{flex-direction:column;height:auto}
   .panel-i{flex:none;height:76px;transition:height .9s var(--ease),border-color .5s}
-  .panel-i.on{height:400px}
+  .panel-i.on{flex:none;height:400px}
   .p-v{writing-mode:horizontal-tb;transform:none;left:60px;bottom:auto;top:24px;font-size:20px}
   .p-n{top:28px}
 }
