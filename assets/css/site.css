@@ -323,7 +323,8 @@ em{font-style:normal;color:var(--pll)}
 .mod:hover{background:rgba(134,84,214,.05)}
 .mod .mono{color:var(--pll)}
 .mod h3{font-size:22px;margin:12px 0 10px}
-.mod p:last-child{color:var(--g);font-size:14.5px}
+.mod p:not(.mono){color:var(--g);font-size:14.5px}
+.mod .mod-go{margin-top:14px;padding:8px 0;font-size:12px}
 .mod a{color:var(--w);border-bottom:1px solid var(--pl)}
 
 /* ============ WORKS ============ */
