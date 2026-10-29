@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/boss", "destination": "/boss/", "permanent": true }
+  ]
+}
