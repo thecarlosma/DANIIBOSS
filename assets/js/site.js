@@ -402,6 +402,32 @@
     new IntersectionObserver(function (es) { atClose = es[0].isIntersecting; upd(); }, { threshold: .15 }).observe(close);
   })();
 
+  /* ---------- Soluciones: problema -> solución ---------- */
+  (function () {
+    var qs = $$('.sol-q'); if (!qs.length) return;
+    function sel(i, focus) {
+      qs.forEach(function (q, k) {
+        var on = k === i;
+        q.setAttribute('aria-selected', on); q.tabIndex = on ? 0 : -1;
+        $('#' + q.getAttribute('aria-controls')).hidden = !on;
+        if (on && focus) q.focus();
+      });
+    }
+    qs.forEach(function (q, i) {
+      q.addEventListener('click', function () { sel(i); });
+      q.addEventListener('keydown', function (e) {
+        var d = /Right|Down/.test(e.key) ? 1 : /Left|Up/.test(e.key) ? -1 : 0;
+        if (!d) return; e.preventDefault(); sel((i + d + qs.length) % qs.length, true);
+      });
+    });
+    $$('[data-sol-wa]').forEach(function (a) {
+      var p = a.closest('.sol-p');
+      a.href = wa('Hola Dani, vi tu web. Mi problema es: ' + p.dataset.q.toLowerCase() + '. Me interesa: ' + p.dataset.sol + '.');
+      a.target = '_blank'; a.rel = 'noopener noreferrer';
+    });
+    sel(0);
+  })();
+
   /* ---------- Philosophy panels ---------- */
   (function () {
     var ps = $$('#panels .panel-i'); if (!ps.length) return;

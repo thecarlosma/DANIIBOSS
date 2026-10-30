@@ -746,3 +746,31 @@ main,.foot{position:relative;z-index:1}
 @media(max-width:420px){.cps-hint{display:none}.cps-bar{justify-content:space-between}.cps-modes button{padding:8px 10px}}
 @media(prefers-reduced-motion:reduce){.composer::before{animation:none}.js .ai-rot .w{transition:none;filter:none}}
 .hero-ai.paused .composer::before{animation-play-state:paused}
+
+/* ============ v3.1 — Soluciones (problema → solución) ============ */
+.sol{display:grid;border:1px solid var(--ln);background:linear-gradient(180deg,rgba(17,17,18,.92),rgba(10,10,10,.7))}
+.sol-list{display:flex;flex-direction:column;border-bottom:1px solid var(--ln)}
+.sol-q{position:relative;display:flex;align-items:center;gap:14px;text-align:left;padding:20px 24px;min-height:64px;font-family:var(--disp);font-weight:700;font-size:clamp(16px,1.5vw,19px);color:var(--g);border-bottom:1px solid var(--ln);transition:color .3s,background .3s}
+.sol-q:last-child{border-bottom:0}
+.sol-q .mono{color:var(--g2);transition:color .3s}
+.sol-q::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--p2),#B74CFF);transform:scaleY(0);transition:transform .5s var(--ease)}
+.sol-q:hover{color:#fff}
+.sol-q[aria-selected="true"]{color:#fff;background:rgba(134,84,214,.09)}
+.sol-q[aria-selected="true"]::before{transform:none}
+.sol-q[aria-selected="true"] .mono{color:var(--pll)}
+.sol-p{padding:clamp(24px,3.4vw,46px);animation:paneIn .7s var(--ease)}
+.sol-p[hidden]{display:none}
+.sol-p:focus-visible{outline-offset:-6px}
+.sol-k{color:var(--pll);margin-bottom:10px}
+.sol-p .lead{margin-top:14px}
+.sol-p .list{margin:24px 0 20px}
+.sol-res{font-size:15px;color:var(--w2);padding:14px 16px;border-left:2px solid var(--au,#D4AF37);background:rgba(212,175,55,.06)}
+.sol-res b{color:var(--au2,#F3E2A6)}
+.sol-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:26px}
+.sec-sol .sec-head .lead{margin-top:22px}
+.sol-help{margin-top:28px;color:var(--g);font-size:15px}
+.sol-help a{color:#fff;border-bottom:1px solid var(--pl);transition:color .3s}
+.sol-help a:hover{color:var(--pll)}
+@media(min-width:900px){.sol{grid-template-columns:minmax(280px,.8fr) 1.2fr}.sol-list{border-bottom:0;border-right:1px solid var(--ln)}}
+@media(max-width:899px){.sol-q{padding:16px 18px;min-height:56px;font-size:16px}}
+@media(max-width:600px){.sol-ctas .btn{width:100%}}

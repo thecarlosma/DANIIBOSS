@@ -206,7 +206,7 @@
 
   /* ---------- rotating headline ---------- */
   var PH = [
-    'Construyo sistemas que hacen *crecer* marcas.',
+    'Construyo la *solución* que tu negocio necesita.',
     'El conocimiento transforma el *futuro*.',
     'Las grandes ideas comienzan con una *pregunta*.',
     'Piensa diferente. Construye algo *extraordinario*.',
@@ -309,7 +309,7 @@
       form.classList.remove('nudge'); void form.offsetWidth; form.classList.add('nudge');
       setHint('Escribe tu idea o elige una de abajo'); ta.focus(); return;
     }
-    var msg = 'Hola Dani, vengo de tu web.\nModo: ' + MODES[S.mode].tag + '\nQuiero construir: ' + v;
+    var msg = 'Hola Dani, vengo de tu web.\nModo: ' + MODES[S.mode].tag + '\nLo que necesito: ' + v;
     var url = 'https://wa.me/' + ct.whatsapp + '?text=' + encodeURIComponent(msg);
     // open synchronously inside the user gesture so popup blockers allow it
     var w = window.open(url, '_blank');
