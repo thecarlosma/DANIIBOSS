@@ -650,25 +650,29 @@ main,.foot{position:relative;z-index:1}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
 
-.hero-ai{--bh:min(50svh,100vw);--bt:58px;display:block;min-height:100svh;overflow:hidden;padding:calc(var(--bt) + var(--bh)*.8) 0 72px}
+.hero-ai{--bh:min(60svh,132vw);--bt:58px;display:block;min-height:100svh;overflow:hidden;padding:calc(var(--bt) + var(--bh)*.8) 0 72px}
 .hero-ai .hero-bg{z-index:1;opacity:.5}
 .hero-ai::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(180deg,transparent 0,transparent calc(var(--bt) + var(--bh)*.5),rgba(5,5,5,.86) calc(var(--bt) + var(--bh)*.86),var(--k0) 100%)}
 
 /* stage: back particles · bust · front particles */
 .ai-stage{position:absolute;inset:0;z-index:0;pointer-events:none;--e:0}
-.ai-stage::before{content:"";position:absolute;left:50%;top:calc(var(--bt) + var(--bh)*.42);width:calc(var(--bh)*1.25);aspect-ratio:1;transform:translate(-50%,-50%) scale(calc(.9 + var(--e)*.12));border-radius:50%;
+.ai-stage::before{content:"";position:absolute;left:50%;top:calc(var(--bt) + var(--bh)*.34);width:calc(var(--bh)*1.05);aspect-ratio:1;transform:translate(-50%,-50%) scale(calc(.9 + var(--e)*.12));border-radius:50%;
   background:radial-gradient(closest-side,rgba(var(--lc,134,84,214),calc(.22 + var(--e)*.2)),rgba(75,29,143,.08) 60%,transparent);filter:blur(10px)}
 .ai-fx{position:absolute;inset:0;width:100%;height:100%;display:block}
 #fxBack{z-index:1}#fxFront{z-index:3}
-.ai-bust{position:absolute;z-index:2;left:50%;top:var(--bt);height:var(--bh);aspect-ratio:780/720;isolation:isolate;
-  --rx:0;--ry:0;--tx:0;--ty:0;--sc:1;--lx:50%;--ly:32%;--lo:.5;--sx:120%;
+.ai-bust{position:absolute;z-index:2;left:50%;top:var(--bt);height:var(--bh);aspect-ratio:1080/1470;isolation:isolate;
+  --rx:0;--ry:0;--tx:0;--ty:0;--sc:1;--lx:45%;--ly:22%;--lo:.5;--sx:120%;
   transform:translateX(-50%) perspective(1400px) rotateX(calc(var(--rx)*1deg)) rotateY(calc(var(--ry)*1deg)) translate3d(calc(var(--tx)*1px),calc(var(--ty)*1px),0) scale(var(--sc));
-  -webkit-mask:radial-gradient(ellipse 52% 64% at 50% 44%,#000 70%,transparent 100%),linear-gradient(180deg,transparent 0,#000 6%,#000 60%,transparent 96%);-webkit-mask-composite:source-in;mask:radial-gradient(ellipse 52% 64% at 50% 44%,#000 70%,transparent 100%),linear-gradient(180deg,transparent 0,#000 6%,#000 60%,transparent 96%);mask-composite:intersect;will-change:transform}
+  -webkit-mask:linear-gradient(90deg,transparent 0,#000 16%),linear-gradient(180deg,#000 70%,transparent 99%);-webkit-mask-composite:source-in;mask:linear-gradient(90deg,transparent 0,#000 16%),linear-gradient(180deg,#000 70%,transparent 99%);mask-composite:intersect;will-change:transform}
 .ai-bust img{width:100%;height:100%;display:block;object-fit:cover}
 .ai-bust i{position:absolute;inset:0;pointer-events:none}
+/* light only touches the statue: clip the blend layers to the PNG alpha */
+.ai-light,.ai-sheen,.ai-screen{-webkit-mask:url(../bg/socrates-laptop.webp) 0 0/100% 100% no-repeat;mask:url(../bg/socrates-laptop.webp) 0 0/100% 100% no-repeat}
+.ai-screen{background:radial-gradient(30% 22% at 84% 31%,rgba(236,160,255,.95),rgba(var(--lc,134,84,214),.5) 45%,transparent 75%);mix-blend-mode:color-dodge;opacity:var(--so,.3)}
+.ai-spill{background:radial-gradient(14% 9% at 84% 30%,rgba(226,150,255,.55),rgba(134,84,214,.18) 55%,transparent 80%);mix-blend-mode:screen;opacity:var(--so,.3);filter:blur(6px)}
 .ai-light{background:radial-gradient(42% 36% at var(--lx) var(--ly),rgba(var(--lc,134,84,214),.95),transparent 72%);mix-blend-mode:color-dodge;opacity:var(--lo)}
-.ai-sheen{background:linear-gradient(104deg,transparent 42%,rgba(212,175,55,.55) 48.5%,rgba(255,255,255,.7) 50%,rgba(var(--lc,134,84,214),.6) 51.5%,transparent 58%) var(--sx) 0/320% 100% no-repeat;mix-blend-mode:color-dodge;opacity:.42}
-.ai-ring{left:50%!important;top:36%!important;width:36%;height:auto!important;aspect-ratio:1;inset:auto!important;border-radius:50%;border:1px solid rgba(243,226,166,.0);transform:translate(-50%,-50%) scale(.4);opacity:0}
+.ai-sheen{background:linear-gradient(104deg,transparent 42%,rgba(212,175,55,.3) 48.5%,rgba(255,255,255,.6) 50%,rgba(var(--lc,134,84,214),.6) 51.5%,transparent 58%) var(--sx) 0/320% 100% no-repeat;mix-blend-mode:color-dodge;opacity:.32}
+.ai-ring{left:84%!important;top:31%!important;width:40%;height:auto!important;aspect-ratio:1;inset:auto!important;border-radius:50%;border:1px solid rgba(243,226,166,.0);transform:translate(-50%,-50%) scale(.4);opacity:0}
 .ai-ring.go{animation:aiRing 1.1s var(--ease) forwards}
 @keyframes aiRing{0%{opacity:1;border-color:rgba(243,226,166,.9);box-shadow:0 0 30px rgba(212,175,55,.6),inset 0 0 30px rgba(134,84,214,.5);transform:translate(-50%,-50%) scale(.4)}100%{opacity:0;border-color:rgba(134,84,214,0);box-shadow:none;transform:translate(-50%,-50%) scale(2.6)}}
 
@@ -727,7 +731,7 @@ main,.foot{position:relative;z-index:1}
 .ai-pause:hover{color:var(--w)}
 .hero-ai .scroll-cue{z-index:5}
 
-@media(min-width:600px){.hero-ai{--bh:min(54svh,620px)}.ai-sub{font-size:17px}.ai-title{font-size:clamp(40px,6.4vw,56px);min-height:2.08em}}
+@media(min-width:600px){.hero-ai{--bh:min(60svh,700px)}.ai-sub{font-size:17px}.ai-title{font-size:clamp(40px,6.4vw,56px);min-height:2.08em}}
 /* desktop: content left, Sócrates right */
 @media(min-width:1040px){
   .hero-ai{--bh:min(86svh,820px);--bt:calc(50svh - var(--bh)*.46);display:flex;align-items:center;padding:110px 0 80px}

@@ -40,7 +40,7 @@
     [cvB, cvF].forEach(function (c) { c.width = Math.round(W * DPR); c.height = Math.round(H * DPR); });
     [xB, xF].forEach(function (x) { x.setTransform(DPR, 0, 0, DPR, 0, 0); });
     // the bust is 3D-transformed; its rect is close enough for the orbit centre
-    BC = { x: b.left - r.left + b.width / 2, y: b.top - r.top + b.height * .4, w: b.width, h: b.height };
+    BC = { x: b.left - r.left + b.width * .55, y: b.top - r.top + b.height * .3, w: b.width, h: b.height };
     CMP = { x: f.left - r.left + f.width * .5, y: f.top - r.top + 10 };
     seed();
   }
@@ -96,8 +96,10 @@
     bs.setProperty('--tx', (S.cx * -12).toFixed(1));
     bs.setProperty('--ty', (S.cy * -7 + Math.sin(t * .0006) * 5).toFixed(1));
     bs.setProperty('--sc', (1 + br * .008 + S.pulse * .012).toFixed(4));
-    bs.setProperty('--lx', (50 + S.cx * 32 + Math.sin(t * .0005) * 8).toFixed(1) + '%');
-    bs.setProperty('--ly', (30 + S.cy * 18).toFixed(1) + '%');
+    bs.setProperty('--lx', (45 + S.cx * 30 + Math.sin(t * .0005) * 8).toFixed(1) + '%');
+    bs.setProperty('--ly', (22 + S.cy * 18).toFixed(1) + '%');
+    // the laptop screen glows with the visitor's typing
+    bs.setProperty('--so', Math.min(1, .28 + br * .12 + S.e * .55 + S.pulse * .5 + S.burst * .6 + (Math.random() < .04 ? .06 : 0)).toFixed(3));
     bs.setProperty('--lo', Math.min(1, m.lo * (.6 + br * .4) + S.e * .35 + S.pulse * .4 + S.burst * .5).toFixed(3));
     S.sx -= dt * .012 * m.sheen * (1 + S.e); if (S.sx < -60) S.sx = 160;
     bs.setProperty('--sx', S.sx.toFixed(1) + '%');
@@ -112,7 +114,7 @@
   function draw(dt, m) {
     xB.clearRect(0, 0, W, H); xF.clearRect(0, 0, W, H);
     var t = S.t, spd = m.speed * (1 + S.e * .9 + S.pulse * 2 + S.burst * 3);
-    var R = BC.w * .5, ox = S.cx * -14, oy = S.cy * -8;
+    var R = Math.max(BC.w * .62, BC.h * .36), ox = S.cx * -14, oy = S.cy * -8;
 
     /* ambient dust */
     xB.globalCompositeOperation = 'lighter';
