@@ -59,7 +59,7 @@
   var orb = [], dust = [], cash = [];
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function seed() {
-    var nO = small ? 34 : 86, nD = small ? 16 : 42, nC = small ? 6 : 15;
+    var nO = small ? 34 : 86, nD = small ? 16 : 42, nC = small ? 11 : 16;
     orb = []; dust = []; cash = [];
     for (var i = 0; i < nO; i++) orb.push({
       a: rnd(0, Math.PI * 2), r: rnd(.5, 1.18), sp: rnd(.00012, .00034),
@@ -69,13 +69,12 @@
     for (var k = 0; k < nC; k++) cash.push(newCash(true));
   }
   function newCash(anywhere) {
-    var z = rnd(.25, 1), ch = Math.random(), wide = W >= 1040;
-    // keep capital away from the text column on desktop
-    var x = wide ? rnd(W * .44, W * .98) : rnd(W * .04, W * .96);
+    var ch = Math.random();
     return {
-      ch: ch < .6 ? '$' : ch < .8 ? '€' : '₿', z: z, x: x, y: anywhere ? rnd(H * .2, H * .9) : rnd(H * .55, H * .95),
-      vx: 0, vy: 0, dy: -rnd(5, 13) * (.6 + z * .5), size: 14 + z * (small ? 26 : 40), life: anywhere ? rnd(0, 6) : 0,
-      max: rnd(7, 13), gold: Math.random() < .55, pull: Math.random() < .35, flash: 0
+      ch: ch < .7 ? '$' : ch < .85 ? '€' : '₿', a: rnd(0, Math.PI * 2), rr: rnd(.78, 1.32),
+      sp: rnd(.00007, .00016) * (Math.random() < .8 ? 1 : -1), yo: rnd(-.34, .32), bob: rnd(0, 6.28),
+      life: anywhere ? rnd(0, 8) : 0, max: rnd(9, 16), gold: Math.random() < .7, pull: Math.random() < .4,
+      ox: 0, oy: 0, kx: 0, ky: 0, flash: 0
     };
   }
 
@@ -135,32 +134,41 @@
       ctx.globalAlpha = Math.min(1, al); ctx.drawImage(SPR[p.k], x - sz * 2, y - sz * 2, sz * 4, sz * 4);
     }
 
-    /* money flow — translucent, slow, secondary */
-    xB.globalCompositeOperation = 'source-over';
-    xB.textAlign = 'center'; xB.textBaseline = 'middle';
+    /* money flow — symbols orbiting Sócrates, some pass in front, some behind */
+    var wide = W >= 1040, minX = wide ? W * .53 : 26, maxX = W - 26;
+    [xB, xF].forEach(function (c) { c.globalCompositeOperation = 'source-over'; c.textAlign = 'center'; c.textBaseline = 'middle'; });
     for (var k = 0; k < cash.length; k++) {
       var q = cash[k]; q.life += dt / 1000; q.flash *= .95;
       if (q.life > q.max) { cash[k] = newCash(false); continue; }
-      // velocities in px/s: slow base drift + pull towards the composer + pointer repel
-      if (S.typing && q.pull) { q.vx += (CMP.x - q.x) * .0004 * dt; q.vy += (CMP.y - q.y) * .0004 * dt; }
+      q.a += q.sp * dt * (.6 + spd * .4);
+      var qa = Math.cos(q.a), qs = Math.sin(q.a), z01 = (qs + 1) / 2;
+      // squeeze each side proportionally so symbols never pile up on the edge
+      var rx = R * q.rr * Math.min(1, (qa < 0 ? BC.x - minX : maxX - BC.x) / (R * 1.32));
+      var bx = BC.x + qa * rx, by = BC.y + q.yo * BC.h + qs * R * q.rr * .3 + Math.sin(t * .0012 + q.bob) * 9;
+      // typing pulls some symbols towards the composer; the pointer pushes them away
+      var tx = S.typing && q.pull ? (CMP.x - bx) * .85 : 0, ty = S.typing && q.pull ? (CMP.y - by) * .85 : 0;
       if (FINE) {
-        var dx = q.x - S.px, dy = q.y - S.py, dd = dx * dx + dy * dy;
-        if (dd < 22500) { var f = (1 - dd / 22500) * .5 * dt; dd = Math.sqrt(dd) || 1; q.vx += dx / dd * f; q.vy += dy / dd * f; }
+        var dx = bx + q.ox - S.px, dy = by + q.oy - S.py, dd = dx * dx + dy * dy;
+        if (dd < 19600) { dd = Math.sqrt(dd) || 1; var f = (1 - dd / 140) * 4; q.kx += dx / dd * f; q.ky += dy / dd * f; }
       }
-      q.vx *= .97; q.vy *= .97;
-      q.x += q.vx * dt / 1000; q.y += (q.dy * (S.typing && q.pull ? .3 : 1) + q.vy) * dt / 1000;
-      if (S.typing && q.pull && Math.abs(q.x - CMP.x) < 70 && Math.abs(q.y - CMP.y) < 50) q.life = Math.max(q.life, q.max - .6);
-      var fade = Math.min(1, q.life / 1.6, (q.max - q.life) / 1.6);
-      var px = q.x + S.cx * -34 * q.z, py = q.y + S.cy * -20 * q.z;
+      q.kx *= .94; q.ky *= .94;
+      q.ox = lerp(q.ox, tx + q.kx, .03); q.oy = lerp(q.oy, ty + q.ky, .03);
+      var px = bx + q.ox + ox * (.6 + z01), py = by + q.oy + oy * (.6 + z01);
+      var fade = Math.min(1, q.life / 1.4, (q.max - q.life) / 1.4);
       // fade out under the fixed header
-      var alpha = fade * Math.max(0, Math.min(1, (py - 110) / 90)) * (.07 + q.z * .12 + S.e * .06 + q.flash * .5);
-      xB.font = '700 ' + q.size.toFixed(0) + 'px "Inter Tight", Inter, system-ui, sans-serif';
-      xB.globalAlpha = alpha;
-      xB.fillStyle = q.gold ? 'rgb(212,175,55)' : 'rgb(' + S.lcs + ')';
-      xB.fillText(q.ch, px, py);
-      xB.globalAlpha = Math.min(1, alpha * 1.8); xB.lineWidth = 1;
-      xB.strokeStyle = q.gold ? 'rgba(243,226,166,.55)' : 'rgba(184,154,240,.55)';
-      xB.strokeText(q.ch, px, py);
+      var alpha = fade * Math.max(0, Math.min(1, (py - 110) / 80)) * Math.min(1, .26 + z01 * .42 + S.e * .12 + q.flash * .5);
+      if (alpha <= .01) continue;
+      var size = (small ? 14 : 20) + z01 * (small ? 20 : 34) * (1 + q.flash * .25);
+      var cx2 = qs > 0 ? xF : xB;
+      cx2.font = '800 ' + size.toFixed(0) + 'px "Inter Tight", Inter, system-ui, sans-serif';
+      cx2.globalAlpha = alpha;
+      cx2.shadowColor = q.gold ? 'rgba(212,175,55,.75)' : 'rgba(' + S.lcs + ',.8)';
+      cx2.shadowBlur = qs > 0 ? 8 + z01 * 14 : 4;
+      cx2.fillStyle = q.gold ? 'rgb(222,186,72)' : 'rgb(' + S.lcs + ')';
+      cx2.fillText(q.ch, px, py);
+      cx2.shadowBlur = 0; cx2.lineWidth = 1;
+      cx2.strokeStyle = q.gold ? 'rgba(250,236,190,.7)' : 'rgba(214,198,255,.7)';
+      cx2.strokeText(q.ch, px, py);
     }
     xB.globalAlpha = 1; xF.globalAlpha = 1;
   }
@@ -308,8 +316,8 @@
     if (w) w.opener = null; else location.href = url;
     S.burst = 1; S.pulse = 1;
     cash.forEach(function (q) {
-      q.flash = 1; var dx = q.x - CMP.x, dy = q.y - CMP.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
-      q.vx += dx / d * 220; q.vy -= 160;
+      q.flash = 1; var dx = q.ox + BC.x - CMP.x, dy = q.oy + BC.y - CMP.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
+      q.kx += dx / d * 120; q.ky += dy / d * 120 - 60;
     });
     ring.classList.remove('go'); void ring.offsetWidth; ring.classList.add('go');
     setHint('Listo · te llevo a mi WhatsApp ✓');
