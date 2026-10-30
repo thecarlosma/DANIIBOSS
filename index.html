@@ -70,27 +70,48 @@
 
 <main id="main">
 
-<!-- ============ HERO ============ -->
-<section class="hero" aria-labelledby="hero-t">
-  <div class="hero-photo" id="heroPhoto" aria-hidden="true"><figure class="slide on solo"><img src="assets/bg/soc-dark.jpg" alt="" fetchpriority="high" decoding="async"></figure></div>
+<!-- ============ HERO · SÓCRATES AI ============ -->
+<section class="hero hero-ai" aria-labelledby="hero-t" data-mode="auto">
+  <div class="ai-stage" id="aiStage" aria-hidden="true">
+    <canvas class="ai-fx" id="fxBack"></canvas>
+    <div class="ai-bust" id="aiBust">
+      <img src="assets/bg/socrates-ai.webp" alt="" width="780" height="720" fetchpriority="high" decoding="async">
+      <i class="ai-light"></i><i class="ai-sheen"></i><i class="ai-ring"></i>
+    </div>
+    <canvas class="ai-fx" id="fxFront"></canvas>
+  </div>
   <div class="hero-bg" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="label rv">Estrategia · IA · E-commerce · Web</p>
-      <h1 id="hero-t" class="hero-title">
-        <span class="mask"><span class="line">No construyo solo marcas.</span></span>
-        <span class="mask"><span class="line">Construyo <em>sistemas</em></span></span>
-        <span class="mask"><span class="line">que las hacen crecer.</span></span>
-      </h1>
-      <p class="hero-sub rv d2">Conecto inteligencia artificial, e-commerce y experiencias web para ayudar a las marcas a captar clientes, optimizar sus procesos y vender mejor.</p>
-      <div class="hero-ctas rv d3">
-        <a class="btn" href="#contacto">Construir mi sistema <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="#proyectos">Explorar proyectos <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
+  <div class="wrap hero-ai-in">
+    <p class="label rv">DANI BOSS · Intelligence Lab</p>
+    <h1 id="hero-t" class="ai-title">
+      <span class="sr-only">DANI BOSS: construyo sistemas con inteligencia artificial que hacen crecer marcas.</span>
+      <span class="ai-rot" id="aiRot" aria-hidden="true">Construyo sistemas que hacen crecer marcas.</span>
+    </h1>
+    <p class="hero-sub ai-sub rv d2">Conecto inteligencia artificial, e-commerce y experiencias web para que tu marca capte clientes, optimice procesos y venda mejor.</p>
+
+    <form class="composer rv d3" id="composer" novalidate>
+      <label class="sr-only" for="cmpIn">Cuéntame qué quieres construir</label>
+      <textarea id="cmpIn" rows="1" maxlength="600" placeholder="Cuéntame qué quieres construir…" enterkeyhint="send"></textarea>
+      <div class="cps-bar">
+        <div class="cps-modes" role="radiogroup" aria-label="Modo de respuesta">
+          <button type="button" role="radio" aria-checked="true" data-mode="auto">Auto</button>
+          <button type="button" role="radio" aria-checked="false" data-mode="fast">Fast</button>
+          <button type="button" role="radio" aria-checked="false" data-mode="think">Think</button>
+        </div>
+        <span class="cps-hint" id="cmpHint" aria-live="polite">Elijo la mejor ruta para tu negocio</span>
+        <button class="cps-send" type="submit" aria-label="Enviar a Dani por WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
-      <div class="hero-sig rv d3"><img src="assets/dani.jpg" alt="Dani Boss" width="44" height="44"><p><b>Dani Boss</b> · Fundador de MAGNA 8<br><span>Ecuador → Latinoamérica</span></p></div>
+    </form>
+    <div class="cps-chips rv d3" aria-label="Ideas rápidas">
+      <button type="button">Automatizar mi WhatsApp</button><button type="button">Una landing que venda</button><button type="button">Mi tienda online</button><button type="button">Un dashboard como el tuyo</button>
     </div>
 
+    <div class="ai-foot rv d3">
+      <div class="hero-sig"><img src="assets/dani.jpg" alt="Dani Boss" width="40" height="40"><p><b>Dani Boss</b> · Fundador de MAGNA 8<br><span>Tu mensaje llega directo a mi WhatsApp</span></p></div>
+      <a class="link-btn" href="#proyectos">Explorar proyectos <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
+    </div>
   </div>
+  <button class="ai-pause mono" id="aiPause" type="button" aria-pressed="false">Pausar animación</button>
   <a class="scroll-cue mono" href="#sistema" aria-label="Bajar a la siguiente sección"><i></i>Scroll</a>
 </section>
 
@@ -506,5 +527,6 @@
 
 <script src="assets/js/content.js"></script>
 <script src="assets/js/site.js"></script>
+<script src="assets/js/ai-hero.js"></script>
 </body>
 </html>

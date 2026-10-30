@@ -402,31 +402,6 @@
     new IntersectionObserver(function (es) { atClose = es[0].isIntersecting; upd(); }, { threshold: .15 }).observe(close);
   })();
 
-  /* ---------- Hero slideshow ---------- */
-  (function () {
-    var slides = $$('#heroPhoto .slide'), dots = $('#heroDots'); if (slides.length < 2 || !dots) return;
-    var cur = 0, timer = null, DUR = 6000, btns = [];
-    dots.style.setProperty('--dur', DUR + 'ms');
-    slides.forEach(function (sl, i) {
-      var b = document.createElement('button'); b.type = 'button';
-      b.innerHTML = '<i></i>' + sl.getAttribute('data-label');
-      b.setAttribute('aria-label', 'Imagen ' + (i + 1) + ': ' + sl.getAttribute('data-label'));
-      b.addEventListener('click', function () { go(i); restart(); });
-      dots.appendChild(b); btns.push(b);
-    });
-    function go(i) {
-      cur = i;
-      slides.forEach(function (sl, k) { sl.classList.toggle('on', k === i); });
-      btns.forEach(function (b, k) { b.classList.remove('on'); b.classList.toggle('done', k < i); });
-      void btns[i].offsetWidth; btns[i].classList.add('on'); btns[i].setAttribute('aria-current', 'true');
-    }
-    function next() { go((cur + 1) % slides.length); }
-    function restart() { clearInterval(timer); timer = RM ? null : setInterval(next, DUR); }
-    go(0);
-    if (!RM) whileVisible($('.hero'), restart, function () { clearInterval(timer); timer = null; });
-    document.addEventListener('visibilitychange', function () { if (document.hidden) { clearInterval(timer); timer = null; } else restart(); });
-  })();
-
   /* ---------- Philosophy panels ---------- */
   (function () {
     var ps = $$('#panels .panel-i'); if (!ps.length) return;
@@ -439,16 +414,6 @@
     });
     sel(0);
     if (!RM) whileVisible($('#panels'), function () { if (!touched && !timer) timer = setInterval(function () { sel((cur + 1) % ps.length); }, 3800); }, function () { clearInterval(timer); timer = null; });
-  })();
-
-  /* ---------- Hero parallax (desktop) ---------- */
-  (function () {
-    var hp = $('#heroPhoto'), hero = $('.hero'); if (!hp || !FINE || RM) return;
-    var raf = null, lx = 0, ly = 0;
-    hero.addEventListener('pointermove', function (e) {
-      lx = (e.clientX / innerWidth - .5) * 2; ly = (e.clientY / innerHeight - .5) * 2;
-      if (!raf) raf = requestAnimationFrame(function () { raf = null; hp.style.setProperty('--lx', lx.toFixed(3)); hp.style.setProperty('--ly', ly.toFixed(3)); });
-    }, { passive: true });
   })();
 
   /* ---------- Cursor (desktop only, native cursor stays) ---------- */
