@@ -40,6 +40,8 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1 0-.3-.1-.5-.2z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9.5v5a1 1 0 0 0 1 1h3l4.4 3.6a.6.6 0 0 0 1-.46V5.36a.6.6 0 0 0-1-.46L8 8.5H5a1 1 0 0 0-1 1z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
@@ -108,11 +110,61 @@
 
     <div class="ai-foot rv d3">
       <div class="hero-sig"><img src="assets/dani.jpg" alt="Dani Boss" width="40" height="40"><p><b>Dani Boss</b> · Fundador de MAGNA 8<br><span>Tu mensaje llega directo a mi WhatsApp</span></p></div>
+      <a class="vd-cue" href="#conoceme" data-vd-play><span class="vd-cue-i"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span>Conóceme en 1 minuto</a>
       <a class="link-btn" href="#soluciones">Ver las 5 soluciones <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
     </div>
   </div>
   <button class="ai-pause mono" id="aiPause" type="button" aria-pressed="false">Pausar animación</button>
   <a class="scroll-cue mono" href="#soluciones" aria-label="Bajar a la siguiente sección"><i></i>Scroll</a>
+</section>
+
+<!-- ============ CONÓCEME (video) ============ -->
+<section class="sec sec-vid" id="conoceme" aria-labelledby="vd-t">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div><p class="idx mono rv">Conóceme · 1 minuto</p><h2 id="vd-t" class="h2 rv d1">Antes de escribirme,<br><em>conóceme.</em></h2></div>
+      <p class="lead rv d2">En un minuto te cuento quién soy, qué construyo y cómo empezamos. Sin rodeos, con mi voz.</p>
+    </div>
+    <div class="vd rv d2" id="vd">
+      <div class="vd-stage" id="vdStage">
+        <div class="vd-frame" id="vdFrame">
+          <video id="vdVideo" playsinline preload="none" poster="assets/video/conoceme-poster.jpg" aria-label="Video: Conóceme en 1 minuto, Dani Boss">
+            <source src="assets/video/conoceme-720.mp4" type="video/mp4" media="(max-width: 760px)">
+            <source src="assets/video/conoceme-1080.mp4" type="video/mp4">
+          </video>
+          <button class="vd-play" id="vdPlay" type="button" aria-label="Ver el video con sonido (1:22)">
+            <span class="vd-btn"><svg class="vd-i-play" aria-hidden="true"><use href="#i-play"/></svg><svg class="vd-i-snd" aria-hidden="true"><use href="#i-sound"/></svg></span>
+            <span class="vd-meta"><b id="vdMetaT">Conóceme en 1 minuto</b><span class="mono" id="vdMetaS">1:22 · Con sonido</span></span>
+          </button>
+          <div class="vd-end" id="vdEnd" hidden>
+            <p class="mono mono-hi">¿Te viste en alguno de esos problemas?</p>
+            <h3 class="h3">Cuéntamelo y armo tu solución.</h3>
+            <div class="vd-end-ctas">
+              <button class="btn" type="button" id="vdWrite">Escribir mi problema <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              <a class="btn btn-wa" data-wa="video" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+            </div>
+            <button class="vd-replay mono" type="button" id="vdReplay">↺ Ver de nuevo</button>
+          </div>
+          <button class="vd-close" id="vdClose" type="button" aria-label="Cerrar el mini reproductor" hidden>×</button>
+        </div>
+      </div>
+      <aside class="vd-side" aria-label="Capítulos del video">
+        <p class="vd-side-h mono"><span>Capítulos</span><span>1:22</span></p>
+        <ol class="vd-ch" id="vdCh">
+          <li><button type="button" data-t="0"><span class="mono">0:00</span><b>Te robo un minuto</b><i aria-hidden="true"></i></button></li>
+          <li><button type="button" data-t="5.9"><span class="mono">0:05</span><b>Quién soy</b><i aria-hidden="true"></i></button></li>
+          <li><button type="button" data-t="14.1"><span class="mono">0:14</span><b>Las 5 soluciones</b><i aria-hidden="true"></i></button></li>
+          <li><button type="button" data-t="50.5"><span class="mono">0:50</span><b>La prueba</b><i aria-hidden="true"></i></button></li>
+          <li><button type="button" data-t="60.1"><span class="mono">1:00</span><b>Diagnóstico de $33</b><i aria-hidden="true"></i></button></li>
+          <li><button type="button" data-t="70.4"><span class="mono">1:10</span><b>Cómo empezar</b><i aria-hidden="true"></i></button></li>
+        </ol>
+        <div class="vd-note">
+          <img src="assets/dani.jpg" alt="" width="36" height="36">
+          <p>Te respondo yo, no un bot. <a href="#hero-t" id="vdToComposer">Cuéntame tu problema →</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
 </section>
 
 <!-- ============ SOLUCIONES ============ -->

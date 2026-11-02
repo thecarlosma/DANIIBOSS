@@ -16,7 +16,8 @@ window.DB_CONTENT = {
     nav:     'Hola Dani, vi tu web y quiero más información.',
     hero:    'Hola Dani, vi tu web y quiero construir un sistema para mi negocio.',
     closing: 'Hola Dani, quiero hablar de mi proyecto.',
-    float:   'Hola Dani, vi tu web y tengo una pregunta.'
+    float:   'Hola Dani, vi tu web y tengo una pregunta.',
+    video:   'Hola Dani, vi tu video en la web. Mi problema es: '
   },
 
   // Precios vigentes (fuente: Escalera de Valor DANI BOSS × MAGNA)

@@ -442,6 +442,76 @@
     if (!RM) whileVisible($('#panels'), function () { if (!touched && !timer) timer = setInterval(function () { sel((cur + 1) % ps.length); }, 3800); }, function () { clearInterval(timer); timer = null; });
   })();
 
+  /* ---------- Conóceme video: muted preview in view, chapters, mini player, end screen ---------- */
+  (function () {
+    var box = $('#vd'), v = $('#vdVideo');
+    if (!box || !v) return;
+    var frame = $('#vdFrame'), stage = $('#vdStage'), end = $('#vdEnd'), close = $('#vdClose');
+    var chs = $$('#vdCh button'), marks = chs.map(function (b) { return +b.getAttribute('data-t'); });
+    var conn = navigator.connection || {};
+    var started = false, docked = false, inView = false;
+
+    function setMeta(t, s) { $('#vdMetaT').textContent = t; $('#vdMetaS').textContent = s; }
+    function startWithSound(at) {
+      started = true; end.hidden = true;
+      box.classList.remove('is-preview'); box.classList.add('is-playing');
+      v.muted = false; v.loop = false; v.controls = true;
+      v.currentTime = at || 0;
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    }
+    // silent teaser while the section is on screen (skipped on data saver / reduced motion)
+    function preview() {
+      if (started || RM || conn.saveData) return;
+      v.muted = true; v.loop = true; v.preload = 'auto';
+      var p = v.play();
+      if (p && p.then) p.then(function () { box.classList.add('is-preview'); setMeta('Toca para escuchar', '1:22 · Activa el sonido'); }).catch(function () {});
+    }
+    if (IO) new IntersectionObserver(function (es) {
+      inView = es[0].isIntersecting;
+      if (!started) { inView ? preview() : v.pause(); return; }
+      // keep watching while scrolling: dock into a mini player
+      if (!inView && !v.paused && !docked) { docked = true; frame.classList.add('mini'); close.hidden = false; }
+      if (inView && docked) undock();
+    }, { threshold: .45 }).observe(stage);
+    function undock() { docked = false; frame.classList.remove('mini'); close.hidden = true; }
+    close.addEventListener('click', function (e) { e.stopPropagation(); v.pause(); undock(); });
+
+    $('#vdPlay').addEventListener('click', function () { startWithSound(0); });
+    $$('[data-vd-play]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        stage.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'center' });
+        startWithSound(0);
+      });
+    });
+    chs.forEach(function (b, i) { b.addEventListener('click', function () { startWithSound(marks[i]); }); });
+
+    v.addEventListener('timeupdate', function () {
+      if (!started) return;
+      var t = v.currentTime, d = v.duration || 82;
+      chs.forEach(function (b, i) {
+        var a = marks[i], z = i + 1 < marks.length ? marks[i + 1] : d;
+        var on = t >= a && t < z;
+        b.setAttribute('aria-current', on ? 'true' : 'false');
+        b.style.setProperty('--p', on ? Math.min(1, (t - a) / (z - a)).toFixed(3) : (t >= z ? 1 : 0));
+      });
+    });
+    v.addEventListener('ended', function () {
+      if (!started) return;
+      v.controls = false; undock(); end.hidden = false;
+    });
+    $('#vdReplay').addEventListener('click', function () { startWithSound(0); });
+    function toComposer(e) {
+      if (e) e.preventDefault();
+      v.pause(); undock();
+      var inp = $('#cmpIn');
+      $('#hero-t').scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' });
+      if (inp) setTimeout(function () { inp.focus({ preventScroll: true }); }, RM ? 0 : 700);
+    }
+    $('#vdWrite').addEventListener('click', toComposer);
+    $('#vdToComposer').addEventListener('click', toComposer);
+  })();
+
   /* ---------- Cursor (desktop only, native cursor stays) ---------- */
   (function () {
     if (!FINE || RM) return;
