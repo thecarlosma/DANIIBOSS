@@ -17,8 +17,14 @@ window.DB_CONTENT = {
     hero:    'Hola Dani, vi tu web y quiero construir un sistema para mi negocio.',
     closing: 'Hola Dani, quiero hablar de mi proyecto.',
     float:   'Hola Dani, vi tu web y tengo una pregunta.',
-    video:   'Hola Dani, vi tu video en la web. Mi problema es: '
+    video:   'Hola Dani, vi tu video en la web. Mi problema es: ',
+    diagnostico: 'Hola Dani, quiero el diagnóstico de $33. Mi negocio es: ',
+    fundador:    'Hola Dani, quiero uno de los cupos fundadores del diagnóstico (pago después + testimonio). Mi negocio es: '
   },
+
+  /* Cupos fundadores del diagnóstico: pagan después si les sirvió, a cambio de testimonio.
+     Cuando entre uno, sube "tomados". Al llegar al total, el bloque se oculta solo. */
+  founders: { total: 5, tomados: 0 },
 
   // Precios vigentes (fuente: Escalera de Valor DANI BOSS × MAGNA)
   prices: {

@@ -48,6 +48,15 @@
     box.hidden = false;
   }
 
+  var F = C.founders;
+  if (F && F.total > F.tomados) {
+    var left = F.total - F.tomados, dots = $('#dxDots');
+    for (var i = 0; i < F.total; i++) { var d = document.createElement('i'); if (i < F.tomados) d.className = 'off'; dots.appendChild(d); }
+    $$('[data-founders-total]').forEach(function (e) { e.textContent = F.total; });
+    $('#dxLeft').textContent = (left === 1 ? 'Queda 1' : 'Quedan ' + left) + ' de ' + F.total;
+    $('#dxFounders').hidden = false;
+  }
+
   /* ---------- Reveal ---------- */
   function startReveals() {
     root.classList.add('ready');
