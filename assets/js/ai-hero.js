@@ -59,11 +59,11 @@
   var orb = [], dust = [], cash = [];
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function seed() {
-    var nO = small ? 34 : 86, nD = small ? 16 : 42, nC = small ? 11 : 16;
+    var nO = small ? 34 : 86, nD = small ? 16 : 42, nC = 0; // sin símbolos de dinero en la portada violeta
     orb = []; dust = []; cash = [];
     for (var i = 0; i < nO; i++) orb.push({
       a: rnd(0, Math.PI * 2), r: rnd(.5, 1.18), sp: rnd(.00012, .00034),
-      yo: rnd(-.32, .3), tl: rnd(-.14, .14), s: rnd(1.4, 4.2), k: Math.random() < .16 ? 'g' : (Math.random() < .45 ? 'l' : 'v'), tw: rnd(0, 6.28)
+      yo: rnd(-.32, .3), tl: rnd(-.14, .14), s: rnd(1.4, 4.2), k: Math.random() < .45 ? 'l' : 'v', tw: rnd(0, 6.28)
     });
     for (var j = 0; j < nD; j++) dust.push({ x: rnd(0, W), y: rnd(0, H), vy: rnd(-5, -14), s: rnd(.6, 1.8), tw: rnd(0, 6.28) });
     for (var k = 0; k < nC; k++) cash.push(newCash(true));
