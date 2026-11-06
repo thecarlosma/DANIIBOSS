@@ -7,7 +7,7 @@
 <meta name="description" content="Descubre dónde tienes más caos, mira un sistema real por dentro y arma el tuyo en 5 minutos.">
 <meta property="og:title" content="Guía ORDEN: pon tu vida en un solo sistema | DANI BOSS">
 <meta property="og:description" content="Diagnóstico gratis, plan de 7 días y un sistema real por dentro.">
-<meta property="og:image" content="https://daniiboss.vercel.app/orden/img/hero.jpg">
+<meta property="og:image" content="https://daniiboss.vercel.app/orden/img/dashboard.jpg">
 <meta name="theme-color" content="#070510">
 <link rel="icon" href="/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,21 +34,25 @@ h3{font-size:20px;letter-spacing:-.015em}
 /* barra superior */
 .top{position:sticky;top:0;z-index:30;background:rgba(7,5,16,.78);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--ln)}
 .top .in{display:flex;align-items:center;gap:12px;height:58px}
-.top img{height:26px;width:auto}
+.top img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--pl)}
 .top b{font:800 15px var(--disp);color:#fff;letter-spacing:.02em}
 .top .pct{margin-left:auto;font:700 12px var(--mono);color:var(--pll)}
 .bar{height:3px;background:rgba(255,255,255,.07)}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7D50DF,#C9B8FF);transition:width .35s}
 /* hero */
 .hero{padding:26px 0 12px}
+.hero .tags{justify-content:center;margin-top:14px}
 .hero h1{margin-top:14px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .tag{font:700 12.5px var(--mono);color:var(--w2);padding:8px 12px;border:1px solid var(--ln2);border-radius:99px;background:rgba(31,24,64,.5)}
-.pic{position:relative;margin-top:20px;border-radius:26px;overflow:hidden;border:1px solid var(--ln2);box-shadow:var(--glow)}
-.pic img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,5,16,.86))}
-.pic p{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:#fff;font-weight:700;font-size:18px;line-height:1.35}
-.pic small{display:block;font:700 12px var(--mono);color:var(--pll);letter-spacing:.1em;margin-top:6px}
+.stage{position:relative;display:grid;place-items:center;margin-top:24px;padding:6px 0}
+.stage::before{content:"";position:absolute;width:118%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(125,80,223,.5),transparent 62%);pointer-events:none}
+.phone.hp{width:min(258px,66vw);padding:8px;border-radius:38px}
+.phone.hp video{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:30px;background:#0b0816}
+.fl{position:absolute;display:inline-flex;align-items:center;gap:7px;padding:8px 13px 8px 9px;border-radius:99px;color:#fff;font-weight:800;font-size:14px;background:rgba(31,20,66,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--ln2);box-shadow:0 10px 26px rgba(0,0,0,.42);animation:fl 5.6s ease-in-out infinite}
+.fl img{width:30px;height:30px}
+.f1{left:0;top:15%}.f2{right:0;top:46%;animation-delay:-1.9s}.f3{left:2%;bottom:13%;animation-delay:-3.6s}
+@keyframes fl{0%,100%{transform:translateY(-5px)}50%{transform:translateY(5px)}}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;padding:15px 22px;border-radius:16px;background:var(--grad);color:#fff;font:800 17.5px var(--disp);text-decoration:none;box-shadow:var(--glow);border:1px solid rgba(255,255,255,.14);transition:transform .15s}
 .btn:active{transform:scale(.98)}
 .btn.ghost{background:rgba(31,24,64,.6);box-shadow:none;border-color:var(--ln2)}
@@ -161,7 +165,7 @@ footer a{color:var(--pll)}
 </head>
 <body>
 <header class="top">
-  <div class="wrap in"><img src="/assets/db-logo.png" alt=""><b>Guía ORDEN</b><span class="pct" id="pct">0%</span></div>
+  <div class="wrap in"><img src="img/perfil.jpg" alt="Dani Boss" width="36" height="36"><b>Guía ORDEN</b><span class="pct" id="pct">0%</span></div>
   <div class="bar"><i id="bar"></i></div>
 </header>
 
@@ -170,9 +174,15 @@ footer a{color:var(--pll)}
     <p class="mono">Guía gratis · Dani Boss</p>
     <h1>Pon tu vida en orden, con <span class="foil">un solo sistema.</span></h1>
     <p class="lead">En 5 minutos descubres dónde tienes más caos, qué ordenar primero y cómo se ve un sistema real por dentro.</p>
-    <div class="tags"><span class="tag">5 preguntas</span><span class="tag">3 reglas</span><span class="tag">Plan de 7 días</span></div>
-    <div class="pic"><img src="img/hero.jpg" alt="Dani y Maholy conversando en el carro" width="960" height="720"><p>"Hace unos años mi vida era totalmente un caos."<small>DANI BOSS</small></p></div>
+    <div class="stage">
+      <div class="phone hp"><video id="hv" autoplay muted loop playsinline preload="auto" poster="img/dashboard.jpg" aria-label="Recorrido por el sistema: inicio, mi día, tareas, finanzas y hábitos"><source src="img/sistema.mp4" type="video/mp4"></video></div>
+      <span class="fl f1"><img src="img/i-finanzas.png" alt="" width="30" height="30">Finanzas</span>
+      <span class="fl f2"><img src="img/i-tareas.png" alt="" width="30" height="30">Tareas</span>
+      <span class="fl f3"><img src="img/i-habitos.png" alt="" width="30" height="30">Hábitos</span>
+    </div>
+    <p class="note">SISTEMA REAL · DATOS DE EJEMPLO</p>
     <a class="btn mt" href="#p1">Empezar mi diagnóstico</a>
+    <div class="tags"><span class="tag">5 preguntas</span><span class="tag">3 reglas</span><span class="tag">Plan de 7 días</span></div>
   </section>
 
   <section class="step" id="p1">
@@ -371,14 +381,15 @@ footer a{color:var(--pll)}
     var a=calc().ok?40:S.a.filter(function(v){return v!=null}).length*8,b=S.d.length/7*30,c=Math.min(S.m.length,3)/3*30,p=Math.round(a+b+c);
     $('pct').textContent=p+'%';$('bar').style.width=p+'%';
   }
-  var dock=$('dock'),fin=$('fin'),hero=document.querySelector('.hero');
+  var dock=$('dock'),fin=$('fin');
   function onS(){
-    var y=window.scrollY,top=fin.getBoundingClientRect().top;
-    dock.classList.toggle('show',y>hero.offsetHeight*.75&&top>innerHeight*.9);
-    $('dockBtn').textContent=$('p5').getBoundingClientRect().top<innerHeight*.5?'Quiero mi sistema':'Arma tu sistema';
-    $('dockBtn').setAttribute('href',$('p5').getBoundingClientRect().top<innerHeight*.5?'#fin':'#p5');
+    var h=innerHeight,finT=fin.getBoundingClientRect().top,p1=$('p1').getBoundingClientRect().top,p5=$('p5').getBoundingClientRect().top;
+    dock.classList.toggle('show',finT>h*.9&&(p1>h*.55||p1<-260));
+    var b=$('dockBtn'),st=p5<h*.5?['Quiero mi sistema','#fin']:(p1>h*.55?['Empezar mi diagnóstico','#p1']:['Arma tu sistema','#p5']);
+    b.textContent=st[0];b.setAttribute('href',st[1]);
   }
   addEventListener('scroll',onS,{passive:true});
+  var hv=$('hv');if(hv&&matchMedia('(prefers-reduced-motion:reduce)').matches)hv.pause();
   drawD();drawM();msg();prog();
   if(calc().ok)showRes(false);else{S.i=Math.min(S.a.filter(function(v){return v!=null}).length,4);drawQ()}
   onS();
