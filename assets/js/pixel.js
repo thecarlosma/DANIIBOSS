@@ -20,7 +20,7 @@
   fbq('track', 'PageView');
 
   var page = location.pathname.replace(/\/+$/, '') || '/';
-  var LEADS = { diagnostico: 'Diagnóstico $33', fundador: 'Cupo fundador' };
+  var LEADS = { diagnostico: 'Diagnóstico $33', fundador: 'Cupo fundador', orden: 'Guía ORDEN' };
 
   // Every WhatsApp link (landing buttons, form preview, guide pages)
   document.addEventListener('click', function (e) {

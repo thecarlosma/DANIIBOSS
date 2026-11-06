@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Guía ORDEN — DANI BOSS</title>
+<meta name="description" content="Descubre dónde tienes más caos, mira un sistema real por dentro y arma el tuyo en 5 minutos.">
+<meta property="og:title" content="Guía ORDEN: pon tu vida en un solo sistema | DANI BOSS">
+<meta property="og:description" content="Diagnóstico gratis, plan de 7 días y un sistema real por dentro.">
+<meta property="og:image" content="https://daniiboss.vercel.app/orden/img/hero.jpg">
+<meta name="theme-color" content="#070510">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--k0:#070510;--k1:#0F0B20;--k2:#161030;--k3:#1F1840;--w:#fff;--w2:#E9E6F2;--g:#ABA5C4;--g2:#7F789C;--ln:rgba(196,178,255,.12);--ln2:rgba(196,178,255,.24);--p:#632FD1;--p2:#7D50DF;--pl:#8E6EED;--pll:#C9B8FF;--ok:#6FE3A4;--grad:linear-gradient(180deg,#7D50DF,#5A28C4);--glow:0 10px 30px rgba(99,47,209,.45);--r:22px;--disp:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--k0);color:var(--w2);font:500 17px/1.6 var(--disp);overflow-x:hidden;background-image:radial-gradient(900px 620px at 85% -5%,rgba(99,47,209,.34),transparent 62%),radial-gradient(700px 600px at -10% 40%,rgba(99,47,209,.14),transparent 60%);background-attachment:fixed}
+img{max-width:100%;display:block}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--pll);outline-offset:3px;border-radius:8px}
+.wrap{width:min(720px,100%);margin:0 auto;padding:0 18px}
+.mono{font:700 12px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--pll)}
+h1,h2,h3{font-family:var(--disp);color:#fff;font-weight:800;letter-spacing:-.025em;line-height:1.1;text-wrap:balance}
+h1{font-size:clamp(38px,9.4vw,60px)}
+h2{font-size:clamp(29px,6.6vw,42px);margin-top:12px}
+h3{font-size:20px;letter-spacing:-.015em}
+.foil{background:linear-gradient(100deg,#fff 0%,#CDB6FF 38%,#8E6EED 66%,#E9DEFC 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--g);margin-top:14px;font-size:18px}
+/* barra superior */
+.top{position:sticky;top:0;z-index:30;background:rgba(7,5,16,.78);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--ln)}
+.top .in{display:flex;align-items:center;gap:12px;height:58px}
+.top img{height:26px;width:auto}
+.top b{font:800 15px var(--disp);color:#fff;letter-spacing:.02em}
+.top .pct{margin-left:auto;font:700 12px var(--mono);color:var(--pll)}
+.bar{height:3px;background:rgba(255,255,255,.07)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7D50DF,#C9B8FF);transition:width .35s}
+/* hero */
+.hero{padding:26px 0 12px}
+.hero h1{margin-top:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{font:700 12.5px var(--mono);color:var(--w2);padding:8px 12px;border:1px solid var(--ln2);border-radius:99px;background:rgba(31,24,64,.5)}
+.pic{position:relative;margin-top:20px;border-radius:26px;overflow:hidden;border:1px solid var(--ln2);box-shadow:var(--glow)}
+.pic img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,5,16,.86))}
+.pic p{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:#fff;font-weight:700;font-size:18px;line-height:1.35}
+.pic small{display:block;font:700 12px var(--mono);color:var(--pll);letter-spacing:.1em;margin-top:6px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;padding:15px 22px;border-radius:16px;background:var(--grad);color:#fff;font:800 17.5px var(--disp);text-decoration:none;box-shadow:var(--glow);border:1px solid rgba(255,255,255,.14);transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:rgba(31,24,64,.6);box-shadow:none;border-color:var(--ln2)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.mt{margin-top:22px}
+/* secciones */
+section.step{padding:58px 0 12px;scroll-margin-top:64px}
+.card{background:linear-gradient(180deg,rgba(31,24,64,.72),rgba(15,11,32,.78));border:1px solid var(--ln2);border-radius:var(--r);padding:20px}
+.stack{display:grid;gap:12px;margin-top:22px}
+/* diagnóstico */
+.q{margin-top:22px}
+.qh{display:flex;align-items:center;gap:12px}
+.qh img{width:46px;height:46px}
+.qn{font:700 12px var(--mono);color:var(--pll);letter-spacing:.1em}
+.qt{color:#fff;font-weight:800;font-size:21px;line-height:1.25;margin-top:14px;text-wrap:balance}
+.opts{display:grid;gap:9px;margin-top:16px}
+.opt{display:flex;align-items:center;gap:12px;min-height:54px;width:100%;text-align:left;padding:12px 14px;border-radius:14px;border:1px solid var(--ln2);background:rgba(7,5,16,.5);color:var(--w2);font-weight:600;font-size:16px;transition:background .15s,border-color .15s,transform .12s}
+.opt i{flex:0 0 22px;height:22px;border-radius:50%;border:2px solid #5d5580}
+.opt:active{transform:scale(.985)}
+.opt.on{background:rgba(99,47,209,.34);border-color:var(--pl);color:#fff}
+.opt.on i{border:6px solid var(--pll)}
+.dots{display:flex;gap:7px;margin-top:18px}
+.dots i{flex:1;height:5px;border-radius:9px;background:rgba(255,255,255,.1)}
+.dots i.on{background:var(--pl)}
+/* resultado */
+.res{display:none;margin-top:22px}
+.res.show{display:block;animation:up .45s ease both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.score{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center}
+.ring{position:relative;width:132px;height:132px}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:800 32px var(--disp)}
+.lvl{color:#fff;font-weight:800;font-size:23px;line-height:1.15}
+.lvl+p{color:var(--g);font-size:15.5px;margin-top:6px;line-height:1.45}
+.rows{display:grid;gap:11px;margin-top:20px}
+.rw{display:grid;grid-template-columns:92px 1fr 34px;gap:10px;align-items:center;font-size:14.5px;font-weight:700}
+.rw u{display:block;height:8px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden;text-decoration:none}
+.rw u s{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,#7D50DF,#C9B8FF);transition:width .7s ease;text-decoration:none}
+.rw.low u s{background:linear-gradient(90deg,#FF7A9A,#FFB3A6)}
+.rw em{font:700 12px var(--mono);color:var(--g);font-style:normal;text-align:right}
+.first{margin-top:18px;padding:15px;border-radius:14px;background:rgba(99,47,209,.2);border:1px solid var(--ln2)}
+.first .mono{font-size:11px}
+.first p{color:#fff;font-weight:600;margin-top:6px;line-height:1.45}
+/* reglas */
+.acc{border:1px solid var(--ln2);border-radius:18px;background:rgba(15,11,32,.72);overflow:hidden}
+.acc>button{display:flex;align-items:center;gap:13px;width:100%;min-height:68px;padding:14px 16px;text-align:left;color:#fff;font-weight:800;font-size:18px}
+.acc>button span{flex:0 0 32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--grad);font:800 14px var(--disp)}
+.acc>button svg{margin-left:auto;flex:none;transition:transform .2s;color:var(--pll)}
+.acc.open>button svg{transform:rotate(45deg)}
+.acc>div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s}
+.acc.open>div{grid-template-rows:1fr}
+.acc>div>p{overflow:hidden;color:var(--g);padding:0 16px;font-size:16px}
+.acc.open>div>p{padding-bottom:16px}
+.acc b{color:#fff}
+/* recorrido */
+.tabs{display:flex;gap:8px;overflow-x:auto;margin:22px -18px 0;padding:2px 18px 10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;min-height:44px;padding:10px 15px;border-radius:99px;border:1px solid var(--ln2);background:rgba(15,11,32,.7);color:var(--g);font-weight:700;font-size:15px}
+.tab.on{background:var(--grad);color:#fff;border-color:transparent}
+.tour{display:grid;gap:20px;align-items:center;margin-top:10px}
+.phone{position:relative;width:min(280px,76vw);margin:0 auto;aspect-ratio:390/844;border-radius:36px;padding:9px;background:#08050e;border:2px solid #7b5fd1;box-shadow:0 22px 70px rgba(99,47,209,.55)}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:27px}
+.phone .sd{position:absolute;inset:9px;border-radius:27px;overflow:hidden}
+.tdesc h3{font-size:23px}
+.tdesc p{color:var(--g);margin-top:8px}
+.note{font:700 11.5px var(--mono);letter-spacing:.08em;color:var(--pll);text-align:center;margin-top:12px}
+/* plan */
+.pgs{display:flex;justify-content:space-between;font:700 12.5px var(--mono);color:var(--pll);margin-top:22px}
+.day{display:flex;gap:13px;width:100%;text-align:left;padding:14px;border-radius:15px;border:1px solid var(--ln2);background:rgba(15,11,32,.72);min-height:68px;align-items:flex-start;transition:background .15s,border-color .15s}
+.day i{flex:0 0 26px;height:26px;margin-top:2px;border-radius:8px;border:2px solid #5d5580;display:grid;place-items:center}
+.day b{display:block;color:#fff;font-weight:800;font-size:16.5px;line-height:1.3}
+.day span{display:block;color:var(--g);font-size:14.5px;line-height:1.4;margin-top:3px}
+.day small{font:700 11px var(--mono);color:var(--pll);letter-spacing:.1em}
+.day.on{background:rgba(99,47,209,.22);border-color:var(--pl)}
+.day.on i{background:var(--pl);border-color:var(--pl)}
+.day.on i::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+/* constructor */
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px}
+.mod{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;min-height:96px;border-radius:15px;border:1px solid var(--ln2);background:rgba(15,11,32,.72);color:var(--g);font-weight:700;font-size:13.5px;line-height:1.2;transition:background .15s,border-color .15s,transform .12s}
+.mod img{width:42px;height:42px;opacity:.55;transition:opacity .15s,transform .2s}
+.mod.on{background:rgba(99,47,209,.34);border-color:var(--pl);color:#fff}
+.mod.on img{opacity:1;transform:scale(1.08)}
+.mod:active{transform:scale(.97)}
+label.f{display:block;margin-top:20px;font-weight:700;color:#fff}
+label.f input{display:block;width:100%;min-height:54px;margin-top:8px;padding:12px 15px;border-radius:14px;border:1px solid var(--ln2);background:rgba(7,5,16,.6);font-size:17px;font-weight:600}
+label.f input:focus{outline:none;border-color:var(--pl)}
+.mine{margin-top:20px;padding:16px;border-radius:18px;background:#0b0816;border:1px solid var(--ln2)}
+.mine .hd{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.mine .hd b{color:#fff;font-weight:800;font-size:17px;line-height:1.25}
+.mine .hd span{flex:none;font:700 11.5px var(--mono);color:var(--pll)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;min-height:34px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px 6px 7px;border-radius:99px;background:rgba(99,47,209,.3);border:1px solid var(--ln2);color:#fff;font-weight:700;font-size:13.5px;animation:up .25s ease both}
+.chip img{width:20px;height:20px}
+.empty{color:var(--g2);font-size:14.5px}
+/* cierre */
+.final{margin-top:60px;padding:26px 20px;border-radius:26px;background:linear-gradient(160deg,#3b1a8c,#150e33 72%);border:1px solid var(--ln2);box-shadow:var(--glow)}
+.final p{color:var(--w2);margin-top:10px}
+.msg{white-space:pre-line;margin-top:16px;padding:14px;border-radius:14px;background:#0a2e22;border:1px solid rgba(111,227,164,.3);color:#e4fff1;font-size:15px;line-height:1.45}
+.final .mono{color:#fff;opacity:.9}
+.fine{color:var(--g2);font-size:13.5px;text-align:center;margin-top:12px;line-height:1.45}
+footer{padding:44px 0 118px;text-align:center;color:var(--g2);font-size:14px}
+footer a{color:var(--pll)}
+/* botón fijo */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:25;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(7,5,16,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--ln);transform:translateY(120%);transition:transform .3s}
+.dock.show{transform:none}
+.dock .wrap{padding:0}
+@media (min-width:720px){.tour{grid-template-columns:300px 1fr}.mods{grid-template-columns:repeat(4,1fr)}.hero{padding-top:56px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap in"><img src="/assets/db-logo.png" alt=""><b>Guía ORDEN</b><span class="pct" id="pct">0%</span></div>
+  <div class="bar"><i id="bar"></i></div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="mono">Guía gratis · Dani Boss</p>
+    <h1>Pon tu vida en orden, con <span class="foil">un solo sistema.</span></h1>
+    <p class="lead">En 5 minutos descubres dónde tienes más caos, qué ordenar primero y cómo se ve un sistema real por dentro.</p>
+    <div class="tags"><span class="tag">5 preguntas</span><span class="tag">3 reglas</span><span class="tag">Plan de 7 días</span></div>
+    <div class="pic"><img src="img/hero.jpg" alt="Dani y Maholy conversando en el carro" width="960" height="720"><p>"Hace unos años mi vida era totalmente un caos."<small>DANI BOSS</small></p></div>
+    <a class="btn mt" href="#p1">Empezar mi diagnóstico</a>
+  </section>
+
+  <section class="step" id="p1">
+    <p class="mono">Paso 1 · Diagnóstico</p>
+    <h2>¿Dónde tienes <span class="foil">más caos?</span></h2>
+    <p class="lead">Responde con la verdad. Nadie más lo ve.</p>
+    <div class="card q" id="quiz"></div>
+    <div class="card res" id="res"></div>
+  </section>
+
+  <section class="step" id="p2">
+    <p class="mono">Paso 2 · Las reglas</p>
+    <h2>3 reglas para que <span class="foil">el orden dure</span></h2>
+    <p class="lead">El orden no depende de tu fuerza de voluntad. Depende de cómo armas tu sistema.</p>
+    <div class="stack" id="rules"></div>
+  </section>
+
+  <section class="step" id="p3">
+    <p class="mono">Paso 3 · Por dentro</p>
+    <h2>Así se ve <span class="foil">un sistema real</span></h2>
+    <p class="lead">Este es el sistema que me hice para mi día, mi negocio y mi dinero. Toca cada parte.</p>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="tour">
+      <div><div class="phone"><img id="sc" src="img/dashboard.jpg" alt="Pantalla del sistema" width="600" height="1298"></div><p class="note">DATOS DE EJEMPLO</p></div>
+      <div class="tdesc"><h3 id="tt"></h3><p id="td"></p><a class="btn ghost mt" href="/boss/" target="_blank" rel="noopener" id="demo">Probar la demo yo mismo</a></div>
+    </div>
+  </section>
+
+  <section class="step" id="p4">
+    <p class="mono">Paso 4 · Tu semana</p>
+    <h2>7 días para <span class="foil">salir del caos</span></h2>
+    <p class="lead">Una sola acción al día. Marca cada una; tu avance se queda guardado aquí.</p>
+    <div class="pgs"><span id="dtx">0 de 7 días</span><span id="dpc">0%</span></div>
+    <div class="bar" style="margin-top:8px;border-radius:9px"><i id="dbar"></i></div>
+    <div class="stack" id="days"></div>
+  </section>
+
+  <section class="step" id="p5">
+    <p class="mono">Paso 5 · Tu sistema</p>
+    <h2>Ahora, <span class="foil">arma el tuyo</span></h2>
+    <p class="lead">Elige lo que te gustaría tener en un solo lugar, para tu vida o tu negocio.</p>
+    <div class="mods" id="mods"></div>
+    <label class="f">¿Cómo te llamas? <input id="nm" autocomplete="given-name" maxlength="24" placeholder="Tu nombre"></label>
+    <div class="mine"><div class="hd"><b id="ttl">Tu sistema</b><span id="cnt">0 módulos</span></div><div class="chips" id="chips"></div></div>
+  </section>
+
+  <section class="final" id="fin">
+    <p class="mono">Último paso</p>
+    <h2>¿Quieres uno así?</h2>
+    <p>Mándame tu resultado y te digo cómo lo armaríamos para ti, qué incluiría y cuánto costaría.</p>
+    <div class="msg" id="msg"></div>
+    <a class="btn wa mt" id="go" href="https://wa.me/593959639787" data-wa="orden" target="_blank" rel="noopener">Quiero mi sistema · WhatsApp</a>
+    <p class="fine">El mensaje ya va escrito. Solo toca enviar.</p>
+  </section>
+
+  <section class="step">
+    <p class="mono">Dudas</p>
+    <h2>Preguntas frecuentes</h2>
+    <div class="stack" id="faq"></div>
+  </section>
+</main>
+
+<footer class="wrap">DANI BOSS · <a href="/">daniiboss.vercel.app</a></footer>
+<div class="dock" id="dock"><div class="wrap"><a class="btn" href="#p5" id="dockBtn">Arma tu sistema</a></div></div>
+
+<script>
+(function(){
+  'use strict';
+  var KEY='db-guia-orden-v1',NUM='593959639787';
+  var S={a:[null,null,null,null,null],i:0,d:[],m:[],n:''};
+  try{var sv=JSON.parse(localStorage.getItem(KEY));if(sv&&sv.a&&sv.a.length===5)S=Object.assign(S,sv)}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+  function $(id){return document.getElementById(id)}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function track(n,p){if(window.fbq)try{fbq('trackCustom',n,p||{})}catch(e){}}
+
+  var Q=[
+   {k:'Negocio',ic:'negocio',t:'¿Sabes hoy qué tienes pendiente con cada cliente o proyecto?',o:['Todo está en mi cabeza','Está regado en chats','Tengo una lista que casi no reviso','Todo está en un solo lugar'],
+    f:'Haz una lista de tus clientes o proyectos y escribe el próximo paso de cada uno. Solo uno.'},
+   {k:'Tareas',ic:'tareas',t:'¿Cómo decides qué hacer cada mañana?',o:['Hago lo que explote primero','Miro mis mensajes y reacciono','Tengo una lista general','Ya dejé mi día planificado'],
+    f:'Antes de dormir, escribe las 3 cosas más importantes de mañana. Nada más.'},
+   {k:'Finanzas',ic:'finanzas',t:'¿Sabes cuánto dinero tienes libre hoy, después de tus compromisos?',o:['Ni idea','Más o menos','Lo calculo a fin de mes','Lo sé en segundos'],
+    f:'Hoy anota tres números: lo que tienes, lo que debes y lo que ya está comprometido este mes.'},
+   {k:'Hábitos',ic:'habitos',t:'¿Cómo van tus hábitos: ejercicio, sueño, lectura?',o:['Empiezo y los dejo','Los hago cuando puedo','Algunos son constantes','Los mido y los cumplo'],
+    f:'Elige solo 2 hábitos para esta semana y márcalos cada día. Menos hábitos, más constancia.'},
+   {k:'Tiempo',ic:'tiempo',t:'¿Cuántas cosas importantes se te olvidaron este mes?',o:['Perdí la cuenta','Varias','Una o dos','Ninguna'],
+    f:'Pasa hoy todas tus citas y pagos a un solo calendario, con aviso antes de cada uno.'}];
+  var L=[[0,33,'Modo caos','Tu cabeza está haciendo el trabajo de un sistema. Por eso te cansas. La buena noticia: es lo primero que se arregla.'],
+         [34,66,'Orden a medias','Tienes partes que funcionan, pero separadas. Te falta unirlas en un solo lugar.'],
+         [67,100,'Casi en orden','Vas muy bien. Un sistema te ayudaría a mantenerlo sin tener que pensarlo tanto.']];
+  var R=[['Un solo lugar','Si tu información vive en seis apps y tres cuadernos, siempre vas a perder algo. <b>Elige un solo lugar</b> para tareas, dinero y agenda. Eso solo ya cambia tu semana.'],
+         ['Sácalo de tu cabeza al momento','Tu cabeza sirve para pensar, no para guardar pendientes. <b>Si aparece algo, anótalo en menos de 10 segundos.</b> Si tardas más, no lo vas a hacer.'],
+         ['Revisa una vez por semana','Un sistema que no se revisa se muere. <b>Reserva 20 minutos cada domingo:</b> qué quedó pendiente, cuánto entró y salió, y qué es lo más importante de la próxima semana.']];
+  var T=[['Inicio','dashboard','Tu día en una pantalla','Dinero, tareas, agenda y entrenamiento en un solo vistazo. Abres y ya sabes cómo vas.'],
+         ['Mi Día','dia','Tu día por bloques','Cada hora tiene un propósito. Ves lo que hiciste y lo que falta.'],
+         ['Tareas','tareas','Nada se te olvida','Prioridades por hoy y por semana. Lo importante siempre queda arriba.'],
+         ['Agenda','calendario','Tus compromisos juntos','Citas y pendientes en un solo calendario, para no depender de tu memoria.'],
+         ['Finanzas','capital','Sabes cuánto tienes libre','Separa lo que tienes, lo que debes y lo que ya está comprometido.'],
+         ['Hábitos','habitos','Constancia que se ve','Rachas y cumplimiento de cada hábito, día por día.'],
+         ['Negocio','ventas','Tu negocio paso a paso','Tu proceso de ventas, tus metas y tus guiones de WhatsApp en un solo lugar.']];
+  var D=[['Vacía tu cabeza','10 minutos: escribe todo lo pendiente, sin orden.'],
+         ['Elige tu único lugar','Una app o un cuaderno. Todo lo de ayer va ahí.'],
+         ['Mira tu dinero','Anota lo que tienes, lo que debes y lo comprometido.'],
+         ['Tus 3 prioridades','Antes de dormir, elige las 3 cosas de mañana.'],
+         ['Solo 2 hábitos','Elige dos y márcalos desde hoy.'],
+         ['Junta tu agenda','Citas y pagos en un calendario, con aviso.'],
+         ['Primera revisión','20 minutos: qué funcionó y qué sigue.']];
+  var M=[['finanzas','Finanzas'],['tareas','Tareas'],['dia','Mi Día'],['habitos','Hábitos'],['agenda','Agenda'],['gym','Gym'],['clientes','Clientes'],['ventas','Ventas'],['inventario','Inventario'],['citas','Citas'],['equipo','Equipo'],['reportes','Reportes']];
+  var F=[['¿Necesito saber programar?','No. Tú me dices qué necesitas y yo lo construyo. Solo tienes que usarlo.'],
+         ['¿Funciona en el celular?','Sí. Se usa en el celular y en la computadora, y se puede instalar como una app.'],
+         ['¿Sirve para mi negocio?','Sí. Se arma según lo que haces: clientes, citas, pedidos, inventario o tu equipo.'],
+         ['¿Cuánto cuesta?','Depende de lo que incluya. Mándame lo que armaste y te digo el precio exacto.']];
+
+  // ---------- diagnóstico ----------
+  function drawQ(){
+    var i=S.i,q=Q[i],h='<div class="qh"><img src="img/i-'+q.ic+'.png" alt="" width="46" height="46"><span class="qn">'+esc(q.k.toUpperCase())+' · '+(i+1)+' DE 5</span></div><p class="qt">'+esc(q.t)+'</p><div class="opts">';
+    q.o.forEach(function(o,k){h+='<button class="opt'+(S.a[i]===k?' on':'')+'" data-k="'+k+'" type="button"><i></i>'+esc(o)+'</button>'});
+    h+='</div><div class="dots">';for(var d=0;d<5;d++)h+='<i class="'+(d<=i?'on':'')+'"></i>';$('quiz').innerHTML=h+'</div>';
+  }
+  $('quiz').addEventListener('click',function(e){
+    var b=e.target.closest('.opt');if(!b)return;
+    S.a[S.i]=+b.dataset.k;[].forEach.call($('quiz').querySelectorAll('.opt'),function(x){x.classList.toggle('on',x===b)});save();
+    setTimeout(function(){
+      if(S.i<4){S.i++;drawQ();save()}
+      else{showRes(true);track('OrdenDiagnostico',{pct:calc().pct,area:calc().low.k})}
+    },230);
+  });
+  function calc(){
+    var sum=0,low=null,lowV=9;
+    S.a.forEach(function(v,i){v=v==null?0:v;sum+=v;if(v<lowV){lowV=v;low=Q[i]}});
+    return {pct:Math.round(sum/15*100),low:low,ok:S.a.every(function(v){return v!=null})};
+  }
+  function showRes(go){
+    var c=calc(),lv=L.filter(function(l){return c.pct>=l[0]&&c.pct<=l[1]})[0],C=2*Math.PI*56;
+    var h='<div class="score"><div class="ring"><svg viewBox="0 0 132 132" width="132" height="132"><circle cx="66" cy="66" r="56" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="11"/><circle id="arc" cx="66" cy="66" r="56" fill="none" stroke="#9B7BF0" stroke-width="11" stroke-linecap="round" stroke-dasharray="'+C+'" stroke-dashoffset="'+C+'" style="transition:stroke-dashoffset .9s ease"/></svg><b>'+c.pct+'%</b></div><div><p class="mono">Tu nivel de orden</p><p class="lvl">'+lv[2]+'</p><p>'+lv[3]+'</p></div></div><div class="rows">';
+    Q.forEach(function(q,i){var v=S.a[i]||0,lw=q===c.low;h+='<div class="rw'+(lw?' low':'')+'"><span>'+q.k+'</span><u><s data-w="'+Math.round(v/3*100)+'"></s></u><em>'+v+'/3</em></div>'});
+    h+='</div><div class="first"><p class="mono">Empieza por '+esc(c.low.k)+'</p><p>'+esc(c.low.f)+'</p></div><a class="btn mt" href="#p2">Ver cómo ordenarlo</a><button class="btn ghost" type="button" id="again" style="margin-top:10px;min-height:46px;font-size:15px">Repetir diagnóstico</button>';
+    var r=$('res');r.innerHTML=h;r.classList.add('show');$('quiz').style.display='none';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      $('arc').style.strokeDashoffset=C*(1-c.pct/100);
+      [].forEach.call(r.querySelectorAll('s'),function(s){s.style.width=s.dataset.w+'%'});
+    })});
+    $('again').onclick=function(){S.a=[null,null,null,null,null];S.i=0;save();r.classList.remove('show');$('quiz').style.display='';drawQ();msg();prog()};
+    if(go)r.scrollIntoView({block:'center',behavior:'smooth'});
+    msg();prog();
+  }
+
+  // ---------- reglas y preguntas ----------
+  function acc(box,list,num){
+    box.innerHTML=list.map(function(r,i){
+      return '<div class="acc'+(i===0&&num?' open':'')+'"><button type="button" aria-expanded="'+(i===0&&num)+'">'+(num?'<span>'+(i+1)+'</span>':'')+esc(r[0])+'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M10 3v14M3 10h14"/></svg></button><div><p>'+r[1]+'</p></div></div>'}).join('');
+    box.addEventListener('click',function(e){var b=e.target.closest('.acc>button');if(!b)return;var o=b.parentNode.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  }
+  acc($('rules'),R,true);acc($('faq'),F,false);
+
+  // ---------- recorrido ----------
+  $('tabs').innerHTML=T.map(function(t,i){return '<button class="tab'+(i?'':' on')+'" role="tab" data-i="'+i+'" type="button">'+t[0]+'</button>'}).join('');
+  function tab(i){var t=T[i];$('sc').src='img/'+t[1]+'.jpg';$('sc').alt=t[2];$('tt').textContent=t[2];$('td').textContent=t[3];[].forEach.call($('tabs').children,function(b,k){b.classList.toggle('on',k===i)})}
+  $('tabs').addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;tab(+b.dataset.i);b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
+  tab(0);T.forEach(function(t){new Image().src='img/'+t[1]+'.jpg'});
+  $('demo').addEventListener('click',function(){track('OrdenDemo')});
+
+  // ---------- plan ----------
+  function drawD(){
+    $('days').innerHTML=D.map(function(d,i){var on=S.d.indexOf(i)>=0;return '<button class="day'+(on?' on':'')+'" data-i="'+i+'" type="button" aria-pressed="'+on+'"><i></i><div><small>DÍA '+(i+1)+'</small><b>'+esc(d[0])+'</b><span>'+esc(d[1])+'</span></div></button>'}).join('');
+    var n=S.d.length;$('dtx').textContent=n+' de 7 días';$('dpc').textContent=Math.round(n/7*100)+'%';$('dbar').style.width=n/7*100+'%';
+  }
+  $('days').addEventListener('click',function(e){var b=e.target.closest('.day');if(!b)return;var i=+b.dataset.i,k=S.d.indexOf(i);if(k>=0)S.d.splice(k,1);else S.d.push(i);save();drawD();prog()});
+
+  // ---------- constructor ----------
+  function drawM(){
+    $('mods').innerHTML=M.map(function(m){var on=S.m.indexOf(m[0])>=0;return '<button class="mod'+(on?' on':'')+'" data-m="'+m[0]+'" type="button" aria-pressed="'+on+'"><img src="img/i-'+m[0]+'.png" alt="" width="42" height="42">'+m[1]+'</button>'}).join('');
+    mine();
+  }
+  function mine(){
+    var c=S.m.length;$('cnt').textContent=c+(c===1?' módulo':' módulos');
+    var n=S.n.trim();$('ttl').textContent=n?'El sistema de '+n:'Tu sistema';
+    $('chips').innerHTML=c?M.filter(function(m){return S.m.indexOf(m[0])>=0}).map(function(m){return '<span class="chip"><img src="img/i-'+m[0]+'.png" alt="" width="20" height="20">'+m[1]+'</span>'}).join(''):'<span class="empty">Toca los módulos que quieres.</span>';
+  }
+  $('mods').addEventListener('click',function(e){var b=e.target.closest('.mod');if(!b)return;var m=b.dataset.m,k=S.m.indexOf(m);if(k>=0)S.m.splice(k,1);else S.m.push(m);b.classList.toggle('on',k<0);b.setAttribute('aria-pressed',k<0);save();mine();msg();prog()});
+  $('nm').value=S.n;
+  $('nm').addEventListener('input',function(){S.n=this.value;save();mine();msg()});
+
+  // ---------- mensaje de WhatsApp ----------
+  function msg(){
+    var c=calc(),n=S.n.trim(),names=M.filter(function(m){return S.m.indexOf(m[0])>=0}).map(function(m){return m[1]});
+    var t='Hola Dani, '+(n?'soy '+n+' y ':'')+'vengo de la guía ORDEN.';
+    if(c.ok)t+='\nSalí '+c.pct+'% en orden y mi área con más caos es '+c.low.k+'.';
+    if(names.length)t+='\nMe gustaría un sistema con: '+names.join(', ')+'.';
+    t+='\n¿Cómo obtengo el mío?';
+    $('msg').textContent=t;$('go').href='https://wa.me/'+NUM+'?text='+encodeURIComponent(t);
+  }
+
+  // ---------- avance ----------
+  function prog(){
+    var a=calc().ok?40:S.a.filter(function(v){return v!=null}).length*8,b=S.d.length/7*30,c=Math.min(S.m.length,3)/3*30,p=Math.round(a+b+c);
+    $('pct').textContent=p+'%';$('bar').style.width=p+'%';
+  }
+  var dock=$('dock'),fin=$('fin'),hero=document.querySelector('.hero');
+  function onS(){
+    var y=window.scrollY,top=fin.getBoundingClientRect().top;
+    dock.classList.toggle('show',y>hero.offsetHeight*.75&&top>innerHeight*.9);
+    $('dockBtn').textContent=$('p5').getBoundingClientRect().top<innerHeight*.5?'Quiero mi sistema':'Arma tu sistema';
+    $('dockBtn').setAttribute('href',$('p5').getBoundingClientRect().top<innerHeight*.5?'#fin':'#p5');
+  }
+  addEventListener('scroll',onS,{passive:true});
+  drawD();drawM();msg();prog();
+  if(calc().ok)showRes(false);else{S.i=Math.min(S.a.filter(function(v){return v!=null}).length,4);drawQ()}
+  onS();
+})();
+</script>
+<script src="/assets/js/pixel.js" defer></script>
+</body>
+</html>
