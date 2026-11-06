@@ -1,5 +1,14 @@
 {
   "redirects": [
-    { "source": "/boss", "destination": "/boss/", "permanent": true }
+    {
+      "source": "/boss",
+      "destination": "/boss/",
+      "permanent": true
+    },
+    {
+      "source": "/orden",
+      "destination": "/orden/",
+      "permanent": true
+    }
   ]
 }

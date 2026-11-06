@@ -165,7 +165,7 @@ footer a{color:var(--pll)}
 </head>
 <body>
 <header class="top">
-  <div class="wrap in"><img src="img/perfil.jpg" alt="Dani Boss" width="36" height="36"><b>Guía ORDEN</b><span class="pct" id="pct">0%</span></div>
+  <div class="wrap in"><img src="/orden/img/perfil.jpg" alt="Dani Boss" width="36" height="36"><b>Guía ORDEN</b><span class="pct" id="pct">0%</span></div>
   <div class="bar"><i id="bar"></i></div>
 </header>
 
@@ -175,10 +175,10 @@ footer a{color:var(--pll)}
     <h1>Pon tu vida en orden, con <span class="foil">un solo sistema.</span></h1>
     <p class="lead">En 5 minutos descubres dónde tienes más caos, qué ordenar primero y cómo se ve un sistema real por dentro.</p>
     <div class="stage">
-      <div class="phone hp"><video id="hv" autoplay muted loop playsinline preload="auto" poster="img/dashboard.jpg" aria-label="Recorrido por el sistema: inicio, mi día, tareas, finanzas y hábitos"><source src="img/sistema.mp4" type="video/mp4"></video></div>
-      <span class="fl f1"><img src="img/i-finanzas.png" alt="" width="30" height="30">Finanzas</span>
-      <span class="fl f2"><img src="img/i-tareas.png" alt="" width="30" height="30">Tareas</span>
-      <span class="fl f3"><img src="img/i-habitos.png" alt="" width="30" height="30">Hábitos</span>
+      <div class="phone hp"><video id="hv" autoplay muted loop playsinline preload="auto" poster="/orden/img/dashboard.jpg" aria-label="Recorrido por el sistema: inicio, mi día, tareas, finanzas y hábitos"><source src="/orden/img/sistema.mp4" type="video/mp4"></video></div>
+      <span class="fl f1"><img src="/orden/img/i-finanzas.png" alt="" width="30" height="30">Finanzas</span>
+      <span class="fl f2"><img src="/orden/img/i-tareas.png" alt="" width="30" height="30">Tareas</span>
+      <span class="fl f3"><img src="/orden/img/i-habitos.png" alt="" width="30" height="30">Hábitos</span>
     </div>
     <p class="note">SISTEMA REAL · DATOS DE EJEMPLO</p>
     <a class="btn mt" href="#p1">Empezar mi diagnóstico</a>
@@ -206,7 +206,7 @@ footer a{color:var(--pll)}
     <p class="lead">Este es el sistema que me hice para mi día, mi negocio y mi dinero. Toca cada parte.</p>
     <div class="tabs" id="tabs" role="tablist"></div>
     <div class="tour">
-      <div><div class="phone"><img id="sc" src="img/dashboard.jpg" alt="Pantalla del sistema" width="600" height="1298"></div><p class="note">DATOS DE EJEMPLO</p></div>
+      <div><div class="phone"><img id="sc" src="/orden/img/dashboard.jpg" alt="Pantalla del sistema" width="600" height="1298"></div><p class="note">DATOS DE EJEMPLO</p></div>
       <div class="tdesc"><h3 id="tt"></h3><p id="td"></p><a class="btn ghost mt" href="/boss/" target="_blank" rel="noopener" id="demo">Probar la demo yo mismo</a></div>
     </div>
   </section>
@@ -298,7 +298,7 @@ footer a{color:var(--pll)}
 
   // ---------- diagnóstico ----------
   function drawQ(){
-    var i=S.i,q=Q[i],h='<div class="qh"><img src="img/i-'+q.ic+'.png" alt="" width="46" height="46"><span class="qn">'+esc(q.k.toUpperCase())+' · '+(i+1)+' DE 5</span></div><p class="qt">'+esc(q.t)+'</p><div class="opts">';
+    var i=S.i,q=Q[i],h='<div class="qh"><img src="/orden/img/i-'+q.ic+'.png" alt="" width="46" height="46"><span class="qn">'+esc(q.k.toUpperCase())+' · '+(i+1)+' DE 5</span></div><p class="qt">'+esc(q.t)+'</p><div class="opts">';
     q.o.forEach(function(o,k){h+='<button class="opt'+(S.a[i]===k?' on':'')+'" data-k="'+k+'" type="button"><i></i>'+esc(o)+'</button>'});
     h+='</div><div class="dots">';for(var d=0;d<5;d++)h+='<i class="'+(d<=i?'on':'')+'"></i>';$('quiz').innerHTML=h+'</div>';
   }
@@ -340,9 +340,9 @@ footer a{color:var(--pll)}
 
   // ---------- recorrido ----------
   $('tabs').innerHTML=T.map(function(t,i){return '<button class="tab'+(i?'':' on')+'" role="tab" data-i="'+i+'" type="button">'+t[0]+'</button>'}).join('');
-  function tab(i){var t=T[i];$('sc').src='img/'+t[1]+'.jpg';$('sc').alt=t[2];$('tt').textContent=t[2];$('td').textContent=t[3];[].forEach.call($('tabs').children,function(b,k){b.classList.toggle('on',k===i)})}
+  function tab(i){var t=T[i];$('sc').src='/orden/img/'+t[1]+'.jpg';$('sc').alt=t[2];$('tt').textContent=t[2];$('td').textContent=t[3];[].forEach.call($('tabs').children,function(b,k){b.classList.toggle('on',k===i)})}
   $('tabs').addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;tab(+b.dataset.i);b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
-  tab(0);T.forEach(function(t){new Image().src='img/'+t[1]+'.jpg'});
+  tab(0);T.forEach(function(t){new Image().src='/orden/img/'+t[1]+'.jpg'});
   $('demo').addEventListener('click',function(){track('OrdenDemo')});
 
   // ---------- plan ----------
@@ -354,13 +354,13 @@ footer a{color:var(--pll)}
 
   // ---------- constructor ----------
   function drawM(){
-    $('mods').innerHTML=M.map(function(m){var on=S.m.indexOf(m[0])>=0;return '<button class="mod'+(on?' on':'')+'" data-m="'+m[0]+'" type="button" aria-pressed="'+on+'"><img src="img/i-'+m[0]+'.png" alt="" width="42" height="42">'+m[1]+'</button>'}).join('');
+    $('mods').innerHTML=M.map(function(m){var on=S.m.indexOf(m[0])>=0;return '<button class="mod'+(on?' on':'')+'" data-m="'+m[0]+'" type="button" aria-pressed="'+on+'"><img src="/orden/img/i-'+m[0]+'.png" alt="" width="42" height="42">'+m[1]+'</button>'}).join('');
     mine();
   }
   function mine(){
     var c=S.m.length;$('cnt').textContent=c+(c===1?' módulo':' módulos');
     var n=S.n.trim();$('ttl').textContent=n?'El sistema de '+n:'Tu sistema';
-    $('chips').innerHTML=c?M.filter(function(m){return S.m.indexOf(m[0])>=0}).map(function(m){return '<span class="chip"><img src="img/i-'+m[0]+'.png" alt="" width="20" height="20">'+m[1]+'</span>'}).join(''):'<span class="empty">Toca los módulos que quieres.</span>';
+    $('chips').innerHTML=c?M.filter(function(m){return S.m.indexOf(m[0])>=0}).map(function(m){return '<span class="chip"><img src="/orden/img/i-'+m[0]+'.png" alt="" width="20" height="20">'+m[1]+'</span>'}).join(''):'<span class="empty">Toca los módulos que quieres.</span>';
   }
   $('mods').addEventListener('click',function(e){var b=e.target.closest('.mod');if(!b)return;var m=b.dataset.m,k=S.m.indexOf(m);if(k>=0)S.m.splice(k,1);else S.m.push(m);b.classList.toggle('on',k<0);b.setAttribute('aria-pressed',k<0);save();mine();msg();prog()});
   $('nm').value=S.n;
