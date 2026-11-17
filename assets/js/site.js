@@ -156,12 +156,11 @@
 
   /* ---------- Hero system map ---------- */
   var NODES = [
-    ['Captación', 'Atrae a las personas correctas: anuncios, contenido y perfiles que llevan tráfico al sistema.'],
-    ['Web', 'Convierte visitas en oportunidades con una página pensada para una sola acción.'],
-    ['IA', 'Responde, califica y acompaña a cada contacto, de día o de noche.'],
-    ['Conversación', 'Cada chat en WhatsApp o Instagram tiene contexto y un siguiente paso claro.'],
-    ['Venta', 'Conecta producto, pedido y confirmación para cerrar con orden.'],
-    ['Analítica', 'Mide qué funciona para decidir dónde invertir el siguiente dólar.']
+    ['Atraer', 'Que la gente correcta te descubra: contenido con estrategia y anuncios que traen a quien sí puede comprarte.'],
+    ['Capturar', 'Que quien te ve te escriba: una palabra clave y una respuesta automática al instante.'],
+    ['Convencer', 'Que confíe en ti antes de hablarte: bio clara, pruebas reales y una web con una sola acción.'],
+    ['Cerrar', 'Que la conversación termine en venta: WhatsApp con preguntas, oferta y seguimiento.'],
+    ['Automatizar', 'Que todo corra sin ti: IA que responde, etiqueta y da seguimiento de día y de noche.']
   ];
   (function () {
     var wrap = $('#sysNodes'), linksG = $('#sysLinks');
@@ -390,11 +389,11 @@
       e.preventDefault();
       var a = check('f-name', 'e-name'), b = check('f-biz', 'e-biz');
       if (!a) { $('#f-name').focus(); return; } if (!b) { $('#f-biz').focus(); return; }
-      var svc = ($('input[name="servicio"]:checked', form) || {}).value || 'Necesito orientación';
+      var svc = ($('input[name="servicio"]:checked', form) || {}).value || 'No sé, quiero el Diagnóstico';
       var desc = form.descripcion.value.trim();
       var msg = 'Hola Dani, soy ' + form.nombre.value.trim() + '.\n' +
         'Marca / negocio: ' + form.negocio.value.trim() + '\n' +
-        'Me interesa: ' + svc + (desc ? '\nMi proyecto: ' + desc : '') + '\n\nVi tu web y quiero hablar de mi proyecto.';
+        'Dónde se me escapan las ventas: ' + svc + (desc ? '\nQué vendo: ' + desc : '') + '\n\nVi tu web y quiero hablar contigo.';
       txt.textContent = msg; go.href = wa(msg);
       prev.hidden = false; prev.focus();
       prev.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'nearest' });

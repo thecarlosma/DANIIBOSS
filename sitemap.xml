@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://daniiboss.vercel.app/</loc><priority>1.0</priority></url>
-  <url><loc>https://daniiboss.vercel.app/guia</loc><priority>0.6</priority></url>
-  <url><loc>https://daniiboss.vercel.app/claude</loc><priority>0.6</priority></url>
-  <url><loc>https://daniiboss.vercel.app/fugas</loc><priority>0.6</priority></url>
-  <url><loc>https://daniiboss.vercel.app/orden</loc><priority>0.6</priority></url>
+  <url><loc>https://daniiboss.com/</loc><priority>1.0</priority></url>
 </urlset>

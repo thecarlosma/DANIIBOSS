@@ -14,10 +14,10 @@ window.DB_CONTENT = {
   // Mensajes prellenados según el botón que se toque
   waMessages: {
     nav:     'Hola Dani, vi tu web y quiero más información.',
-    hero:    'Hola Dani, vi tu web y quiero construir un sistema para mi negocio.',
-    closing: 'Hola Dani, quiero hablar de mi proyecto.',
+    hero:    'Hola Dani, vi tu web y quiero saber dónde está perdiendo ventas mi negocio.',
+    closing: 'Hola Dani, quiero saber qué pieza del Método BOSS le falta a mi negocio.',
     float:   'Hola Dani, vi tu web y tengo una pregunta.',
-    video:   'Hola Dani, vi tu video en la web. Mi problema es: ',
+    video:   'Hola Dani, vi tu video en la web. Lo que vendo es: ',
     diagnostico: 'Hola Dani, quiero el diagnóstico de $33. Mi negocio es: ',
     fundador:    'Hola Dani, quiero uno de los cupos fundadores del diagnóstico (pago después + testimonio). Mi negocio es: '
   },

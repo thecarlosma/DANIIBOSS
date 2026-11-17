@@ -17,9 +17,9 @@
 
   var diag = ((C.prices || {}).diagnostico || {}).from || '$33';
   var MODES = {
-    auto:  { lc: [134, 84, 214], lo: .5,  speed: 1,   sheen: 1,   hint: 'Elijo la mejor ruta para tu negocio', tag: 'Auto (recomiéndame la mejor ruta)' },
+    auto:  { lc: [134, 84, 214], lo: .5,  speed: 1,   sheen: 1,   hint: 'Te digo qué pieza te falta', tag: 'Auto (recomiéndame la mejor ruta)' },
     fast:  { lc: [196, 172, 255], lo: .62, speed: 2.2, sheen: 2.8, hint: 'Arrancamos rápido · diagnóstico ' + diag, tag: 'Fast (quiero arrancar rápido)' },
-    think: { lc: [92, 38, 196], lo: .74,  speed: .5,  sheen: .45, hint: 'Estrategia profunda · sistema completo', tag: 'Think (quiero una estrategia completa)' }
+    think: { lc: [92, 38, 196], lo: .74,  speed: .5,  sheen: .45, hint: 'Sistema completo · Método BOSS', tag: 'Think (quiero una estrategia completa)' }
   };
 
   /* ---------- state ---------- */
@@ -206,14 +206,12 @@
 
   /* ---------- rotating headline ---------- */
   var PH = [
-    'Construyo la *solución* que tu negocio necesita.',
-    'El conocimiento transforma el *futuro*.',
-    'Las grandes ideas comienzan con una *pregunta*.',
-    'Piensa diferente. Construye algo *extraordinario*.',
-    'Tu inteligencia artificial está *lista*.',
-    'Convierte ideas en *posibilidades*.',
-    'El futuro pertenece a quienes *construyen*.',
-    '¿Qué vamos a *crear* hoy?'
+    'Construyo sistemas para que tu marca *venda*.',
+    'El contenido te trae *mensajes*.',
+    'Mi sistema los convierte en *ventas*.',
+    'Cinco piezas. Una marca que *vende*.',
+    'Que tu negocio venda aunque no estés *encima*.',
+    '¿Dónde se te están escapando las *ventas*?'
   ];
   var ASK = PH.length - 1, cur = 0, rTimer = null;
   function paint(i) {
