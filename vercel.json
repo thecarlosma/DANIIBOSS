@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "daniiboss.vercel.app"
+        }
+      ],
+      "destination": "https://daniiboss.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/boss",
       "destination": "/boss/",
       "permanent": true

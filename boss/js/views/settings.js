@@ -79,7 +79,7 @@
   function siriCard() {
     if (!DOS.cloud || !DOS.cloud.adapter) {
       return `<div class="card"><div class="card-head"><h3>Siri y atajos</h3>${icon('mic', 'accent')}</div>
-        <p class="muted" style="font-size:12.5px;margin:0">Disponible cuando usas DANI BOSS con tu cuenta en la nube (dani-boss.vercel.app).</p></div>`;
+        <p class="muted" style="font-size:12.5px;margin:0">Disponible cuando usas DANI BOSS con tu cuenta en la nube (app.daniiboss.com).</p></div>`;
     }
     return `<div class="card"><div class="card-head"><h3>Siri y atajos</h3>${icon('mic', 'accent')}</div>
       <p style="margin:0 0 6px;font-size:13px">Di <strong>“Oye Siri, Modo Boss”</strong> y luego, por ejemplo: <span class="muted">“gasté 12 en almuerzo”, “le devolví 200 a Juan”, “tarea llamar al contador mañana”.</span></p>
