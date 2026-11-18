@@ -56,6 +56,28 @@
         .sort((a, b) => (a.date + (a.time || '')).localeCompare(b.date + (b.time || '')))[0] || null;
     },
 
+    /* ---------- Línea de tiempo del día (dial del dashboard) ---------- */
+    dayTimeline(data, date) {
+      const items = [];
+      (data.day_blocks || []).filter((b) => b.date === date && b.time).forEach((b) => {
+        const start = U.toMin(b.time);
+        items.push({ kind: 'block', id: b.id, title: b.title, start, end: Math.min(1440, start + (+b.duration || 30)), done: b.status === 'completado', priority: b.priority, category: '' });
+      });
+      L.eventsOn(data, date).filter((e) => e.time).forEach((e) => {
+        const start = U.toMin(e.time);
+        items.push({ kind: 'event', id: e.id, title: e.title, start, end: Math.min(1440, start + (+e.duration || 30)), done: false, priority: e.priority, category: e.category });
+      });
+      return items.sort((a, b) => a.start - b.start || (a.kind === 'event' ? -1 : 1));
+    },
+    /** Lo que ocurre a esa hora. Si un evento se cruza con un bloque, gana el evento. */
+    timelineAt(items, min) {
+      const on = items.filter((i) => min >= i.start && min < i.end);
+      return on.find((i) => i.kind === 'event') || on[on.length - 1] || null;
+    },
+    timelineNext(items, min) {
+      return items.find((i) => i.start > min) || null;
+    },
+
     /* ---------- Entrenamiento ---------- */
     routineFor(data, iso) {
       const wd = U.isoWeekday(iso);

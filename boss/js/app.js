@@ -8,11 +8,11 @@
   const NAV = [
     { items: [
       { route: 'dashboard', label: 'Dashboard', icon: 'home' },
-      { route: 'calculadora', label: 'Calculadora', icon: 'calculator' },
       { route: 'dia', label: 'Mi Día', icon: 'sun' },
     ] },
     { label: 'Finanzas', items: [
       { route: 'capital', label: 'Capital', icon: 'layers' },
+      { route: 'calculadora', label: 'Calculadora', icon: 'calculator' },
       { route: 'ingresos', label: 'Ingresos', icon: 'income' },
       { route: 'gastos', label: 'Gastos', icon: 'expense' },
       { route: 'suscripciones', label: 'Suscripciones', icon: 'card', count: () => F.subscriptionsOverview(store.data).attention.length || '' },
@@ -117,7 +117,12 @@
     const routeChanged = route !== state.route;
     const viewKey = ROUTES[route];
     const view = DOS.views[viewKey];
+    // Views with live embedded work (the cover editor) are not rebuilt by the periodic/sync refresh
+    if (!routeChanged && !transition && view.keepAlive && main().querySelector('[data-keep-alive]')) { renderNav(); renderChrome(); return; }
+    // No reconstruir la vista mientras se arrastra el dial del día
+    if (!routeChanged && !transition && view.busy && view.busy()) return;
     state.route = route; state.view = view; state.params = params;
+    document.body.dataset.route = route;
 
     const el = main();
     const scroll = window.scrollY;
@@ -133,7 +138,7 @@
       window.scrollTo(0, 0);
     } else window.scrollTo(0, scroll);
     ui.drawCharts(el);
-    if (view.mount) view.mount(el, params);
+    if (view.mount) view.mount(el, params, { entered: routeChanged || transition });
     // Los parámetros de entrada (ej. ?d=fecha) solo se aplican una vez
     if (Object.keys(params).length && routeChanged) history.replaceState(null, '', `#/${route}`);
     // Enlace directo de captura (lo usa el atajo de Siri): #/dashboard?capturar=gasté 12 en almuerzo
@@ -356,9 +361,34 @@
     });
     window.addEventListener('hashchange', () => { toggleDrawer(false); closePopover(); render(); });
     window.addEventListener('resize', U.debounce(() => ui.drawCharts(main()), 150));
+    bindAmbient();
     document.getElementById('drawer-backdrop').addEventListener('click', () => toggleDrawer(false));
   }
   let gPending = false;
+
+  /* Luz que sigue al cursor en las tarjetas y barra superior que aparece al hacer scroll */
+  function bindAmbient() {
+    const onScroll = () => document.documentElement.classList.toggle('is-scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    let frame = 0, last = null;
+    document.addEventListener('pointermove', (e) => {
+      last = e;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const card = last.target.closest && last.target.closest('.card, .tile, .mini');
+        if (card) {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', `${(last.clientX - r.left).toFixed(0)}px`);
+          card.style.setProperty('--my', `${(last.clientY - r.top).toFixed(0)}px`);
+        }
+        const sky = document.querySelector('.sky');
+        if (sky) sky.style.setProperty('--px', `${((last.clientX / window.innerWidth - 0.5) * 90).toFixed(0)}px`);
+      });
+    }, { passive: true });
+  }
 
   function togglePrivacy() {
     const on = !store.user().privacy;
@@ -460,7 +490,7 @@
   const pushSupported = () => 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
   async function initNotifications() {
     if (!pushSupported()) return;
-    try { swReg = await navigator.serviceWorker.register('sw.js'); } catch (e) { return; }
+    try { swReg = await navigator.serviceWorker.register('/sw.js'); } catch (e) { return; }
     if (Notification.permission === 'granted') saveSubscription().catch(() => {});
   }
 

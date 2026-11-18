@@ -286,7 +286,37 @@
         if (!spec) return;
         const w = Math.max(200, el.clientWidth || 400);
         el.innerHTML = spec.type === 'line' ? ui._line(spec, w) : ui._bars(spec, w);
+        if (spec.type === 'line') ui._lineHover(el);
       });
+    },
+    /** Cruz y etiqueta sobre la línea: funciona con cursor y con el dedo. */
+    _lineHover(el) {
+      if (el._hover) return;
+      el._hover = true;
+      el.style.position = 'relative';
+      el.style.touchAction = 'pan-y';
+      const hide = () => { el.querySelector('.chart-cross')?.remove(); el.querySelector('.chart-tip')?.remove(); };
+      const show = (e) => {
+        const s = ui._charts[el.dataset.chart];
+        if (!s || !s._pts || !s._pts.length) return;
+        const r = el.getBoundingClientRect();
+        const px = e.clientX - r.left;
+        const p = s._pts.reduce((a, b) => (Math.abs(b.x - px) < Math.abs(a.x - px) ? b : a));
+        let cross = el.querySelector('.chart-cross'), tip = el.querySelector('.chart-tip');
+        if (!cross) {
+          cross = document.createElement('div'); cross.className = 'chart-cross';
+          tip = document.createElement('div'); tip.className = 'chart-tip';
+          el.append(cross, tip);
+        }
+        cross.style.cssText = `left:${p.x}px;top:${s._box.top}px;height:${s._box.h}px;--dot:${p.y - s._box.top}px`;
+        tip.innerHTML = `<b>${esc(p.text)}</b><span>${esc(p.label)}</span>`;
+        const half = tip.offsetWidth / 2;
+        tip.style.left = `${U.clamp(p.x, half + 2, r.width - half - 2)}px`;
+        tip.style.top = `${Math.max(0, p.y - tip.offsetHeight - 12)}px`;
+      };
+      el.addEventListener('pointermove', show);
+      el.addEventListener('pointerdown', show);
+      el.addEventListener('pointerleave', hide);
     },
     _niceMax(v) {
       if (v <= 0) return 1;
@@ -328,10 +358,10 @@
     },
     _line(s, W) {
       const H = s.height || 200;
-      const color = s.color || '#8654D6';
+      const color = s.color || '#8E6EED';
       const fmt = s.fmt || ui.moneyShort;
       const full = s.fmtFull || ((v) => ui.money(v));
-      const padL = !s.fmt && ui.isPrivate() ? 6 : 50, padR = 10, padT = 12, padB = 24;
+      const padL = s.axis === false || (!s.fmt && ui.isPrivate()) ? 6 : 50, padR = 10, padT = 12, padB = 24;
       const iw = W - padL - padR, ih = H - padT - padB;
       const vals = s.data.map((d) => d.value);
       let lo = Math.min(...vals), hi = Math.max(...vals);
@@ -351,17 +381,17 @@
         if (padL > 10) g += `<text x="${padL - 8}" y="${yy + 3.5}" text-anchor="end">${esc(fmt(v))}</text>`;
       });
       g += `<path d="M${pts[0]} L${pts.join(' L')} L${x(s.data.length - 1)},${padT + ih} L${x(0)},${padT + ih} Z" fill="url(#${gid})"/>`;
-      g += `<polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      g += `<polyline class="line" points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
       const last = s.data.length - 1;
-      g += `<circle cx="${x(last)}" cy="${y(s.data[last].value)}" r="4" fill="${color}" stroke="#111112" stroke-width="2"/>`;
+      g += `<circle cx="${x(last)}" cy="${y(s.data[last].value)}" r="4" fill="${color}" stroke="#0F0B20" stroke-width="2"/>`;
+      s._pts = s.data.map((d, i) => ({ x: x(i), y: y(d.value), label: d.title || d.label, text: full(d.value) }));
+      s._box = { top: padT, h: ih };
       const every = Math.max(1, Math.ceil(s.data.length / Math.max(1, Math.floor(iw / 70))));
-      const step = s.data.length > 1 ? iw / (s.data.length - 1) : iw;
       s.data.forEach((d, i) => {
         if (i % every === 0 || i === last) {
           if (i !== last && last - i < every / 2) return;
           g += `<text x="${x(i)}" y="${H - 6}" text-anchor="${i === 0 ? 'start' : i === last ? 'end' : 'middle'}">${esc(d.label)}</text>`;
         }
-        g += `<rect x="${x(i) - step / 2}" y="${padT}" width="${step}" height="${ih}" fill="transparent"><title>${esc(d.title || d.label)}: ${esc(full(d.value))}</title></rect>`;
       });
       return `<svg class="chart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(s.label || 'Gráfico de línea')}">${g}</svg>`;
     },
@@ -383,8 +413,8 @@
       }).join('');
       return `<div class="donut-host"><div class="donut-wrap">
         <svg class="chart" viewBox="0 0 132 132" role="img" aria-label="Distribución">
-          <circle r="${r}" cx="66" cy="66" fill="none" stroke="#1D1D20" stroke-width="14"/>${segs}
-          <text x="66" y="62" text-anchor="middle" style="font-size:10px;fill:#9A9AA0">${esc(centerLabel)}</text>
+          <circle r="${r}" cx="66" cy="66" fill="none" stroke="#1F1840" stroke-width="14"/>${segs}
+          <text x="66" y="62" text-anchor="middle" style="font-size:10px;fill:#ABA5C4">${esc(centerLabel)}</text>
           <text x="66" y="80" text-anchor="middle" style="font-size:15px;font-weight:650;fill:#fff">${esc(ui.isPrivate() ? '••••' : ui.moneyShort(sum))}</text>
         </svg>
         <div class="donut-legend">${top.map((it) => `<div class="lrow"><i style="background:${it.color}"></i><span class="n">${esc(it.key)}</span><span class="num">${ui.money(it.value)}</span><span class="faint num pct">${U.fmtPct(U.pct(it.value, sum))}</span></div>`).join('')}</div>

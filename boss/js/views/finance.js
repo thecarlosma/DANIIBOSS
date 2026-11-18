@@ -149,7 +149,7 @@
           ${cats.length ? `<div class="card"><div class="card-head"><h3>Por categoría</h3></div>${ui.hbars(cats)}</div>` : ''}
           <div class="card">
             <div class="card-head"><h3>Últimos 14 días</h3><span class="sub">Toca una barra para ver el día</span></div>
-            ${ui.chart({ type: 'bars', height: 150, barMax: 18, action: 'exp-pick-day', highlight: hl >= 0 ? hl : undefined, label: 'Gasto diario últimos 14 días', series: [{ name: 'Gasto', color: '#8654D6' }], data: series.map((p) => ({ key: p.date, label: U.fmtDate(p.date, { day: 'numeric' }), title: U.fmtDate(p.date, { weekday: 'short', day: 'numeric', month: 'short' }), values: [p.value] })) })}
+            ${ui.chart({ type: 'bars', height: 150, barMax: 18, action: 'exp-pick-day', highlight: hl >= 0 ? hl : undefined, label: 'Gasto diario últimos 14 días', series: [{ name: 'Gasto', color: '#8E6EED' }], data: series.map((p) => ({ key: p.date, label: U.fmtDate(p.date, { day: 'numeric' }), title: U.fmtDate(p.date, { weekday: 'short', day: 'numeric', month: 'short' }), values: [p.value] })) })}
           </div>
         </div>
       </div>`;

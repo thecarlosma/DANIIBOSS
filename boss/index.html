@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#070510">
   <meta name="color-scheme" content="dark">
   <title>DANI BOSS · Demo del sistema</title>
   <meta name="description" content="Demo con datos ficticios del sistema de finanzas y organización de Dani Boss.">
@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="assets/avatar.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Inter+Tight:wght@500;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Manrope:wght@500..800&display=swap" rel="stylesheet">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,7 +21,7 @@
   <meta name="format-detection" content="telephone=no">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .demo-bar{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 16px;padding:9px 16px;background:linear-gradient(90deg,#2B1552,#4B1D8F);border-bottom:1px solid rgba(183,76,255,.45);font:500 13px/1.35 Inter,system-ui,sans-serif;color:#E6D7FF;text-align:center}
+    .demo-bar{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 16px;padding:9px 16px;background:linear-gradient(90deg,#1F1840,#5A28C4);border-bottom:1px solid rgba(201,184,255,.28);font:500 13px/1.35 Inter,system-ui,sans-serif;color:#E9DEFC;text-align:center}
     .demo-bar b{color:#fff;font-weight:650}
     .demo-bar a{color:#fff;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);white-space:nowrap}
     .demo-bar a:hover{border-color:#fff}
@@ -40,7 +40,7 @@
     <div class="drawer-backdrop" id="drawer-backdrop"></div>
 
     <div class="main">
-      <div class="demo-bar" role="note"><span><b>Demo</b> · Todos los datos son ficticios. Explora libremente: lo que cambies se queda solo en tu navegador.</span><a href="https://wa.me/593959639787?text=Hola%20Dani%2C%20vi%20la%20demo%20de%20tu%20sistema%20y%20quiero%20uno%20as%C3%AD" target="_blank" rel="noopener noreferrer">Quiero uno así →</a><a href="https://daniiboss.vercel.app/">← Volver a la web</a></div>
+      <div class="demo-bar" role="note"><span><b>Demo</b> · Todos los datos son ficticios. Explora libremente: lo que cambies se queda solo en tu navegador.</span><a href="https://wa.me/593959639787?text=Hola%20Dani%2C%20vi%20la%20demo%20de%20tu%20sistema%20y%20quiero%20uno%20as%C3%AD" target="_blank" rel="noopener noreferrer">Quiero uno así →</a><a href="/">← Volver a la web</a></div>
       <header class="topbar">
         <button class="icon-btn mobile-only" data-action="drawer" aria-label="Abrir menú"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
         <div class="topbar-title" id="topbar-title"></div>
@@ -87,6 +87,7 @@
   <script src="js/core/lock.js"></script>
   <!-- UI -->
   <script src="js/ui/icons.js"></script>
+  <script src="js/ui/emoji3d.js"></script>
   <script src="js/ui/components.js"></script>
   <script src="js/ui/forms.js"></script>
   <!-- Vistas -->

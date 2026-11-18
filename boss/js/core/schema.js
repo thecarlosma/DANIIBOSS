@@ -12,7 +12,7 @@
     COLLECTIONS: [
       'users', 'income', 'expenses', 'transactions', 'debts', 'debt_payments',
       'events', 'tasks', 'day_blocks', 'habits', 'habit_logs',
-      'routines', 'exercises', 'workouts', 'goals', 'subscriptions',
+      'routines', 'exercises', 'workouts', 'goals', 'subscriptions', 'sales_weeks',
     ],
 
     defaultUser: {

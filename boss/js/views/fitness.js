@@ -21,7 +21,7 @@
         const cls = done ? 'done' : planned && date < T ? 'missed' : planned ? 'planned' : '';
         return `<div class="d ${cls} ${date === T ? 'today' : ''}" title="${U.fmtDate(date)}${done ? ' · ' + esc(done.title) : planned ? ' · ' + esc(planned.name) : ''}">${+date.slice(8)}</div>`;
       }).join('')}</div>
-      <div class="chart-legend mt-16"><span><i style="background:#8654D6"></i>Completado</span><span><i style="box-shadow:inset 0 0 0 1px rgba(134,84,214,.6)"></i>Planificado</span><span><i style="box-shadow:inset 0 0 0 1px rgba(229,103,122,.5)"></i>No realizado</span></div>`;
+      <div class="chart-legend mt-16"><span><i style="background:#8E6EED"></i>Completado</span><span><i style="box-shadow:inset 0 0 0 1px rgba(134,84,214,.6)"></i>Planificado</span><span><i style="box-shadow:inset 0 0 0 1px rgba(229,103,122,.5)"></i>No realizado</span></div>`;
   }
 
   DOS.views.workouts = {
@@ -71,7 +71,7 @@
             ${trainingCalendar(d, T)}
           </div>
           <div class="card"><div class="card-head"><h3>Sesiones por semana</h3><span class="sub">12 semanas</span></div>
-            ${ui.chart({ type: 'bars', height: 150, barMax: 16, fmt: (v) => U.fmtNum(v), fmtFull: (v) => `${v} sesiones`, series: [{ name: 'Sesiones', color: '#8654D6' }], data: st.weeks.map((w) => ({ key: w.key, label: U.fmtDate(w.key, { day: 'numeric', month: 'numeric' }), title: `Semana del ${w.label}`, values: [w.value] })) })}
+            ${ui.chart({ type: 'bars', height: 150, barMax: 16, fmt: (v) => U.fmtNum(v), fmtFull: (v) => `${v} sesiones`, series: [{ name: 'Sesiones', color: '#8E6EED' }], data: st.weeks.map((w) => ({ key: w.key, label: U.fmtDate(w.key, { day: 'numeric', month: 'numeric' }), title: `Semana del ${w.label}`, values: [w.value] })) })}
           </div>
         </div>
       </div>`;

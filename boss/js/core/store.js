@@ -8,7 +8,7 @@
   const PREFIX_BY_COLLECTION = {
     income: 'inc', expenses: 'exp', transactions: 'trx', debts: 'debt', debt_payments: 'pay',
     events: 'evt', tasks: 'task', day_blocks: 'blk', habits: 'hab', habit_logs: 'hlog',
-    routines: 'rtn', exercises: 'exr', workouts: 'wkt', goals: 'goal', subscriptions: 'sub',
+    routines: 'rtn', exercises: 'exr', workouts: 'wkt', goals: 'goal', subscriptions: 'sub', sales_weeks: 'swk',
   };
 
   // Relaciones para borrado en cascada
