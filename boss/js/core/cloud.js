@@ -255,19 +255,17 @@
       return new Promise((resolve) => {
         const el = document.createElement('div');
         el.className = 'auth';
-        let mode = 'login';
+        const mode = 'login'; // Acceso privado: solo inicio de sesión, sin registro
         const draw = (msg = '', type = 'error') => {
           el.innerHTML = `<form class="auth-card" novalidate>
             <img class="auth-photo" src="assets/avatar.png" alt="">
             <h1>DANI BOSS</h1>
-            <p class="muted">${mode === 'login' ? 'Inicia sesión para sincronizar tu Mac y tu iPhone.' : 'Crea tu cuenta privada. Solo tú verás tus datos.'}</p>
+            <p class="muted">Acceso privado. Entra con tu correo y tu contraseña.</p>
             <div class="field"><label for="auth-email">Correo</label><input class="input" id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
             <div class="field"><label for="auth-pass">Contraseña</label><input class="input" id="auth-pass" name="password" type="password" autocomplete="${mode === 'login' ? 'current-password' : 'new-password'}" minlength="6" required></div>
             ${msg ? `<div class="${type === 'error' ? 'form-error' : 'auth-ok'}">${esc(msg)}</div>` : ''}
-            <button class="btn btn-primary block" type="submit" style="height:42px;margin-top:18px">${mode === 'login' ? 'Entrar' : 'Crear cuenta'}</button>
-            <button class="btn btn-ghost block" type="button" data-switch style="margin-top:8px">${mode === 'login' ? '¿Primera vez? Crear cuenta' : 'Ya tengo cuenta'}</button>
+            <button class="btn btn-primary block" type="submit" style="height:42px;margin-top:18px">Entrar</button>
           </form>`;
-          el.querySelector('[data-switch]').onclick = () => { mode = mode === 'login' ? 'signup' : 'login'; draw(); };
           el.querySelector('form').onsubmit = async (e) => {
             e.preventDefault();
             const email = e.target.email.value.trim(), password = e.target.password.value;
@@ -275,10 +273,9 @@
             const btn = e.target.querySelector('[type=submit]');
             btn.disabled = true; btn.textContent = 'Un momento…';
             try {
-              const fn = mode === 'login' ? this.client.auth.signInWithPassword : this.client.auth.signUp;
-              const { data, error } = await fn.call(this.client.auth, { email, password });
+              const { data, error } = await this.client.auth.signInWithPassword({ email, password });
               if (error) return draw(tr(error.message));
-              if (!data.session) { mode = 'login'; return draw('Cuenta creada. Te enviamos un correo: confírmalo y luego inicia sesión aquí.', 'ok'); }
+              if (!data.session) return draw('No se pudo iniciar sesión. Inténtalo de nuevo.');
               el.remove();
               resolve(data.session);
             } catch (err) {

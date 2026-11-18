@@ -476,6 +476,7 @@
     render({ transition: true });
     renderSyncStatus();
     initNotifications();
+    if (cloudMode) offerLock();
 
     // Refresco suave cada minuto para indicadores "ahora" y recordatorios
     setInterval(() => {
@@ -483,6 +484,25 @@
       if (isTyping({ target: document.activeElement })) return;
       render();
     }, 60000);
+  }
+
+  /* ---------- Ofrecer Face ID / Touch ID una vez por dispositivo ---------- */
+  async function offerLock() {
+    const ASKED = 'danios.lock.offered';
+    try { if (DOS.lock.enabled() || localStorage.getItem(ASKED)) return; } catch (e) { return; }
+    if (!(await DOS.lock.available())) return;
+    await new Promise((r) => setTimeout(r, 900));
+    const name = DOS.lock.bioName();
+    const ok = await ui.confirm({
+      title: `¿Activar ${name}?`,
+      message: `Cada vez que abras DANI BOSS en este dispositivo te pedirá ${name}, y otra vez si sales más de 1 minuto. Si falla, entras con tu contraseña.`,
+      confirmLabel: `Activar ${name}`,
+    });
+    try { localStorage.setItem(ASKED, '1'); } catch (e) { /* nada */ }
+    if (!ok) { ui.toast(`Puedes activarlo cuando quieras en Configuración.`, 'info'); return; }
+    try { await DOS.lock.enable(); ui.toast(`${name} activado en este dispositivo`, 'success'); }
+    catch (e) { ui.toast(e.name === 'NotAllowedError' ? 'Cancelado. Actívalo luego en Configuración.' : `No se pudo activar: ${e.message}`, 'error'); }
+    render();
   }
 
   /* ---------- Notificaciones push (las envía el servidor aunque la app esté cerrada) ---------- */
